@@ -1,10 +1,11 @@
 /* ==========================================
    TRẠM SẠC NĂNG LƯỢNG TÍCH CỰC - STYLE SYSTEM
-   Designed for Đỗ Phương Thảo Portfolio (Full Enhanced)
+   Designed for Đỗ Phương Thảo Portfolio (Creative Professional)
    ========================================== */
 
 /* CSS Variables */
 :root {
+  /* Giữ màu sắc tươi sáng nhưng tinh tế, chuyên nghiệp hơn */
   --color-lemon: #FFF275;
   --color-peach: #FF9E7D;
   --color-mint: #A6ECE0;
@@ -12,6 +13,7 @@
   --color-charcoal: #2B2D42;
   --color-white: #FFFFFF;
   --color-gray-light: #F6F4F0;
+  --color-gray-dark: #7a7d90;
   
   --font-title: 'Lexend', sans-serif;
   --font-body: 'Nunito', sans-serif;
@@ -176,12 +178,12 @@ nav ul li a:hover {
   transform: translateY(-2px);
 }
 
-/* Hero Section */
+/* Hero Section - Thiết kế chuyên nghiệp, sáng tạo */
 .hero {
   position: relative;
   background-color: var(--color-mint);
   border-bottom: var(--border-main);
-  padding: 100px 0;
+  padding: 110px 0;
   text-align: center;
   overflow: hidden;
 }
@@ -236,13 +238,13 @@ nav ul li a:hover {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 750px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .hero-badge {
   display: inline-block;
-  background-color: var(--color-lemon);
+  background-color: var(--color-white);
   padding: 8px 20px;
   border-radius: 30px;
   border: var(--border-main);
@@ -252,24 +254,34 @@ nav ul li a:hover {
   text-transform: uppercase;
   margin-bottom: 24px;
   box-shadow: 4px 4px 0 var(--color-charcoal);
-  transform: rotate(-2deg);
-  animation: bounceSlow 3s ease-in-out infinite alternate;
+  transform: rotate(-1.5deg);
 }
 
 .hero h1 {
-  font-size: 3.4rem;
+  font-size: 3.6rem;
   line-height: 1.25;
   margin-bottom: 24px;
   text-shadow: 2px 2px 0 var(--color-white);
+}
+
+.hero h1 span.highlight {
+  color: var(--color-charcoal);
+  background: var(--color-lemon);
+  padding: 2px 12px;
+  border: var(--border-main);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  transform: rotate(1deg);
 }
 
 .hero-desc {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 40px;
+  line-height: 1.6;
 }
 
-/* Playful CTA Button */
+/* Playful CTA Button - Đổi tên và tăng tính tương tác cảm hứng */
 .btn-charge {
   display: inline-flex;
   align-items: center;
@@ -278,8 +290,8 @@ nav ul li a:hover {
   color: var(--color-charcoal);
   font-family: var(--font-title);
   font-weight: 800;
-  font-size: 1.3rem;
-  padding: 18px 36px;
+  font-size: 1.25rem;
+  padding: 16px 36px;
   border: var(--border-main);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-main);
@@ -292,7 +304,7 @@ nav ul li a:hover {
 }
 
 .btn-charge:hover {
-  transform: scale(1.06) translateY(-4px);
+  transform: scale(1.05) translateY(-4px);
   box-shadow: 0 14px 0 var(--color-charcoal);
   background-color: #ffb59c;
 }
@@ -305,7 +317,7 @@ nav ul li a:hover {
 /* Energy Message Box */
 .energy-display-container {
   min-height: 90px;
-  margin-top: 40px;
+  margin-top: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -315,12 +327,13 @@ nav ul li a:hover {
   display: none;
   background-color: var(--color-white);
   border: var(--border-main);
-  padding: 20px 30px;
+  padding: 22px 32px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
-  max-width: 600px;
+  max-width: 650px;
+  line-height: 1.5;
   animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
@@ -339,6 +352,7 @@ nav ul li a:hover {
   }
 }
 
+/* Khung Avatar có hỗ trợ nút Tải ảnh lên */
 .profile-card {
   background-color: var(--color-white);
   border: var(--border-main);
@@ -348,6 +362,7 @@ nav ul li a:hover {
   text-align: center;
   padding: 40px 25px;
   transition: var(--transition-bounce);
+  position: relative;
 }
 
 .profile-card:hover {
@@ -385,6 +400,38 @@ nav ul li a:hover {
   background-color: var(--color-lemon);
 }
 
+/* ĐỘT PHÁ: Nút tải ảnh đè lên góc ảnh (Upload Button Overlay) */
+.upload-btn-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 38px;
+  height: 38px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-charcoal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 var(--color-charcoal);
+  transition: var(--transition-fast);
+  z-index: 10;
+}
+
+.upload-btn-overlay:hover {
+  transform: scale(1.15) rotate(15deg);
+  background-color: var(--color-lemon);
+  box-shadow: 3px 3px 0 var(--color-charcoal);
+}
+
+.upload-btn-overlay:active {
+  transform: scale(0.95);
+  box-shadow: 1px 1px 0 var(--color-charcoal);
+}
+
 .profile-card h3 {
   font-size: 1.8rem;
   margin-bottom: 6px;
@@ -392,7 +439,7 @@ nav ul li a:hover {
 
 .profile-card .subtitle {
   font-weight: 700;
-  color: #7a7d90;
+  color: var(--color-gray-dark);
   font-size: 1rem;
   margin-bottom: 24px;
 }
@@ -422,7 +469,7 @@ nav ul li a:hover {
   color: var(--color-charcoal);
 }
 
-/* About details Grid - Cấu trúc 2 cột trên PC để chứa 4 content-box */
+/* About details Grid - 2x2 content-box */
 .about-details {
   display: grid;
   grid-template-columns: 1fr;
@@ -486,7 +533,7 @@ nav ul li a:hover {
   background-color: var(--color-mint);
 }
 
-/* Hobby icons style */
+/* Hobby tags */
 .hobby-tag-container {
   display: flex;
   flex-wrap: wrap;
@@ -617,9 +664,7 @@ nav ul li a:hover {
   box-shadow: 2px 2px 0 var(--color-charcoal);
 }
 
-/* ==========================================
-   TÍNH NĂNG MỚI: CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
-   ========================================== */
+/* Chồng ảnh kỷ niệm (Photo Stack) */
 .memories-section {
   background-color: var(--color-lemon);
   border-top: var(--border-main);
@@ -660,7 +705,6 @@ nav ul li a:hover {
   perspective: 1000px;
 }
 
-/* Các tấm ảnh Polaroid trong chồng ảnh */
 .stack-card {
   position: absolute;
   width: 100%;
@@ -697,6 +741,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .stack-card-img {
@@ -723,49 +768,22 @@ nav ul li a:hover {
 .stack-card:nth-child(2) { transform: rotate(4deg) translate(5px, 2px); z-index: 20; }
 .stack-card:nth-child(1) { transform: rotate(-1deg) translate(0px, 8px); z-index: 30; }
 
-/* Hoạt ảnh Vuốt trượt bay ra ngoài (Swipe Animation) */
-.stack-card.swipe-left {
-  animation: swipeLeft 0.6s ease forwards;
-}
-
-.stack-card.swipe-right {
-  animation: swipeRight 0.6s ease forwards;
-}
+/* Hoạt ảnh trượt bay ra ngoài (Swipe Animation) */
+.stack-card.swipe-left { animation: swipeLeft 0.6s ease forwards; }
+.stack-card.swipe-right { animation: swipeRight 0.6s ease forwards; }
 
 @keyframes swipeLeft {
-  0% {
-    transform: translate(0, 0) rotate(-1deg);
-    z-index: 40;
-  }
-  50% {
-    transform: translate(-380px, -30px) rotate(-25deg);
-    z-index: 40;
-  }
-  51% {
-    z-index: 1;
-  }
-  100% {
-    transform: translate(0, 0) rotate(5deg);
-    z-index: 1;
-  }
+  0% { transform: translate(0, 0) rotate(-1deg); z-index: 40; }
+  50% { transform: translate(-380px, -30px) rotate(-25deg); z-index: 40; }
+  51% { z-index: 1; }
+  100% { transform: translate(0, 0) rotate(5deg); z-index: 1; }
 }
 
 @keyframes swipeRight {
-  0% {
-    transform: translate(0, 0) rotate(-1deg);
-    z-index: 40;
-  }
-  50% {
-    transform: translate(380px, -30px) rotate(25deg);
-    z-index: 40;
-  }
-  51% {
-    z-index: 1;
-  }
-  100% {
-    transform: translate(0, 0) rotate(-5deg);
-    z-index: 1;
-  }
+  0% { transform: translate(0, 0) rotate(-1deg); z-index: 40; }
+  50% { transform: translate(380px, -30px) rotate(25deg); z-index: 40; }
+  51% { z-index: 1; }
+  100% { transform: translate(0, 0) rotate(-5deg); z-index: 1; }
 }
 
 /* Sticky Notes Wall of Smiles */
@@ -1014,6 +1032,7 @@ textarea.form-control {
   display: flex;
   flex-direction: column;
   gap: 18px;
+  position: relative;
 }
 
 .polaroid-img-wrapper {
@@ -1056,7 +1075,7 @@ textarea.form-control {
   transform: rotate(-1deg);
 }
 
-/* Placeholder for missing image */
+/* Custom Alert trong BTS */
 .img-placeholder-text {
   text-align: center;
   padding: 25px;
@@ -1158,33 +1177,16 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
+  .hero h1 { font-size: 2.3rem; }
+  .section-title { font-size: 2rem; }
   
   .btn-charge {
     font-size: 1.1rem;
     padding: 14px 28px;
   }
   
-  .review-form-container {
-    padding: 25px 20px;
-  }
-  
-  .polaroid-img-wrapper {
-    height: 260px;
-  }
-  
-  .photo-stack {
-    width: 280px;
-    height: 350px;
-  }
-  
-  .stack-card-img-wrapper {
-    height: 230px;
-  }
+  .review-form-container { padding: 25px 20px; }
+  .polaroid-img-wrapper { height: 260px; }
+  .photo-stack { width: 280px; height: 350px; }
+  .stack-card-img-wrapper { height: 230px; }
 }

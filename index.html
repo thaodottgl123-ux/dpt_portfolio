@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Positive Energy Hub | Đỗ Phương Thảo Portfolio</title>
+  <title>Đỗ Phương Thảo | Creative & Professional Portfolio</title>
   
   <!-- Favicon (Emoji vui vẻ) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
@@ -21,7 +21,7 @@
 </head>
 <body>
 
-  <!-- Confetti Container cho hiệu ứng khi bấm nút -->
+  <!-- Confetti Container cho hiệu ứng khi tương tác -->
   <div id="confetti-container"></div>
 
   <!-- Header & Navigation -->
@@ -29,20 +29,20 @@
     <div class="container nav-container">
       <a href="#" class="logo" id="logo-link">
         <span class="logo-icon">⚡</span>
-        <span>Positive Hub</span>
+        <span>Thao Portfolio</span>
       </a>
       <nav>
         <ul>
-          <li><a href="#about"><i class="fa-solid fa-user"></i> Về Thảo</a></li>
-          <li><a href="#projects"><i class="fa-solid fa-bolt"></i> Dự án</a></li>
-          <li><a href="#memories"><i class="fa-solid fa-images"></i> Kỷ niệm</a></li>
-          <li><a href="#wall"><i class="fa-solid fa-face-smile"></i> Bảng ghim</a></li>
+          <li><a href="#about"><i class="fa-solid fa-id-card"></i> Hồ sơ</a></li>
+          <li><a href="#projects"><i class="fa-solid fa-briefcase"></i> Dự án</a></li>
+          <li><a href="#memories"><i class="fa-solid fa-image"></i> Kỷ niệm</a></li>
+          <li><a href="#wall"><i class="fa-solid fa-comments"></i> Đánh giá</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section (Trạm sạc năng lượng) -->
+  <!-- Hero Section (Phong cách Sáng tạo & Nghiêm túc) -->
   <section class="hero">
     <div class="hero-bg-shapes">
       <div class="shape shape-1"></div>
@@ -51,14 +51,19 @@
     </div>
     
     <div class="container hero-content">
-      <div class="hero-badge">🔋 Đang sạc 100% tích cực</div>
-      <h1>Chào mừng bạn đến với<br><span style="color: var(--color-charcoal); background: var(--color-lemon); padding: 4px 12px; border: var(--border-main); border-radius: var(--radius-sm); display: inline-block; margin-top: 10px; transform: rotate(1deg);">Trạm Sạc Năng Lượng Tích Cực</span></h1>
-      <p class="hero-desc">Hãy nhấn nút bên dưới để nạp đầy vitamin vui vẻ cho ngày hôm nay của bạn nhé! ✨</p>
+      <div class="hero-badge">💼 PROFILE & CREATIVE PORTFOLIO</div>
+      <h1><span class="highlight">ĐỖ PHƯƠNG THẢO</span></h1>
+      <p class="hero-desc">
+        Sinh viên lớp Anh 03 - CLCQT - K62, Đại học Ngoại thương.<br>
+        <span style="font-size: 1.15rem; font-weight: 500; display: block; margin-top: 15px; color: var(--color-charcoal); opacity: 0.85; max-width: 680px; margin-left: auto; margin-right: auto;">
+          Kết hợp tư duy phân tích sắc bén, năng lực tổ chức vận hành dự án thực tế và tinh thần tích cực, sáng tạo để tạo lập những giá trị vượt trội.
+        </span>
+      </p>
       
-      <!-- Tính năng tương tác 1: Bấm để nhận năng lượng ngày mới -->
+      <!-- Tính năng tương tác 1: Bấm để khởi tạo cảm hứng hành động -->
       <button class="btn-charge" id="btn-charge">
-        <i class="fa-solid fa-bolt" style="font-size: 1.6rem; color: var(--color-lemon); filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));"></i>
-        <span>Bấm để nhận năng lượng ngày mới</span>
+        <i class="fa-solid fa-circle-bolt" style="font-size: 1.6rem; color: var(--color-lemon); filter: drop-shadow(0 0 2px rgba(0,0,0,0.25));"></i>
+        <span>Bấm để nhận thông điệp hành động</span>
       </button>
 
       <div class="energy-display-container">
@@ -67,17 +72,23 @@
     </div>
   </section>
 
-  <!-- Section Về Bản Thân (About Me) -->
+  <!-- Section Về Bản Thân (About Me / Hồ Sơ Năng Lực) -->
   <section id="about" class="container">
-    <h2 class="section-title">⚡ Trạm Trưởng Là Ai?</h2>
+    <h2 class="section-title">⚡ Hồ Sơ Năng Lực</h2>
     
     <div class="profile-grid">
-      <!-- Profile Card trái -->
+      <!-- Profile Card trái với tính năng UPLOAD ẢNH cá nhân trực tiếp -->
       <div class="profile-card">
         <div class="avatar-wrapper">
           <div class="avatar-border"></div>
           <!-- Ảnh đại diện cá nhân -->
           <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" id="avatar-img">
+          
+          <!-- ĐỘT PHÁ: Nút Tải ảnh lên đè trực tiếp -->
+          <label class="upload-btn-overlay" title="Tải ảnh đại diện cá nhân lên">
+            <i class="fa-solid fa-camera"></i>
+            <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_avatar', 'avatar-img')">
+          </label>
         </div>
         <h3>Đỗ Phương Thảo</h3>
         <p class="subtitle"><i class="fa-solid fa-cake-candles"></i> 13/08/2005 • Hải Phòng</p>
@@ -94,26 +105,26 @@
         <!-- Box 1: Thông tin bản thân -->
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-heart" style="font-size: 0.9rem;"></i></span>
+            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-user-tie" style="font-size: 0.9rem;"></i></span>
             <h3>Một Chút Về Mình</h3>
           </div>
           <ul class="bullet-list">
             <li><strong>Họ tên:</strong> Đỗ Phương Thảo (13/08/2005) - Hải Phòng.</li>
-            <li><strong>Học tập:</strong> Lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
-            <li><strong>Phương châm:</strong> Luôn hướng về mặt trời! ☀️</li>
+            <li><strong>Đại học:</strong> Sinh viên lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
+            <li><strong>Tư duy sống:</strong> Tiếp cận vấn đề tích cực và định hướng giải pháp hiệu quả.</li>
           </ul>
         </div>
 
         <!-- Box 2: Hộp Kỹ năng -->
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.9rem;"></i></span>
-            <h3>Kỹ Năng Của Thảo</h3>
+            <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-screwdriver-wrench" style="font-size: 0.9rem;"></i></span>
+            <h3>Kỹ Năng Cốt Lõi</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Chứng chỉ:</strong> IELTS 7.5 tự tin giao tiếp.</li>
-            <li><strong>Dữ liệu & Văn phòng:</strong> Power BI, Tin học văn phòng.</li>
-            <li><strong>Đội nhóm:</strong> Tổ chức sự kiện, Lãnh đạo đội nhóm, Thuyết trình.</li>
+            <li><strong>Chuyên môn:</strong> Power BI (phân tích dữ liệu), Tin học văn phòng.</li>
+            <li><strong>Ngoại ngữ:</strong> IELTS 7.5 danh giá.</li>
+            <li><strong>Lãnh đạo:</strong> Tổ chức sự kiện, Lãnh đạo đội nhóm, Thuyết trình.</li>
           </ul>
           <div class="skills-grid">
             <div class="skill-tag">IELTS 7.5</div>
@@ -123,28 +134,28 @@
           </div>
         </div>
 
-        <!-- Box 3: Kinh nghiệm nghề nghiệp (MỚI) -->
+        <!-- Box 3: Kinh nghiệm nghề nghiệp -->
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-lemon); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-briefcase" style="font-size: 0.9rem;"></i></span>
-            <h3>Kinh Nghiệm Làm Việc</h3>
+            <h3>Kinh Nghiệm Thực Tế</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 0;">
-            <li><strong>Gia sư tiếng Anh:</strong> Chuyên hướng dẫn ngữ pháp, luyện phát âm và kỹ năng giao tiếp tiếng Anh cơ bản & nâng cao cho học sinh phổ thông.</li>
-            <li><strong>Truyền cảm hứng:</strong> Áp dụng các phương pháp giảng dạy tương tác, giúp học sinh thêm hứng thú và yêu thích môn học.</li>
+            <li><strong>Gia sư tiếng Anh:</strong> Ôn tập ngữ pháp chuyên sâu, rèn phát âm chuẩn và luyện giao tiếp thực tế cho học sinh phổ thông.</li>
+            <li><strong>Phương pháp dạy:</strong> Sáng tạo giáo trình học sinh động, truyền động lực tự học cho học sinh.</li>
           </ul>
         </div>
 
-        <!-- Box 4: Sở thích cá nhân (MỚI) -->
+        <!-- Box 4: Sở thích cá nhân -->
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-circle-nodes" style="font-size: 0.9rem;"></i></span>
-            <h3>Sở Thích Cá Nhân</h3>
+            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-gamepad" style="font-size: 0.9rem;"></i></span>
+            <h3>Sở Thích & Phong Cách</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Cầu lông:</strong> Môn thể thao yêu thích giúp rèn luyện thể lực và phản xạ nhanh nhẹn.</li>
-            <li><strong>Nấu ăn:</strong> Trổ tài làm bánh và sáng tạo các món ngon gắn kết gia đình.</li>
-            <li><strong>Du lịch:</strong> Khám phá danh lam thắng cảnh để mở rộng tầm mắt và nạp năng lượng.</li>
+            <li><strong>Cầu lông:</strong> Nâng cao thể lực và phản xạ nhạy bén.</li>
+            <li><strong>Nấu ăn:</strong> Làm bánh ngọt, tìm tòi công thức nấu ăn mới.</li>
+            <li><strong>Du lịch:</strong> Trải nghiệm văn hóa địa phương để làm giàu vốn sống.</li>
           </ul>
           <div class="hobby-tag-container">
             <span class="hobby-tag">🏸 Cầu lông</span>
@@ -159,7 +170,7 @@
   <!-- Section Dự án (Projects) -->
   <section id="projects" style="background-color: var(--color-white); border-top: var(--border-main); border-bottom: var(--border-main);">
     <div class="container">
-      <h2 class="section-title">🎬 Dự Án Thực Tế</h2>
+      <h2 class="section-title">🎬 Dự Án Tiêu Biểu</h2>
       
       <div class="projects-grid">
         <!-- Dự án 1 -->
@@ -207,22 +218,28 @@
     </div>
   </section>
 
-  <!-- Section Kỷ Niệm Cá Nhân - Photo Stack (MỚI) -->
+  <!-- Section Kỷ Niệm Cá Nhân - Photo Stack -->
   <section id="memories" class="memories-section">
     <div class="container">
-      <h2 class="section-title" style="margin-bottom: 20px;">📸 Góc Kỷ Niệm Vui Vẻ</h2>
+      <h2 class="section-title" style="margin-bottom: 20px;">📸 Hoạt Động & Kỷ Niệm</h2>
       <div class="photo-stack-container">
         <div class="photo-stack-instructions">
           <i class="fa-solid fa-hand-pointer" style="animation: bounceSlow 1.5s infinite alternate;"></i> 
           Bấm vào tấm ảnh trên cùng để trượt xem ảnh tiếp theo nhé!
         </div>
         
-        <!-- Chồng ảnh tương tác 3D -->
+        <!-- Chồng ảnh tương tác 3D tích hợp nút UPLOAD ẢNH từng tấm -->
         <div class="photo-stack" id="photo-stack">
           <!-- Ảnh kỷ niệm 1: Du lịch -->
           <div class="stack-card" data-index="0">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-1.jpg" alt="Du lịch trải nghiệm" class="stack-card-img" id="mem-img-1">
+              
+              <!-- Nút tải ảnh đè lên ảnh 1 -->
+              <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 1 lên">
+                <i class="fa-solid fa-pen"></i>
+                <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_1', 'mem-img-1')">
+              </label>
             </div>
             <div class="stack-card-caption">Rực rỡ những chuyến đi khám phá ✈️🌅</div>
           </div>
@@ -231,6 +248,12 @@
           <div class="stack-card" data-index="1">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-2.jpg" alt="Nấu ăn làm bánh" class="stack-card-img" id="mem-img-2">
+              
+              <!-- Nút tải ảnh đè lên ảnh 2 -->
+              <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 2 lên">
+                <i class="fa-solid fa-pen"></i>
+                <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_2', 'mem-img-2')">
+              </label>
             </div>
             <div class="stack-card-caption">Trổ tài làm bánh ngọt cực đỉnh 🍳🧁</div>
           </div>
@@ -239,6 +262,12 @@
           <div class="stack-card" data-index="2">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-3.jpg" alt="Chơi cầu lông" class="stack-card-img" id="mem-img-3">
+              
+              <!-- Nút tải ảnh đè lên ảnh 3 -->
+              <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 3 lên">
+                <i class="fa-solid fa-pen"></i>
+                <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_3', 'mem-img-3')">
+              </label>
             </div>
             <div class="stack-card-caption">Những trận cầu lông kịch tính 🏸🔥</div>
           </div>
@@ -247,9 +276,9 @@
     </div>
   </section>
 
-  <!-- Section Bảng ghim kỷ niệm (The Wall of Smiles) -->
+  <!-- Section Bảng ghim kỷ niệm (Professional Testimonials / Đánh Giá Từ Cộng Sự) -->
   <section id="wall" class="container">
-    <h2 class="section-title">🥰 Bảng Ghim Kỷ Niệm (Wall of Smiles)</h2>
+    <h2 class="section-title">💬 Đánh Giá Từ Cộng Sự</h2>
     
     <div class="wall-of-smiles">
       <!-- Notes Container -->
@@ -273,22 +302,22 @@
 
       <!-- Form gửi review -->
       <div class="review-form-container">
-        <h3><i class="fa-solid fa-pen-fancy" style="color: var(--color-peach);"></i> Gửi Lời Yêu Thương Cho Thảo</h3>
+        <h3><i class="fa-solid fa-pen-fancy" style="color: var(--color-peach);"></i> Gửi Đánh Giá Cho Thảo</h3>
         
         <!-- Netlify Form -->
         <form name="thao-portfolio-reviews" method="POST" data-netlify="true" id="review-form">
           <div class="form-group">
-            <label for="review-name">Tên của bạn là gì? 😊</label>
-            <input type="text" id="review-name" name="name" class="form-control" placeholder="Nhập họ tên của bạn..." required>
+            <label for="review-name">Tên của bạn và phân ban/đội nhóm: 😊</label>
+            <input type="text" id="review-name" name="name" class="form-control" placeholder="Ví dụ: Nguyễn Văn A (Differo Team)..." required>
           </div>
           
           <div class="form-group">
-            <label for="review-text">Cảm nghĩ của bạn về mình? ✨</label>
-            <textarea id="review-text" name="message" class="form-control" placeholder="Viết vài dòng ngọt ngào gửi tới Thảo nhé..." required></textarea>
+            <label for="review-text">Cảm nghĩ hoặc phản hồi công việc của bạn: ✨</label>
+            <textarea id="review-text" name="message" class="form-control" placeholder="Viết phản hồi công việc hoặc kỷ niệm đồng hành cùng Thảo..." required></textarea>
           </div>
           
           <button type="submit" class="btn-submit">
-            <i class="fa-solid fa-paper-plane"></i> Gửi review
+            <i class="fa-solid fa-paper-plane"></i> Gửi đánh giá
           </button>
         </form>
       </div>
@@ -302,16 +331,23 @@
     </div>
   </footer>
 
-  <!-- Modal Behind the Scenes -->
+  <!-- Modal Behind the Scenes có tích hợp nút Upload ảnh trực quan -->
   <div class="modal" id="bts-modal">
-    <div class="modal-content">
+    <div class="modal-content" style="position: relative;">
       <span class="close-modal" id="close-modal">&times;</span>
       
       <div class="bts-story-badge">🎬 Hậu trường deadline</div>
-      <div class="polaroid-frame">
+      <div class="polaroid-frame" style="position: relative;">
         <div class="polaroid-img-wrapper" id="polaroid-wrapper">
           <!-- Ảnh sẽ được load bằng JS -->
         </div>
+        
+        <!-- ĐỘT PHÁ: Nút Tải ảnh BTS trực tiếp trong modal -->
+        <label class="upload-btn-overlay" style="bottom: 85px; right: 25px; z-index: 100;" title="Tải ảnh chạy deadline của dự án này lên">
+          <i class="fa-solid fa-camera"></i>
+          <input type="file" accept="image/*" style="display: none;" id="bts-file-input">
+        </label>
+        
         <div class="polaroid-caption" id="polaroid-caption">Kỷ niệm chạy deadline đáng nhớ!</div>
       </div>
     </div>
@@ -320,12 +356,133 @@
   <!-- JavaScript Logic -->
   <script>
     // ----------------------------------------------------
+    // ĐỘT PHÁ: TÍNH NĂNG UPLOAD VÀ LƯU ẢNH TRỰC TIẾP TRÊN GIAO DIỆN (LOCAL STORAGE)
+    // ----------------------------------------------------
+    let currentBtsProjectKey = ''; // Lưu tên dự án đang mở modal để upload ảnh đúng chỗ
+
+    // Hàm chung xử lý tải ảnh lên Base64
+    function uploadImage(input, storageKey, targetImgId) {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        
+        // Kiểm tra dung lượng file (giới hạn 2MB cho LocalStorage an toàn)
+        if (file.size > 2 * 1024 * 1024) {
+          alert('Ảnh của bạn lớn hơn 2MB! Vui lòng chọn file nhẹ hơn hoặc nén ảnh lại để lưu trữ cục bộ nhé.');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const base64Data = e.target.result;
+          
+          try {
+            // Lưu vào LocalStorage
+            localStorage.setItem(storageKey, base64Data);
+            
+            // Cập nhật ảnh lên UI
+            const imgEl = document.getElementById(targetImgId);
+            if (imgEl) {
+              imgEl.src = base64Data;
+            }
+            
+            // Cập nhật nguồn dữ liệu bts để mở lần sau không bị lỗi
+            if (storageKey === 'thao_portfolio_bts_debate') {
+              projectImages.debate.src = base64Data;
+            } else if (storageKey === 'thao_portfolio_bts_ftu') {
+              projectImages.ftu.src = base64Data;
+            }
+
+            // Hiệu ứng confetti chúc mừng tải ảnh thành công!
+            createConfetti(null, input.parentElement);
+          } catch (err) {
+            alert('Có lỗi xảy ra khi lưu ảnh. Bạn hãy kiểm tra lại dung lượng ảnh nhé.');
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    // Lắng nghe sự kiện tải ảnh cho Behind the Scenes Modal
+    const btsFileInput = document.getElementById('bts-file-input');
+    if (btsFileInput) {
+      btsFileInput.addEventListener('change', function() {
+        if (currentBtsProjectKey) {
+          const storageKey = `thao_portfolio_bts_${currentBtsProjectKey}`;
+          
+          if (this.files && this.files[0]) {
+            const file = this.files[0];
+            if (file.size > 2 * 1024 * 1024) {
+              alert('Ảnh của bạn lớn hơn 2MB! Vui lòng chọn file nhẹ hơn để nén và tải lên nhé.');
+              return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const base64Data = e.target.result;
+              try {
+                localStorage.setItem(storageKey, base64Data);
+                
+                // Cập nhật ảnh trong polaroid hiện tại
+                const modalImg = polaroidWrapper.querySelector('.polaroid-img');
+                if (modalImg) {
+                  modalImg.src = base64Data;
+                } else {
+                  // Trường hợp đang hiện placeholder, vẽ đè thẻ img lên
+                  const img = document.createElement('img');
+                  img.src = base64Data;
+                  img.className = 'polaroid-img';
+                  polaroidWrapper.innerHTML = '';
+                  polaroidWrapper.appendChild(img);
+                }
+                
+                // Đồng bộ cập nhật vào projectImages
+                projectImages[currentBtsProjectKey].src = base64Data;
+                
+                createConfetti(null, btsFileInput.parentElement);
+              } catch (err) {
+                alert('Có lỗi xảy ra khi lưu ảnh. Vui lòng chọn ảnh nhẹ hơn.');
+              }
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+    }
+
+    // Tự động quét và nạp ảnh từ LocalStorage khi khởi tạo trang web
+    document.addEventListener('DOMContentLoaded', () => {
+      const storageMappings = {
+        'thao_portfolio_avatar': 'avatar-img',
+        'thao_portfolio_mem_1': 'mem-img-1',
+        'thao_portfolio_mem_2': 'mem-img-2',
+        'thao_portfolio_mem_3': 'mem-img-3'
+      };
+      
+      for (const [key, imgId] of Object.entries(storageMappings)) {
+        const savedBase64 = localStorage.getItem(key);
+        if (savedBase64) {
+          const imgEl = document.getElementById(imgId);
+          if (imgEl) imgEl.src = savedBase64;
+        }
+      }
+      
+      // Đồng bộ ảnh Behind local cho object projects
+      const savedDebateBts = localStorage.getItem('thao_portfolio_bts_debate');
+      if (savedDebateBts) projectImages.debate.src = savedDebateBts;
+      
+      const savedFtuBts = localStorage.getItem('thao_portfolio_bts_ftu');
+      if (savedFtuBts) projectImages.ftu.src = savedFtuBts;
+    });
+
+    // ----------------------------------------------------
     // CƠ CHẾ SỬA LỖI TỰ ĐỘNG CHO AVATAR (LỖI ĐUÔI KÉP .jpg.jpg)
     // ----------------------------------------------------
-    const avatarImg = document.getElementById('avatar-img');
     if (avatarImg) {
       avatarImg.addEventListener('error', function handleAvatarError() {
         const currentSrc = this.src;
+        // Tránh vòng lặp lỗi nếu đã load Base64
+        if (currentSrc.startsWith('data:image')) return;
+        
         if (currentSrc.endsWith('avatar.jpg') && !currentSrc.endsWith('avatar.jpg.jpg')) {
           this.src = 'assets/avatar.jpg.jpg';
         } else if (currentSrc.endsWith('avatar.jpg.jpg')) {
@@ -337,14 +494,15 @@
     }
 
     // ----------------------------------------------------
-    // YÊU CẦU 1: NHẬN NĂNG LƯỢNG & CONFETTI PHÁO HOA TUNG TÓE
+    // YÊU CẦU 1: NHẬN THÔNG ĐIỆP HÀNH ĐỘNG & CONFETTI PHÁO HOA TUNG TÓE
     // ----------------------------------------------------
+    // Đổi thành các câu quote truyền cảm hứng làm việc chuyên nghiệp, phát triển bản thân
     const energyQuotes = [
-      "Cậu đang làm rất tốt rồi, hôm nay hãy cười thật nhiều nhé! ✨",
-      "Một ngày mới tràn đầy cơ hội đang chờ cậu. Sạc đầy 100% năng lượng nào! ⚡",
-      "Đừng quên uống nước và dành cho bản thân một cái ôm thật ấm áp nhé! 🥤",
-      "Mọi nỗ lực của cậu đều đang gặt hái kết quả. Hãy tin vào chính mình! 🌟",
-      "Hôm nay là một ngày tuyệt vời để bắt đầu một điều tuyệt vời! 🚀"
+      "✨ \"Hiệu suất làm việc thực sự bắt đầu từ một thái độ sống và làm việc tích cực!\" — Hãy giữ nụ cười và hành động ngay hôm nay.",
+      "🚀 \"Hãy tập trung 100% vào việc tìm kiếm giải pháp, thay vì ngồi lo lắng hay đổ lỗi cho hoàn cảnh.\" — Sẵn sàng chinh phục mục tiêu mới!",
+      "💡 \"Học hỏi không bao giờ là muộn. Mỗi lỗi sai hôm nay là nền móng của sự chuyên nghiệp ngày mai.\" — Cố lên nhé!",
+      "🤝 \"Lãnh đạo giỏi không phải là người ra lệnh giỏi, mà là người biết khơi gợi sức mạnh tập thể và truyền lửa cho cộng sự.\"",
+      "🎯 \"Đầu tư tốt nhất là đầu tư vào tri thức và phát triển bản thân. Sạc đầy năng lượng để bắt đầu những bước đi bứt phá!\""
     ];
 
     const btnCharge = document.getElementById('btn-charge');
@@ -450,6 +608,16 @@
     };
 
     function loadProjectImageWithFallback(imgElement, initialSrc, altText) {
+      // Tránh lặp nếu đã load Base64
+      if (initialSrc.startsWith('data:image')) {
+        imgElement.src = initialSrc;
+        imgElement.alt = altText;
+        imgElement.className = 'polaroid-img';
+        polaroidWrapper.innerHTML = '';
+        polaroidWrapper.appendChild(imgElement);
+        return;
+      }
+
       imgElement.src = initialSrc;
       imgElement.alt = altText;
       imgElement.className = 'polaroid-img';
@@ -467,9 +635,9 @@
         else {
           polaroidWrapper.innerHTML = `
             <div class="img-placeholder-text">
-              <i class="fa-solid fa-triangle-exclamation"></i>
-              Chưa tìm thấy ảnh <strong>${initialSrc}</strong> trong thư mục <code>assets/</code>.<br>
-              <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Lưu ý đặt tên đúng file ảnh là <code>${initialSrc.split('/')[1]}</code>.</span>
+              <i class="fa-solid fa-circle-info"></i>
+              Chưa tìm thấy ảnh <strong>${initialSrc}</strong>.<br>
+              <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Bạn có thể bấm nút **Tải ảnh lên** màu vàng ngay góc để update ảnh trực quan nhé!</span>
             </div>
           `;
         }
@@ -482,6 +650,8 @@
     document.querySelectorAll('.btn-bts').forEach(button => {
       button.addEventListener('click', (e) => {
         const projectId = button.getAttribute('data-project');
+        currentBtsProjectKey = projectId; // Cập nhật dự án đang mở
+        
         const projectData = projectImages[projectId];
         
         if (projectData) {
@@ -499,6 +669,7 @@
     function closeBtsModal() {
       btsModal.style.display = 'none';
       document.body.style.overflow = '';
+      currentBtsProjectKey = ''; // Reset dự án mở
     }
 
     closeModal.addEventListener('click', closeBtsModal);
@@ -511,18 +682,16 @@
 
 
     // ----------------------------------------------------
-    // TÍNH NĂNG MỚI: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
+    // TÍNH NĂNG: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
     // ----------------------------------------------------
     const photoStack = document.getElementById('photo-stack');
     const cards = Array.from(photoStack.getElementsByClassName('stack-card'));
     
-    // Lưu thứ tự hiển thị z-index và góc quay mặc định
     let cardZIndexes = [30, 20, 10];
     let cardRotations = [-1, 4, -3];
     let isSwiping = false;
-    let swipeDirectionLeft = true; // Luân phiên hướng bay
+    let swipeDirectionLeft = true;
 
-    // Xử lý cơ chế sửa lỗi tải ảnh tự động cho các ảnh kỷ niệm trong Stack
     const memoryImages = [
       { id: 'mem-img-1', defaultUrl: 'assets/memory-1.jpg', fallbackTag: 'nature' },
       { id: 'mem-img-2', defaultUrl: 'assets/memory-2.jpg', fallbackTag: 'food' },
@@ -534,17 +703,16 @@
       if (imgEl) {
         imgEl.addEventListener('error', function handleMemoryError() {
           const currentSrc = this.src;
-          // Thử tải đuôi .jpg.jpg
+          if (currentSrc.startsWith('data:image')) return;
+          
           if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
             this.src = imgData.defaultUrl + '.jpg';
           } 
-          // Thử tải đuôi .png
           else if (currentSrc.endsWith('.jpg.jpg')) {
             this.src = imgData.defaultUrl.replace('.jpg', '.png');
           }
-          // Nếu không tìm thấy, sử dụng ảnh stock đẹp mắt từ Unsplash theo tag chủ đề tương ứng để trang luôn đẹp
           else {
-            console.log(`Không có ảnh ${imgData.defaultUrl}, tải ảnh minh họa tuyệt đẹp từ Unsplash về ${imgData.fallbackTag}...`);
+            console.log(`Tải ảnh Unsplash dự phòng cho ${imgData.defaultUrl}...`);
             this.src = `https://images.unsplash.com/photo-${
               imgData.fallbackTag === 'nature' ? '1507525428034-b723cf961d3e' : 
               imgData.fallbackTag === 'food' ? '1555507036-ab1f4038808a' : 
@@ -555,52 +723,43 @@
       }
     });
 
-    // Thêm sự kiện click vuốt ảnh
     cards.forEach((card, index) => {
       card.addEventListener('click', (e) => {
-        // Chỉ cho phép vuốt khi tấm ảnh đang nằm trên cùng (z-index cao nhất = 30)
+        // Ngăn việc click nút upload kích hoạt vuốt card
+        if (e.target.closest('.upload-btn-overlay')) return;
+
         const currentZ = parseInt(window.getComputedStyle(card).zIndex);
         if (currentZ < 30 || isSwiping) return;
 
         isSwiping = true;
-
-        // Bắn confetti chúc mừng từ vị trí tấm ảnh
         createConfetti(e, card);
 
-        // Thêm class hoạt ảnh trượt bay ra ngoài (luân phiên trái/phải)
         const swipeClass = swipeDirectionLeft ? 'swipe-left' : 'swipe-right';
         card.classList.add(swipeClass);
-        swipeDirectionLeft = !swipeDirectionLeft; // Đổi chiều cho ảnh sau
+        swipeDirectionLeft = !swipeDirectionLeft;
 
-        // Sau khi trượt bay đi nửa chặng đường (z-index đổi) và quay lại đáy stack
         setTimeout(() => {
-          // Xoay vòng thứ tự z-index: ảnh trên cùng xuống đáy, các ảnh khác tiến lên
           cardZIndexes.unshift(cardZIndexes.pop());
           cardRotations.unshift(cardRotations.pop());
 
-          // Cập nhật lại z-index và vị trí cho toàn bộ card
           cards.forEach((c, i) => {
             const newIndex = cards.indexOf(c);
             const zIndexVal = cardZIndexes[newIndex];
             const rotVal = cardRotations[newIndex];
             
             c.style.zIndex = zIndexVal;
-            
-            // Nếu không phải card vừa vuốt, áp dụng góc xoay nghiêng nhẹ mặc định
             if (c !== card) {
               c.style.transform = `rotate(${rotVal}deg) translate(${rotVal * 1.5}px, ${Math.abs(rotVal) * 1.5}px)`;
             }
           });
-        }, 300); // 300ms là thời điểm ảnh bay xa nhất ngoài Stack
+        }, 300);
 
-        // Kết thúc hoạt ảnh trượt vuốt, đặt card nằm hẳn dưới đáy
         setTimeout(() => {
           card.classList.remove('swipe-left', 'swipe-right');
-          // Áp dụng góc xoay ngẫu nhiên mới khi nằm dưới đáy stack
           const finalRot = cardRotations[cards.indexOf(card)];
           card.style.transform = `rotate(${finalRot}deg) translate(${finalRot * 1.5}px, ${Math.abs(finalRot) * 1.5}px)`;
           isSwiping = false;
-        }, 600); // Khớp thời gian animation 0.6s
+        }, 600);
       });
     });
 

@@ -8,20 +8,1117 @@
   <!-- Favicon (Emoji vui vẻ) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   
-  <!-- Google Fonts - Khai báo trực tiếp Lexend và Nunito hỗ trợ đầy đủ Tiếng Việt -->
+  <!-- Google Fonts - Khai báo Lexend (tiêu đề), Nunito (nội dung) và Caveat (chữ viết tay tự nhiên cho giấy note) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lexend:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- LỒNG TOÀN BỘ CSS VÀO TRONG FILE THEO YÊU CẦU -->
+  <style>
+    /* ==========================================
+       TRẠM SẠC NĂNG LƯỢNG TÍCH CỰC - STYLE SYSTEM
+       ========================================== */
+    :root {
+      --color-lemon: #FFF275;
+      --color-peach: #FF9E7D;
+      --color-mint: #A6ECE0;
+      --color-cream: #FDFBF7;
+      --color-charcoal: #2B2D42;
+      --color-white: #FFFFFF;
+      --color-gray-light: #F6F4F0;
+      --color-gray-dark: #7a7d90;
+      
+      --font-title: 'Lexend', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+      --font-handwrite: 'Caveat', cursive; /* Font viết tay tự nhiên */
+      
+      --border-main: 3px solid var(--color-charcoal);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      
+      --shadow-main: 0 10px 0px var(--color-charcoal);
+      --shadow-hover: 0 4px 0px var(--color-charcoal);
+      --shadow-soft: 0 12px 32px rgba(43, 45, 66, 0.08), 0 4px 12px rgba(43, 45, 66, 0.04);
+      --shadow-soft-hover: 0 20px 40px rgba(43, 45, 66, 0.15), 0 8px 20px rgba(43, 45, 66, 0.08);
+      
+      --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-cream);
+      color: var(--color-charcoal);
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 80px;
+    }
+
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Sections Common Styles */
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      font-family: var(--font-title);
+      font-size: 2.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: 14px;
+      background-color: var(--color-lemon);
+      z-index: -1;
+      border-radius: 6px;
+      transform: skewX(-12deg);
+    }
+
+    /* Headings & Texts */
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      font-weight: 800;
+    }
+
+    /* Custom Bullet Points */
+    ul.bullet-list {
+      list-style: none;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    ul.bullet-list li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      font-size: 1.2rem;
+      animation: pulseEnergy 2s infinite alternate;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--color-white);
+      border-bottom: var(--border-main);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--color-charcoal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      background-color: var(--color-lemon);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--border-main);
+      font-size: 1.3rem;
+      transform: rotate(-10deg);
+      animation: wobble 3s ease-in-out infinite;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--color-charcoal);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      transition: var(--transition-smooth);
+    }
+
+    nav ul li a:hover {
+      background-color: var(--color-mint);
+      border-color: var(--color-charcoal);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background-color: var(--color-mint);
+      border-bottom: var(--border-main);
+      padding: 110px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .shape {
+      position: absolute;
+      border: var(--border-main);
+      border-radius: 50%;
+      opacity: 0.3;
+    }
+
+    .shape-1 {
+      width: 90px;
+      height: 90px;
+      background-color: var(--color-lemon);
+      top: 15%;
+      left: 8%;
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape-2 {
+      width: 130px;
+      height: 130px;
+      background-color: var(--color-peach);
+      bottom: 10%;
+      right: 6%;
+      border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .shape-3 {
+      width: 60px;
+      height: 60px;
+      background-color: var(--color-white);
+      top: 60%;
+      left: 85%;
+      border-radius: 50%;
+      animation: float 5s ease-in-out infinite 1s;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background-color: var(--color-white);
+      padding: 8px 20px;
+      border-radius: 30px;
+      border: var(--border-main);
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 4px 4px 0 var(--color-charcoal);
+      transform: rotate(-1.5deg);
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.3;
+      margin-bottom: 24px;
+      text-shadow: 2px 2px 0 var(--color-white);
+    }
+
+    .hero h1 span.highlight {
+      color: var(--color-charcoal);
+      background: var(--color-lemon);
+      padding: 2px 12px;
+      border: var(--border-main);
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      transform: rotate(1deg);
+    }
+
+    .hero-desc {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+
+    /* Playful CTA Button */
+    .btn-charge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--color-peach);
+      color: var(--color-charcoal);
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.25rem;
+      padding: 16px 36px;
+      border: var(--border-main);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-main);
+      cursor: pointer;
+      outline: none;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), 
+                  background-color 0.3s ease, 
+                  box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-charge:hover {
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 14px 0 var(--color-charcoal);
+      background-color: #ffb59c;
+    }
+
+    .btn-charge:active {
+      transform: scale(0.98) translateY(4px);
+      box-shadow: 0 2px 0 var(--color-charcoal);
+    }
+
+    /* Energy Message Box */
+    .energy-display-container {
+      min-height: 90px;
+      margin-top: 45px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .energy-message {
+      display: none;
+      background-color: var(--color-white);
+      border: var(--border-main);
+      padding: 22px 32px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      font-size: 1.2rem;
+      font-weight: 700;
+      max-width: 650px;
+      line-height: 1.5;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    /* Profile Section Layout */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    @media(min-width: 992px) {
+      .profile-grid {
+        grid-template-columns: 360px 1fr;
+        align-items: start;
+      }
+    }
+
+    .profile-card {
+      background-color: var(--color-white);
+      border: var(--border-main);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      text-align: center;
+      padding: 40px 25px;
+      transition: var(--transition-bounce);
+      position: relative;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-8px) rotate(1deg);
+      box-shadow: var(--shadow-soft-hover);
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 24px auto;
+    }
+
+    .avatar-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 4px dashed var(--color-charcoal);
+      border-radius: 50%;
+      animation: rotateBorder 25s linear infinite;
+    }
+
+    .avatar-img {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: var(--border-main);
+      background-color: var(--color-lemon);
+    }
+
+    /* Nút tải ảnh đè lên UI */
+    .upload-btn-overlay {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 38px;
+      height: 38px;
+      background-color: var(--color-white);
+      border: 2px solid var(--color-charcoal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--color-charcoal);
+      transition: var(--transition-fast);
+      z-index: 10;
+    }
+
+    .upload-btn-overlay:hover {
+      transform: scale(1.15) rotate(15deg);
+      background-color: var(--color-lemon);
+      box-shadow: 3px 3px 0 var(--color-charcoal);
+    }
+
+    .upload-btn-overlay:active {
+      transform: scale(0.95);
+      box-shadow: 1px 1px 0 var(--color-charcoal);
+    }
+
+    .profile-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+    }
+
+    .profile-card .subtitle {
+      font-weight: 700;
+      color: var(--color-gray-dark);
+      font-size: 1rem;
+      margin-bottom: 24px;
+    }
+
+    .profile-info {
+      background-color: var(--color-gray-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: left;
+      border: 2px solid var(--color-charcoal);
+    }
+
+    .profile-info p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .profile-info p:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile-info strong {
+      color: var(--color-charcoal);
+    }
+
+    /* About details Grid */
+    .about-details {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media(min-width: 768px) {
+      .about-details {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .content-box {
+      background-color: var(--color-white);
+      border: var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-bounce);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-box:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-soft-hover);
+    }
+
+    .content-box-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px dashed var(--color-charcoal);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .skill-tag {
+      background-color: var(--color-lemon);
+      border: 2px solid var(--color-charcoal);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 3px 3px 0 var(--color-charcoal);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 5px 5px 0 var(--color-charcoal);
+      background-color: var(--color-mint);
+    }
+
+    /* Hobby tags */
+    .hobby-tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .hobby-tag {
+      background-color: var(--color-mint);
+      border: 2px solid var(--color-charcoal);
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 2px 2px 0 var(--color-charcoal);
+    }
+
+    /* Projects Section Layout */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 35px;
+      margin-top: 20px;
+    }
+
+    @media(min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr); /* Chia 3 cột trên màn hình rộng */
+      }
+    }
+
+    .project-card {
+      background-color: var(--color-white);
+      border: var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 25px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                  box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) rotate(-1deg) scale(1.01);
+      box-shadow: var(--shadow-soft-hover);
+    }
+
+    .project-card:nth-child(even):hover {
+      transform: translateY(-8px) rotate(1deg) scale(1.01);
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: var(--color-peach);
+    }
+
+    .project-card:nth-child(2)::before { background-color: var(--color-mint); }
+    .project-card:nth-child(3)::before { background-color: var(--color-lemon); }
+
+    .project-card-header {
+      margin-bottom: 15px;
+    }
+
+    .project-card-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background-color: var(--color-gray-light);
+      border: 2px solid var(--color-charcoal);
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .project-card-body {
+      margin-bottom: 20px;
+    }
+
+    /* ĐỘT PHÁ: Chèn khung ảnh Polaroid nhỏ trực tiếp dưới thông tin card */
+    .project-polaroid-frame {
+      margin-top: 15px;
+      border: 2px solid var(--color-charcoal);
+      border-radius: var(--radius-sm);
+      padding: 8px 8px 24px 8px;
+      background-color: var(--color-white);
+      box-shadow: 4px 4px 0 rgba(43,45,66,0.1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .project-img-wrapper {
+      width: 100%;
+      height: 160px;
+      border: 1px solid var(--color-gray-light);
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-polaroid-caption {
+      font-family: var(--font-title);
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-align: center;
+      color: var(--color-charcoal);
+    }
+
+    /* Chồng ảnh kỷ niệm (Photo Stack) */
+    .memories-section {
+      background-color: var(--color-lemon);
+      border-top: var(--border-main);
+      border-bottom: var(--border-main);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .photo-stack-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-top: 30px;
+    }
+
+    .photo-stack-instructions {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      background: var(--color-white);
+      padding: 8px 18px;
+      border-radius: 30px;
+      border: 2px solid var(--color-charcoal);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 3px 3px 0 var(--color-charcoal);
+      animation: wobble 4s ease-in-out infinite;
+    }
+
+    .photo-stack {
+      position: relative;
+      width: 320px;
+      height: 390px;
+      margin: 0 auto 40px auto;
+      perspective: 1000px;
+    }
+
+    .stack-card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-white);
+      border: var(--border-main);
+      border-radius: 12px;
+      padding: 14px 14px 35px 14px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12), 0 5px 15px rgba(0,0,0,0.06);
+      cursor: pointer;
+      user-select: none;
+      transform-origin: center bottom;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                  z-index 0.5s step-end,
+                  box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .stack-card:hover {
+      transform: scale(1.03) translateY(-10px) !important;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.18);
+      z-index: 50 !important;
+    }
+
+    .stack-card-img-wrapper {
+      width: 100%;
+      height: 270px;
+      background-color: var(--color-gray-light);
+      border: 2px solid var(--color-charcoal);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .stack-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .stack-card:hover .stack-card-img {
+      transform: scale(1.08);
+    }
+
+    .stack-card-caption {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--color-charcoal);
+      text-align: center;
+    }
+
+    /* Các trạng thái xoay mặc định khi xếp chồng */
+    .stack-card:nth-child(3) { transform: rotate(-3.5deg) translate(-6px, -6px); z-index: 10; }
+    .stack-card:nth-child(2) { transform: rotate(4.5deg) translate(6px, 2px); z-index: 20; }
+    .stack-card:nth-child(1) { transform: rotate(-1.5deg) translate(0px, 8px); z-index: 30; }
+
+    /* Hoạt ảnh trượt bay ra ngoài (Swipe Animation) */
+    .stack-card.swipe-left { animation: swipeLeft 0.6s ease forwards; }
+    .stack-card.swipe-right { animation: swipeRight 0.6s ease forwards; }
+
+    @keyframes swipeLeft {
+      0% { transform: translate(0, 0) rotate(-1.5deg); z-index: 40; }
+      50% { transform: translate(-380px, -30px) rotate(-25deg); z-index: 40; }
+      51% { z-index: 1; }
+      100% { transform: translate(0, 0) rotate(5deg); z-index: 1; }
+    }
+
+    @keyframes swipeRight {
+      0% { transform: translate(0, 0) rotate(-1.5deg); z-index: 40; }
+      50% { transform: translate(380px, -30px) rotate(25deg); z-index: 40; }
+      51% { z-index: 1; }
+      100% { transform: translate(0, 0) rotate(-5deg); z-index: 1; }
+    }
+
+    /* Sticky Notes Wall of Smiles - Thiết kế tự nhiên hơn */
+    .wall-of-smiles {
+      background-color: #ffe6db;
+      border: var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 50px 30px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .notes-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 35px;
+      margin-bottom: 60px;
+    }
+
+    .sticky-note {
+      position: relative;
+      padding: 35px 25px 25px 25px;
+      min-height: 220px;
+      border: var(--border-main);
+      border-radius: 4px;
+      /* Bóng đổ xéo và lệch tự nhiên hơn */
+      box-shadow: 6px 12px 24px rgba(43, 45, 66, 0.07);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                  box-shadow 0.4s ease;
+    }
+
+    .sticky-note:hover {
+      /* Khi hover, nhấc lên cao, xoay nhẹ chiều ngược lại để trông sống động */
+      transform: translateY(-15px) rotate(3deg) scale(1.05) !important;
+      box-shadow: 12px 24px 36px rgba(43, 45, 66, 0.12);
+      z-index: 10;
+    }
+
+    /* Ghim tròn đỏ tự nhiên ở đầu mỗi note */
+    .sticky-note::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background-color: #E63946;
+      border: 2px solid var(--color-charcoal);
+      border-radius: 50%;
+      box-shadow: 1px 2px 3px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    /* Thêm một miếng băng keo trong suốt nhỏ dán nghiêng ở góc note chẵn để tự nhiên */
+    .sticky-note:nth-child(even)::after {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: 15px;
+      width: 50px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(43,45,66,0.05);
+      transform: rotate(20deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+      z-index: 1;
+    }
+
+    .note-lemon { background-color: #FFF9A6; }
+    .note-peach { background-color: #FFC4B0; }
+    .note-mint { background-color: #C1F3EC; }
+
+    /* Độ nghiêng ban đầu đa dạng, tự nhiên hơn */
+    .note-rot-l { transform: rotate(-3.5deg); }
+    .note-rot-r { transform: rotate(4deg); }
+    .note-rot-s { transform: rotate(-1.5deg); }
+
+    /* Sử dụng font viết tay Caveat tự nhiên và cảm xúc */
+    .note-message {
+      font-family: var(--font-handwrite);
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      color: var(--color-charcoal);
+      white-space: pre-line;
+      letter-spacing: 0.3px;
+    }
+
+    .note-author {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-align: right;
+      border-top: 1px dashed rgba(43, 45, 66, 0.15);
+      padding-top: 10px;
+      color: rgba(43, 45, 66, 0.8);
+    }
+
+    /* Wall Form Review */
+    .review-form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--color-white);
+      border: var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition-bounce);
+    }
+
+    .review-form-container:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft-hover);
+    }
+
+    .review-form-container h3 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      background-color: var(--color-cream);
+      border: var(--border-main);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-control:focus {
+      background-color: var(--color-white);
+      border-color: var(--color-peach);
+      box-shadow: 0 0 0 4px rgba(255, 158, 125, 0.25);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--color-mint);
+      color: var(--color-charcoal);
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.2rem;
+      padding: 14px;
+      border: var(--border-main);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-main);
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), 
+                  background-color 0.3s ease, 
+                  box-shadow 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      transform: scale(1.03) translateY(-3px);
+      box-shadow: 0 12px 0 var(--color-charcoal);
+      background-color: #8ce1d3;
+    }
+
+    .btn-submit:active {
+      transform: scale(0.98) translateY(3px);
+      box-shadow: 0 2px 0 var(--color-charcoal);
+    }
+
+    /* Confetti Hạt năng lượng */
+    #confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0.9;
+      border-radius: 4px;
+      animation: confettiExplode 2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 35px 0;
+      border-top: var(--border-main);
+      background-color: var(--color-lemon);
+    }
+
+    /* Keyframes Animations */
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(6deg); }
+      100% { transform: translateY(0px) rotate(0deg); }
+    }
+
+    @keyframes bounceSlow {
+      from { transform: translateY(0) rotate(-2deg); }
+      to { transform: translateY(-8px) rotate(-1deg); }
+    }
+
+    @keyframes rotateBorder {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulseEnergy {
+      from { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,242,117,0.5)); }
+      to { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(255,242,117,0.9)); }
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes confettiExplode {
+      0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      60% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(var(--dest-x), var(--dest-y)) scale(0.4) rotate(var(--rotation));
+        opacity: 0;
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-8deg); }
+      75% { transform: rotate(8deg); }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      .section-title { font-size: 2rem; }
+      
+      .btn-charge {
+        font-size: 1.1rem;
+        padding: 14px 28px;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .review-form-container { padding: 25px 20px; }
+      .photo-stack { width: 280px; height: 350px; }
+      .stack-card-img-wrapper { height: 230px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Confetti Container cho hiệu ứng khi tương tác -->
+  <!-- Confetti Container -->
   <div id="confetti-container"></div>
 
   <!-- Header & Navigation -->
@@ -42,7 +1139,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (Phong cách Sáng tạo & Nghiêm túc) -->
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-bg-shapes">
       <div class="shape shape-1"></div>
@@ -51,19 +1148,19 @@
     </div>
     
     <div class="container hero-content">
-      <div class="hero-badge">💼 PROFILE & CREATIVE PORTFOLIO</div>
-      <h1><span class="highlight">ĐỖ PHƯƠNG THẢO</span></h1>
+      <div class="hero-badge">💼 PORTFOLIO SÁNG TẠO</div>
+      <h1>Chào mừng đến với Portfolio của<br><span class="highlight">ĐỖ PHƯƠNG THẢO</span></h1>
       <p class="hero-desc">
         Sinh viên lớp Anh 03 - CLCQT - K62, Đại học Ngoại thương.<br>
         <span style="font-size: 1.15rem; font-weight: 500; display: block; margin-top: 15px; color: var(--color-charcoal); opacity: 0.85; max-width: 680px; margin-left: auto; margin-right: auto;">
-          Kết hợp tư duy phân tích sắc bén, năng lực tổ chức vận hành dự án thực tế và tinh thần tích cực, sáng tạo để tạo lập những giá trị vượt trội.
+          Kiến tạo giá trị và tối ưu quy trình dự án với sự nhiệt huyết, kỹ năng chuyên nghiệp cùng năng lượng hành động tích cực.
         </span>
       </p>
       
-      <!-- Tính năng tương tác 1: Bấm để khởi tạo cảm hứng hành động -->
+      <!-- Tính năng tương tác 1 & Hiệu ứng Pháo hoa -->
       <button class="btn-charge" id="btn-charge">
         <i class="fa-solid fa-circle-bolt" style="font-size: 1.6rem; color: var(--color-lemon); filter: drop-shadow(0 0 2px rgba(0,0,0,0.25));"></i>
-        <span>Bấm để nhận thông điệp hành động</span>
+        <span>Bấm để nhận năng lượng ngày mới</span>
       </button>
 
       <div class="energy-display-container">
@@ -72,20 +1169,19 @@
     </div>
   </section>
 
-  <!-- Section Về Bản Thân (About Me / Hồ Sơ Năng Lực) -->
+  <!-- Section Về Bản Thân (Hồ Sơ Năng Lực) -->
   <section id="about" class="container">
     <h2 class="section-title">⚡ Hồ Sơ Năng Lực</h2>
     
     <div class="profile-grid">
-      <!-- Profile Card trái với tính năng UPLOAD ẢNH cá nhân trực tiếp -->
+      <!-- Profile Card Trái với UPLOAD Ảnh cá nhân -->
       <div class="profile-card">
         <div class="avatar-wrapper">
           <div class="avatar-border"></div>
-          <!-- Ảnh đại diện cá nhân -->
           <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" id="avatar-img">
           
-          <!-- ĐỘT PHÁ: Nút Tải ảnh lên đè trực tiếp -->
-          <label class="upload-btn-overlay" title="Tải ảnh đại diện cá nhân lên">
+          <!-- Nút Tải ảnh đè lên avatar -->
+          <label class="upload-btn-overlay" title="Tải ảnh cá nhân của bạn lên">
             <i class="fa-solid fa-camera"></i>
             <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_avatar', 'avatar-img')">
           </label>
@@ -100,67 +1196,65 @@
         </div>
       </div>
 
-      <!-- Kỹ năng & Giới thiệu chi tiết phải (Cấu trúc 4 content-box dạng Grid) -->
+      <!-- Kỹ năng & Giới thiệu chi tiết phải (Cấu trúc 4 content-box) -->
       <div class="about-details">
         <!-- Box 1: Thông tin bản thân -->
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-user-tie" style="font-size: 0.9rem;"></i></span>
-            <h3>Một Chút Về Mình</h3>
+            <h3>Thông Tin Cá Nhân</h3>
           </div>
           <ul class="bullet-list">
             <li><strong>Họ tên:</strong> Đỗ Phương Thảo (13/08/2005) - Hải Phòng.</li>
-            <li><strong>Đại học:</strong> Sinh viên lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
-            <li><strong>Tư duy sống:</strong> Tiếp cận vấn đề tích cực và định hướng giải pháp hiệu quả.</li>
+            <li><strong>Đại học:</strong> Lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
+            <li><strong>Mục tiêu:</strong> Luôn nỗ lực hết mình vì mục tiêu chung của đội nhóm!</li>
           </ul>
         </div>
 
         <!-- Box 2: Hộp Kỹ năng -->
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-screwdriver-wrench" style="font-size: 0.9rem;"></i></span>
-            <h3>Kỹ Năng Cốt Lõi</h3>
+            <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.9rem;"></i></span>
+            <h3>Kỹ Năng Đột Phá</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Chuyên môn:</strong> Power BI (phân tích dữ liệu), Tin học văn phòng.</li>
-            <li><strong>Ngoại ngữ:</strong> IELTS 7.5 danh giá.</li>
-            <li><strong>Lãnh đạo:</strong> Tổ chức sự kiện, Lãnh đạo đội nhóm, Thuyết trình.</li>
+            <li><strong>Chứng chỉ:</strong> IELTS 7.5 thành thạo giao tiếp.</li>
+            <li><strong>Chuyên môn:</strong> Tin học văn phòng xuất sắc.</li>
+            <li><strong>Đội nhóm:</strong> Tổ chức sự kiện, Thuyết trình, Làm việc nhóm.</li>
           </ul>
           <div class="skills-grid">
             <div class="skill-tag">IELTS 7.5</div>
-            <div class="skill-tag">Power BI</div>
-            <div class="skill-tag">Office IT</div>
-            <div class="skill-tag">Events</div>
+            <div class="skill-tag">Tin học VP</div>
+            <div class="skill-tag">Sự kiện</div>
+            <div class="skill-tag">Teamwork</div>
           </div>
         </div>
 
-        <!-- Box 3: Kinh nghiệm nghề nghiệp -->
+        <!-- Box 3: Kinh nghiệm làm việc -->
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-lemon); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-briefcase" style="font-size: 0.9rem;"></i></span>
-            <h3>Kinh Nghiệm Thực Tế</h3>
+            <h3>Kinh Nghiệm Nghề Nghiệp</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 0;">
-            <li><strong>Gia sư tiếng Anh:</strong> Ôn tập ngữ pháp chuyên sâu, rèn phát âm chuẩn và luyện giao tiếp thực tế cho học sinh phổ thông.</li>
-            <li><strong>Phương pháp dạy:</strong> Sáng tạo giáo trình học sinh động, truyền động lực tự học cho học sinh.</li>
+            <li><strong>Gia sư tiếng Anh:</strong> Hỗ trợ củng cố ngữ pháp, chỉnh phát âm chuẩn và luyện phản xạ giao tiếp tự tin cho các em học sinh.</li>
           </ul>
         </div>
 
         <!-- Box 4: Sở thích cá nhân -->
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-gamepad" style="font-size: 0.9rem;"></i></span>
-            <h3>Sở Thích & Phong Cách</h3>
+            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-icons" style="font-size: 0.9rem;"></i></span>
+            <h3>Sở Thích Cá Nhân</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Cầu lông:</strong> Nâng cao thể lực và phản xạ nhạy bén.</li>
-            <li><strong>Nấu ăn:</strong> Làm bánh ngọt, tìm tòi công thức nấu ăn mới.</li>
-            <li><strong>Du lịch:</strong> Trải nghiệm văn hóa địa phương để làm giàu vốn sống.</li>
+            <li><strong>Nghỉ ngơi & Năng lượng:</strong> Nấu ăn ngon, Chơi cầu lông năng động, Chụp ảnh film hoài cổ, Du lịch cá nhân tự do.</li>
           </ul>
           <div class="hobby-tag-container">
-            <span class="hobby-tag">🏸 Cầu lông</span>
             <span class="hobby-tag">🍳 Nấu ăn</span>
-            <span class="hobby-tag">✈️ Du lịch</span>
+            <span class="hobby-tag">🏸 Cầu lông</span>
+            <span class="hobby-tag">📷 Chụp film</span>
+            <span class="hobby-tag">✈️ Du lịch cá nhân</span>
           </div>
         </div>
       </div>
@@ -170,78 +1264,117 @@
   <!-- Section Dự án (Projects) -->
   <section id="projects" style="background-color: var(--color-white); border-top: var(--border-main); border-bottom: var(--border-main);">
     <div class="container">
-      <h2 class="section-title">🎬 Dự Án Tiêu Biểu</h2>
+      <h2 class="section-title">🎬 Dự Án Từng Tham Gia</h2>
       
       <div class="projects-grid">
-        <!-- Dự án 1 -->
+        <!-- Dự án 1: SEA Games 31 -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-card-tag" style="background-color: var(--color-peach);">Differo 2022</span>
-            <h3>Debate Differo Expansion</h3>
+            <span class="project-card-tag" style="background-color: var(--color-peach);">Đại hội Thể thao</span>
+            <h3>SEA Games 31</h3>
           </div>
           <div class="project-card-body">
             <ul class="bullet-list">
-              <li><strong>Vai trò:</strong> Thành viên Ban Tổ chức chủ chốt.</li>
-              <li><strong>Nhiệm vụ chính:</strong> Trực tiếp lập kế hoạch hoạt động chi tiết cho giải đấu.</li>
-              <li><strong>Vận hành:</strong> Quản lý hậu cần chặt chẽ, tối ưu hóa toàn bộ quy trình vận hành giải đấu Debate mở rộng CLB Differo (2022).</li>
+              <li><strong>Vai trò:</strong> Tình nguyện viên.</li>
+              <li><strong>Nhiệm vụ:</strong> Phiên dịch, Hộ tống đoàn vận động viên quốc tế, Phục vụ nhiệt tình giải đấu.</li>
             </ul>
-          </div>
-          <div class="project-card-footer">
-            <button class="btn-bts" data-project="debate">
-              <i class="fa-solid fa-camera"></i>
-              <span>Behind the scenes</span>
-            </button>
+            
+            <!-- ĐỘT PHÁ: Khung ảnh Polaroid nhỏ chèn trực tiếp dưới card dự án kèm upload ảnh -->
+            <div class="project-polaroid-frame">
+              <div class="project-img-wrapper">
+                <img src="assets/project-1.jpg" alt="SEA Games 31" class="project-img" id="project-1-img">
+                <!-- Nút tải ảnh đè lên -->
+                <label class="upload-btn-overlay" title="Tải ảnh dự án 1 lên">
+                  <i class="fa-solid fa-camera"></i>
+                  <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_1', 'project-1-img')">
+                </label>
+              </div>
+              <div class="project-polaroid-caption">Kỷ niệm SEA Games 31 🏆</div>
+            </div>
           </div>
         </div>
 
-        <!-- Dự án 2 -->
+        <!-- Dự án 2: Differo Debate -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-card-tag" style="background-color: var(--color-mint);">FTU Events 23-24</span>
-            <h3>Sự Kiện Đoàn Thanh Niên FTU</h3>
+            <span class="project-card-tag" style="background-color: var(--color-mint);">DIF Debate Club</span>
+            <h3>Giải Debate Differo 2022</h3>
           </div>
           <div class="project-card-body">
             <ul class="bullet-list">
-              <li><strong>Vai trò:</strong> Thành viên Ban Tổ chức năng nổ.</li>
-              <li><strong>Nhiệm vụ chính:</strong> Lên ý tưởng sáng tạo cho chuỗi sự kiện Đoàn.</li>
-              <li><strong>Điều phối:</strong> Quản lý nhân sự các phân ban, điều phối quy trình vận hành sự kiện trực tiếp tại FTU giai đoạn 2023 - 2024.</li>
+              <li><strong>Vai trò:</strong> Ban Tổ chức.</li>
+              <li><strong>Nhiệm vụ:</strong> Tổ chức hậu cần chu đáo, sắp xếp lịch trình giải đấu logic, Giám khảo chuyên môn khách quan.</li>
             </ul>
+            
+            <!-- Khung ảnh Polaroid nhỏ chèn trực tiếp kèm upload ảnh -->
+            <div class="project-polaroid-frame">
+              <div class="project-img-wrapper">
+                <img src="assets/project-2.jpg" alt="Debate Differo" class="project-img" id="project-2-img">
+                <!-- Nút tải ảnh đè lên -->
+                <label class="upload-btn-overlay" title="Tải ảnh dự án 2 lên">
+                  <i class="fa-solid fa-camera"></i>
+                  <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_2', 'project-2-img')">
+                </label>
+              </div>
+              <div class="project-polaroid-caption">Setup giải đấu Differo 💻🎤</div>
+            </div>
           </div>
-          <div class="project-card-footer">
-            <button class="btn-bts" data-project="ftu">
-              <i class="fa-solid fa-camera"></i>
-              <span>Behind the scenes</span>
-            </button>
+        </div>
+
+        <!-- Dự án 3: Đoàn Thanh niên -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-tag" style="background-color: var(--color-lemon);">FYU Gen 19</span>
+            <h3>Đoàn Thanh Niên FTU</h3>
+          </div>
+          <div class="project-card-body">
+            <ul class="bullet-list">
+              <li><strong>Vai trò:</strong> Ban Tư tưởng - Văn hóa.</li>
+              <li><strong>Nhiệm vụ:</strong> Hỗ trợ lên kế hoạch và tổ chức các sự kiện thuộc Đoàn Thanh niên ĐH Ngoại thương (2023-2024).</li>
+            </ul>
+            
+            <!-- Khung ảnh Polaroid nhỏ chèn trực tiếp kèm upload ảnh -->
+            <div class="project-polaroid-frame">
+              <div class="project-img-wrapper">
+                <img src="assets/project-3.jpg" alt="Đoàn Thanh Niên" class="project-img" id="project-3-img">
+                <!-- Nút tải ảnh đè lên -->
+                <label class="upload-btn-overlay" title="Tải ảnh dự án 3 lên">
+                  <i class="fa-solid fa-camera"></i>
+                  <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_3', 'project-3-img')">
+                </label>
+              </div>
+              <div class="project-polaroid-caption">Sự kiện Đoàn FTU 🚩🎨</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section Kỷ Niệm Cá Nhân - Photo Stack -->
+  <!-- Section Kỷ Niệm Đáng Nhớ - Photo Stack -->
   <section id="memories" class="memories-section">
     <div class="container">
-      <h2 class="section-title" style="margin-bottom: 20px;">📸 Hoạt Động & Kỷ Niệm</h2>
+      <h2 class="section-title" style="margin-bottom: 20px;">📸 Kỷ Niệm Đáng Nhớ</h2>
       <div class="photo-stack-container">
         <div class="photo-stack-instructions">
           <i class="fa-solid fa-hand-pointer" style="animation: bounceSlow 1.5s infinite alternate;"></i> 
           Bấm vào tấm ảnh trên cùng để trượt xem ảnh tiếp theo nhé!
         </div>
         
-        <!-- Chồng ảnh tương tác 3D tích hợp nút UPLOAD ẢNH từng tấm -->
+        <!-- Chồng ảnh tương tác 3D tích hợp upload ảnh trực tiếp -->
         <div class="photo-stack" id="photo-stack">
           <!-- Ảnh kỷ niệm 1: Du lịch -->
           <div class="stack-card" data-index="0">
             <div class="stack-card-img-wrapper">
-              <img src="assets/memory-1.jpg" alt="Du lịch trải nghiệm" class="stack-card-img" id="mem-img-1">
+              <img src="assets/memory-1.jpg" alt="Du lịch cá nhân" class="stack-card-img" id="mem-img-1">
               
-              <!-- Nút tải ảnh đè lên ảnh 1 -->
+              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 1 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_1', 'mem-img-1')">
               </label>
             </div>
-            <div class="stack-card-caption">Rực rỡ những chuyến đi khám phá ✈️🌅</div>
+            <div class="stack-card-caption">Du lịch cá nhân tự do ✈️🌴</div>
           </div>
           
           <!-- Ảnh kỷ niệm 2: Nấu ăn -->
@@ -249,13 +1382,13 @@
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-2.jpg" alt="Nấu ăn làm bánh" class="stack-card-img" id="mem-img-2">
               
-              <!-- Nút tải ảnh đè lên ảnh 2 -->
+              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 2 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_2', 'mem-img-2')">
               </label>
             </div>
-            <div class="stack-card-caption">Trổ tài làm bánh ngọt cực đỉnh 🍳🧁</div>
+            <div class="stack-card-caption">Khám phá công thức nấu ăn 🍳🍰</div>
           </div>
           
           <!-- Ảnh kỷ niệm 3: Cầu lông -->
@@ -263,61 +1396,61 @@
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-3.jpg" alt="Chơi cầu lông" class="stack-card-img" id="mem-img-3">
               
-              <!-- Nút tải ảnh đè lên ảnh 3 -->
+              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 3 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_3', 'mem-img-3')">
               </label>
             </div>
-            <div class="stack-card-caption">Những trận cầu lông kịch tính 🏸🔥</div>
+            <div class="stack-card-caption">Rèn luyện phản xạ cầu lông 🏸🔥</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section Bảng ghim kỷ niệm (Professional Testimonials / Đánh Giá Từ Cộng Sự) -->
+  <!-- Section Bảng ghim kỷ niệm (Wall of Smiles) -->
   <section id="wall" class="container">
-    <h2 class="section-title">💬 Đánh Giá Từ Cộng Sự</h2>
+    <h2 class="section-title">🥰 Bảng Ghim Kỷ Niệm (Wall of Smiles)</h2>
     
     <div class="wall-of-smiles">
       <!-- Notes Container -->
       <div class="notes-container" id="notes-container">
         <!-- Note 1 -->
         <div class="sticky-note note-lemon note-rot-l">
-          <p class="note-message">"Thảo siêu đáng yêu và làm việc cực kỳ trách nhiệm luôn! Cảm ơn cậu đã luôn mang năng lượng tích cực cho cả đội nhé! ❤️"</p>
+          <p class="note-message">Thảo siêu đáng yêu và làm việc cực kỳ trách nhiệm luôn! Cảm ơn cậu đã luôn mang năng lượng tích cực cho cả đội nhé! ❤️</p>
           <p class="note-author">— Khánh Linh (Differo Team)</p>
         </div>
         <!-- Note 2 -->
         <div class="sticky-note note-peach note-rot-r">
-          <p class="note-message">"Một trưởng ban hậu cần siêu đẳng, giải quyết sự cố trong vòng 1 nốt nhạc! Đúng chuẩn FTU-er đa tài."</p>
-          <p class="note-author">— Hoàng Minh (FTU 2023)</p>
+          <p class="note-message">Một tình nguyện viên SEA Games siêu năng nổ, dịch cabin và hướng dẫn đoàn chuẩn không cần chỉnh! Cảm ơn Thảo rất nhiều.</p>
+          <p class="note-author">— Hoàng Minh (BTC SEA Games)</p>
         </div>
         <!-- Note 3 -->
         <div class="sticky-note note-mint note-rot-s">
-          <p class="note-message">"Học giỏi, thuyết trình hay lại còn hát siêu hay nữa chứ. Sạc đầy năng lượng mỗi khi nói chuyện cùng Thảo!"</p>
-          <p class="note-author">— Mai Anh (Lớp Anh 03)</p>
+          <p class="note-message">Thành viên ban tư tưởng văn hóa năng nổ nhất, luôn khuấy động không khí sự kiện FTU siêu đỉnh!</p>
+          <p class="note-author">— Mai Anh (FYU Gen 19)</p>
         </div>
       </div>
 
       <!-- Form gửi review -->
       <div class="review-form-container">
-        <h3><i class="fa-solid fa-pen-fancy" style="color: var(--color-peach);"></i> Gửi Đánh Giá Cho Thảo</h3>
+        <h3><i class="fa-solid fa-pen-fancy" style="color: var(--color-peach);"></i> Gửi Lời Yêu Thương Cho Thảo</h3>
         
         <!-- Netlify Form -->
         <form name="thao-portfolio-reviews" method="POST" data-netlify="true" id="review-form">
           <div class="form-group">
-            <label for="review-name">Tên của bạn và phân ban/đội nhóm: 😊</label>
-            <input type="text" id="review-name" name="name" class="form-control" placeholder="Ví dụ: Nguyễn Văn A (Differo Team)..." required>
+            <label for="review-name">Tên của bạn là gì? 😊</label>
+            <input type="text" id="review-name" name="name" class="form-control" placeholder="Nhập tên của bạn..." required>
           </div>
           
           <div class="form-group">
-            <label for="review-text">Cảm nghĩ hoặc phản hồi công việc của bạn: ✨</label>
-            <textarea id="review-text" name="message" class="form-control" placeholder="Viết phản hồi công việc hoặc kỷ niệm đồng hành cùng Thảo..." required></textarea>
+            <label for="review-text">Lời chúc hoặc cảm nghĩ gửi tới Thảo? ✨</label>
+            <textarea id="review-text" name="message" class="form-control" placeholder="Viết vài dòng ngọt ngào gửi tới Thảo nhé..." required></textarea>
           </div>
           
           <button type="submit" class="btn-submit">
-            <i class="fa-solid fa-paper-plane"></i> Gửi đánh giá
+            <i class="fa-solid fa-paper-plane"></i> Gửi review
           </button>
         </form>
       </div>
@@ -331,41 +1464,15 @@
     </div>
   </footer>
 
-  <!-- Modal Behind the Scenes có tích hợp nút Upload ảnh trực quan -->
-  <div class="modal" id="bts-modal">
-    <div class="modal-content" style="position: relative;">
-      <span class="close-modal" id="close-modal">&times;</span>
-      
-      <div class="bts-story-badge">🎬 Hậu trường deadline</div>
-      <div class="polaroid-frame" style="position: relative;">
-        <div class="polaroid-img-wrapper" id="polaroid-wrapper">
-          <!-- Ảnh sẽ được load bằng JS -->
-        </div>
-        
-        <!-- ĐỘT PHÁ: Nút Tải ảnh BTS trực tiếp trong modal -->
-        <label class="upload-btn-overlay" style="bottom: 85px; right: 25px; z-index: 100;" title="Tải ảnh chạy deadline của dự án này lên">
-          <i class="fa-solid fa-camera"></i>
-          <input type="file" accept="image/*" style="display: none;" id="bts-file-input">
-        </label>
-        
-        <div class="polaroid-caption" id="polaroid-caption">Kỷ niệm chạy deadline đáng nhớ!</div>
-      </div>
-    </div>
-  </div>
-
   <!-- JavaScript Logic -->
   <script>
     // ----------------------------------------------------
     // ĐỘT PHÁ: TÍNH NĂNG UPLOAD VÀ LƯU ẢNH TRỰC TIẾP TRÊN GIAO DIỆN (LOCAL STORAGE)
     // ----------------------------------------------------
-    let currentBtsProjectKey = ''; // Lưu tên dự án đang mở modal để upload ảnh đúng chỗ
-
-    // Hàm chung xử lý tải ảnh lên Base64
     function uploadImage(input, storageKey, targetImgId) {
       if (input.files && input.files[0]) {
         const file = input.files[0];
         
-        // Kiểm tra dung lượng file (giới hạn 2MB cho LocalStorage an toàn)
         if (file.size > 2 * 1024 * 1024) {
           alert('Ảnh của bạn lớn hơn 2MB! Vui lòng chọn file nhẹ hơn hoặc nén ảnh lại để lưu trữ cục bộ nhé.');
           return;
@@ -379,20 +1486,13 @@
             // Lưu vào LocalStorage
             localStorage.setItem(storageKey, base64Data);
             
-            // Cập nhật ảnh lên UI
+            // Cập nhật ảnh lên UI ngay lập tức
             const imgEl = document.getElementById(targetImgId);
             if (imgEl) {
               imgEl.src = base64Data;
             }
-            
-            // Cập nhật nguồn dữ liệu bts để mở lần sau không bị lỗi
-            if (storageKey === 'thao_portfolio_bts_debate') {
-              projectImages.debate.src = base64Data;
-            } else if (storageKey === 'thao_portfolio_bts_ftu') {
-              projectImages.ftu.src = base64Data;
-            }
 
-            // Hiệu ứng confetti chúc mừng tải ảnh thành công!
+            // Hiệu ứng pháo hoa giấy confetti chúc mừng tải ảnh thành công!
             createConfetti(null, input.parentElement);
           } catch (err) {
             alert('Có lỗi xảy ra khi lưu ảnh. Bạn hãy kiểm tra lại dung lượng ảnh nhé.');
@@ -402,57 +1502,13 @@
       }
     }
 
-    // Lắng nghe sự kiện tải ảnh cho Behind the Scenes Modal
-    const btsFileInput = document.getElementById('bts-file-input');
-    if (btsFileInput) {
-      btsFileInput.addEventListener('change', function() {
-        if (currentBtsProjectKey) {
-          const storageKey = `thao_portfolio_bts_${currentBtsProjectKey}`;
-          
-          if (this.files && this.files[0]) {
-            const file = this.files[0];
-            if (file.size > 2 * 1024 * 1024) {
-              alert('Ảnh của bạn lớn hơn 2MB! Vui lòng chọn file nhẹ hơn để nén và tải lên nhé.');
-              return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-              const base64Data = e.target.result;
-              try {
-                localStorage.setItem(storageKey, base64Data);
-                
-                // Cập nhật ảnh trong polaroid hiện tại
-                const modalImg = polaroidWrapper.querySelector('.polaroid-img');
-                if (modalImg) {
-                  modalImg.src = base64Data;
-                } else {
-                  // Trường hợp đang hiện placeholder, vẽ đè thẻ img lên
-                  const img = document.createElement('img');
-                  img.src = base64Data;
-                  img.className = 'polaroid-img';
-                  polaroidWrapper.innerHTML = '';
-                  polaroidWrapper.appendChild(img);
-                }
-                
-                // Đồng bộ cập nhật vào projectImages
-                projectImages[currentBtsProjectKey].src = base64Data;
-                
-                createConfetti(null, btsFileInput.parentElement);
-              } catch (err) {
-                alert('Có lỗi xảy ra khi lưu ảnh. Vui lòng chọn ảnh nhẹ hơn.');
-              }
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      });
-    }
-
     // Tự động quét và nạp ảnh từ LocalStorage khi khởi tạo trang web
     document.addEventListener('DOMContentLoaded', () => {
       const storageMappings = {
         'thao_portfolio_avatar': 'avatar-img',
+        'thao_portfolio_proj_1': 'project-1-img',
+        'thao_portfolio_proj_2': 'project-2-img',
+        'thao_portfolio_proj_3': 'project-3-img',
         'thao_portfolio_mem_1': 'mem-img-1',
         'thao_portfolio_mem_2': 'mem-img-2',
         'thao_portfolio_mem_3': 'mem-img-3'
@@ -465,44 +1521,53 @@
           if (imgEl) imgEl.src = savedBase64;
         }
       }
-      
-      // Đồng bộ ảnh Behind local cho object projects
-      const savedDebateBts = localStorage.getItem('thao_portfolio_bts_debate');
-      if (savedDebateBts) projectImages.debate.src = savedDebateBts;
-      
-      const savedFtuBts = localStorage.getItem('thao_portfolio_bts_ftu');
-      if (savedFtuBts) projectImages.ftu.src = savedFtuBts;
     });
 
     // ----------------------------------------------------
-    // CƠ CHẾ SỬA LỖI TỰ ĐỘNG CHO AVATAR (LỖI ĐUÔI KÉP .jpg.jpg)
+    // CƠ CHẾ SỬA LỖI TỰ ĐỘNG KHI TẢI FILE TĨNH (FALLBACK KHÔNG BỊ LỖI GIAO DIỆN)
     // ----------------------------------------------------
-    if (avatarImg) {
-      avatarImg.addEventListener('error', function handleAvatarError() {
-        const currentSrc = this.src;
-        // Tránh vòng lặp lỗi nếu đã load Base64
-        if (currentSrc.startsWith('data:image')) return;
-        
-        if (currentSrc.endsWith('avatar.jpg') && !currentSrc.endsWith('avatar.jpg.jpg')) {
-          this.src = 'assets/avatar.jpg.jpg';
-        } else if (currentSrc.endsWith('avatar.jpg.jpg')) {
-          this.src = 'assets/avatar.png';
-        } else {
-          this.src = 'https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao';
-        }
-      });
-    }
+    const errorFallbacks = {
+      'avatar-img': 'https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao',
+      'project-1-img': 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=400&auto=format&fit=crop&q=80',
+      'project-2-img': 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&auto=format&fit=crop&q=80',
+      'project-3-img': 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&auto=format&fit=crop&q=80',
+      'mem-img-1': 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&auto=format&fit=crop&q=80',
+      'mem-img-2': 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400&auto=format&fit=crop&q=80',
+      'mem-img-3': 'https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400&auto=format&fit=crop&q=80'
+    };
+
+    Object.keys(errorFallbacks).forEach(imgId => {
+      const imgEl = document.getElementById(imgId);
+      if (imgEl) {
+        imgEl.addEventListener('error', function handleError() {
+          const currentSrc = this.src;
+          // Tránh vòng lặp vô hạn nếu đã dùng Base64
+          if (currentSrc.startsWith('data:image')) return;
+
+          // Hỗ trợ tự vá lỗi đặt trùng đuôi .jpg.jpg trên Windows
+          if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
+            this.src = currentSrc + '.jpg';
+          } 
+          else if (currentSrc.endsWith('.jpg.jpg')) {
+            this.src = currentSrc.replace('.jpg.jpg', '.png');
+          }
+          // Fallback về ảnh stock nếu hoàn toàn không tìm thấy ảnh trong assets
+          else {
+            this.src = errorFallbacks[imgId];
+          }
+        });
+      }
+    });
 
     // ----------------------------------------------------
-    // YÊU CẦU 1: NHẬN THÔNG ĐIỆP HÀNH ĐỘNG & CONFETTI PHÁO HOA TUNG TÓE
+    // YÊU CẦU 1: NHẬN NĂNG LƯỢNG NGẪU NHIÊN & CONFETTI PHÁO HOA TUNG TÓE
     // ----------------------------------------------------
-    // Đổi thành các câu quote truyền cảm hứng làm việc chuyên nghiệp, phát triển bản thân
     const energyQuotes = [
-      "✨ \"Hiệu suất làm việc thực sự bắt đầu từ một thái độ sống và làm việc tích cực!\" — Hãy giữ nụ cười và hành động ngay hôm nay.",
-      "🚀 \"Hãy tập trung 100% vào việc tìm kiếm giải pháp, thay vì ngồi lo lắng hay đổ lỗi cho hoàn cảnh.\" — Sẵn sàng chinh phục mục tiêu mới!",
-      "💡 \"Học hỏi không bao giờ là muộn. Mỗi lỗi sai hôm nay là nền móng của sự chuyên nghiệp ngày mai.\" — Cố lên nhé!",
-      "🤝 \"Lãnh đạo giỏi không phải là người ra lệnh giỏi, mà là người biết khơi gợi sức mạnh tập thể và truyền lửa cho cộng sự.\"",
-      "🎯 \"Đầu tư tốt nhất là đầu tư vào tri thức và phát triển bản thân. Sạc đầy năng lượng để bắt đầu những bước đi bứt phá!\""
+      "Cậu đang làm rất tốt rồi, hôm nay hãy cười thật nhiều nhé! ✨",
+      "Một ngày mới tràn đầy cơ hội đang chờ cậu. Sạc đầy 100% năng lượng nào! ⚡",
+      "Đừng quên uống nước và dành cho bản thân một cái ôm thật ấm áp nhé! 🥤",
+      "Mọi nỗ lực của cậu đều đang gặt hái kết quả. Hãy tin vào chính mình! 🌟",
+      "Hôm nay là một ngày tuyệt vời để bắt đầu một điều tuyệt vời! 🚀"
     ];
 
     const btnCharge = document.getElementById('btn-charge');
@@ -513,7 +1578,7 @@
     function createConfetti(event, targetElement) {
       const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61', '#4D96FF', '#FF6B6B'];
       const shapes = ['square', 'circle', 'triangle'];
-      const particleCount = 65;
+      const particleCount = 70;
       
       let startX, startY;
       if (event && event.clientX) {
@@ -557,7 +1622,7 @@
         }
         
         const angle = Math.random() * Math.PI * 2;
-        const velocity = Math.random() * 300 + 100;
+        const velocity = Math.random() * 320 + 120;
         
         const destX = Math.cos(angle) * velocity;
         const destY = Math.sin(angle) * velocity + (Math.random() * 100 - 50); 
@@ -586,146 +1651,20 @@
       createConfetti(e);
     });
 
-    // ----------------------------------------------------
-    // YÊU CẦU 2: BEHIND THE SCENES MODAL & FALLBACK SỬA LỖI TÊN FILE
-    // ----------------------------------------------------
-    const btsModal = document.getElementById('bts-modal');
-    const closeModal = document.getElementById('close-modal');
-    const polaroidWrapper = document.getElementById('polaroid-wrapper');
-    const polaroidCaption = document.getElementById('polaroid-caption');
-
-    const projectImages = {
-      debate: {
-        src: 'assets/deadline-debate.jpg',
-        caption: 'Hậu trường setup giải Debate Differo 2022! 💻🍕<br><span style="font-weight: 500; font-size: 0.95rem; display: block; margin-top: 8px; color: #555;">Kỷ niệm đáng nhớ: Cả đội uống hết 15 cốc trà sữa, cãi nhau nảy lửa từ luật thi đấu đến màu background slide, và cuối cùng thức đến 3 giờ sáng để dán từng miếng sticker hậu cần!</span>',
-        alt: 'Chạy deadline Debate Differo'
-      },
-      ftu: {
-        src: 'assets/deadline-ftu.jpg',
-        caption: 'Một tối chạy sự kiện trực tiếp tại FTU, mệt rã rời nhưng ngập tràn tiếng cười! 🚩🎪<br><span style="font-weight: 500; font-size: 0.95rem; display: block; margin-top: 8px; color: #555;">Sự tích chạy deadline: Đang dựng sân khấu thì trời mưa giông đột xuất, cả đám BTC hốt hoảng ôm phông bạt chạy đi trú ẩn, ướt như chuột lột nhưng vẫn tranh thủ selfie cười toe toét!</span>',
-        alt: 'Chuẩn bị sự kiện Đoàn FTU'
-      }
-    };
-
-    function loadProjectImageWithFallback(imgElement, initialSrc, altText) {
-      // Tránh lặp nếu đã load Base64
-      if (initialSrc.startsWith('data:image')) {
-        imgElement.src = initialSrc;
-        imgElement.alt = altText;
-        imgElement.className = 'polaroid-img';
-        polaroidWrapper.innerHTML = '';
-        polaroidWrapper.appendChild(imgElement);
-        return;
-      }
-
-      imgElement.src = initialSrc;
-      imgElement.alt = altText;
-      imgElement.className = 'polaroid-img';
-      
-      imgElement.onerror = function() {
-        const currentSrc = this.src;
-        if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
-          const doubleExtSrc = initialSrc + '.jpg';
-          this.src = doubleExtSrc;
-        } 
-        else if (currentSrc.endsWith('.jpg.jpg')) {
-          const pngSrc = initialSrc.replace('.jpg', '.png');
-          this.src = pngSrc;
-        }
-        else {
-          polaroidWrapper.innerHTML = `
-            <div class="img-placeholder-text">
-              <i class="fa-solid fa-circle-info"></i>
-              Chưa tìm thấy ảnh <strong>${initialSrc}</strong>.<br>
-              <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Bạn có thể bấm nút **Tải ảnh lên** màu vàng ngay góc để update ảnh trực quan nhé!</span>
-            </div>
-          `;
-        }
-      };
-      
-      polaroidWrapper.innerHTML = '';
-      polaroidWrapper.appendChild(imgElement);
-    }
-
-    document.querySelectorAll('.btn-bts').forEach(button => {
-      button.addEventListener('click', (e) => {
-        const projectId = button.getAttribute('data-project');
-        currentBtsProjectKey = projectId; // Cập nhật dự án đang mở
-        
-        const projectData = projectImages[projectId];
-        
-        if (projectData) {
-          polaroidCaption.innerHTML = projectData.caption;
-          const img = document.createElement('img');
-          loadProjectImageWithFallback(img, projectData.src, projectData.alt);
-          
-          btsModal.style.display = 'flex';
-          document.body.style.overflow = 'hidden'; 
-          createConfetti(e);
-        }
-      });
-    });
-
-    function closeBtsModal() {
-      btsModal.style.display = 'none';
-      document.body.style.overflow = '';
-      currentBtsProjectKey = ''; // Reset dự án mở
-    }
-
-    closeModal.addEventListener('click', closeBtsModal);
-    btsModal.addEventListener('click', (e) => {
-      if (e.target === btsModal) closeBtsModal();
-    });
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && btsModal.style.display === 'flex') closeBtsModal();
-    });
-
 
     // ----------------------------------------------------
-    // TÍNH NĂNG: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
+    // YÊU CẦU 4: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
     // ----------------------------------------------------
     const photoStack = document.getElementById('photo-stack');
     const cards = Array.from(photoStack.getElementsByClassName('stack-card'));
     
     let cardZIndexes = [30, 20, 10];
-    let cardRotations = [-1, 4, -3];
+    let cardRotations = [-1.5, 4.5, -3.5];
     let isSwiping = false;
     let swipeDirectionLeft = true;
 
-    const memoryImages = [
-      { id: 'mem-img-1', defaultUrl: 'assets/memory-1.jpg', fallbackTag: 'nature' },
-      { id: 'mem-img-2', defaultUrl: 'assets/memory-2.jpg', fallbackTag: 'food' },
-      { id: 'mem-img-3', defaultUrl: 'assets/memory-3.jpg', fallbackTag: 'sports' }
-    ];
-
-    memoryImages.forEach(imgData => {
-      const imgEl = document.getElementById(imgData.id);
-      if (imgEl) {
-        imgEl.addEventListener('error', function handleMemoryError() {
-          const currentSrc = this.src;
-          if (currentSrc.startsWith('data:image')) return;
-          
-          if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
-            this.src = imgData.defaultUrl + '.jpg';
-          } 
-          else if (currentSrc.endsWith('.jpg.jpg')) {
-            this.src = imgData.defaultUrl.replace('.jpg', '.png');
-          }
-          else {
-            console.log(`Tải ảnh Unsplash dự phòng cho ${imgData.defaultUrl}...`);
-            this.src = `https://images.unsplash.com/photo-${
-              imgData.fallbackTag === 'nature' ? '1507525428034-b723cf961d3e' : 
-              imgData.fallbackTag === 'food' ? '1555507036-ab1f4038808a' : 
-              '1517649763962-0c623066013b'
-            }?w=400&auto=format&fit=crop&q=80`;
-          }
-        });
-      }
-    });
-
     cards.forEach((card, index) => {
       card.addEventListener('click', (e) => {
-        // Ngăn việc click nút upload kích hoạt vuốt card
         if (e.target.closest('.upload-btn-overlay')) return;
 
         const currentZ = parseInt(window.getComputedStyle(card).zIndex);
@@ -784,7 +1723,7 @@
       note.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
       
       note.innerHTML = `
-        <p class="note-message">"${message}"</p>
+        <p class="note-message">${message}</p>
         <p class="note-author">— ${author}</p>
       `;
       
@@ -792,9 +1731,9 @@
       
       setTimeout(() => {
         note.style.opacity = '1';
-        let rotationAngle = -2.5;
-        if (randomRotation === 'note-rot-r') rotationAngle = 3.5;
-        if (randomRotation === 'note-rot-s') rotationAngle = 1;
+        let rotationAngle = -3.5;
+        if (randomRotation === 'note-rot-r') rotationAngle = 4;
+        if (randomRotation === 'note-rot-s') rotationAngle = -1.5;
         note.style.transform = `scale(1) translateY(0) rotate(${rotationAngle}deg)`;
       }, 50);
       

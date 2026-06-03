@@ -8,6 +8,11 @@
   <!-- Favicon (Emoji vui vẻ) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   
+  <!-- Google Fonts - Khai báo trực tiếp Lexend và Nunito hỗ trợ đầy đủ Tiếng Việt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
@@ -30,6 +35,7 @@
         <ul>
           <li><a href="#about"><i class="fa-solid fa-user"></i> Về Thảo</a></li>
           <li><a href="#projects"><i class="fa-solid fa-bolt"></i> Dự án</a></li>
+          <li><a href="#memories"><i class="fa-solid fa-images"></i> Kỷ niệm</a></li>
           <li><a href="#wall"><i class="fa-solid fa-face-smile"></i> Bảng ghim</a></li>
         </ul>
       </nav>
@@ -71,7 +77,7 @@
         <div class="avatar-wrapper">
           <div class="avatar-border"></div>
           <!-- Ảnh đại diện cá nhân -->
-          <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao'; console.log('Đang dùng avatar tạm thời từ DiceBear. Vui lòng thêm avatar.jpg vào thư mục assets.');">
+          <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" id="avatar-img">
         </div>
         <h3>Đỗ Phương Thảo</h3>
         <p class="subtitle"><i class="fa-solid fa-cake-candles"></i> 13/08/2005 • Hải Phòng</p>
@@ -83,42 +89,67 @@
         </div>
       </div>
 
-      <!-- Kỹ năng & Giới thiệu chi tiết phải -->
+      <!-- Kỹ năng & Giới thiệu chi tiết phải (Cấu trúc 4 content-box dạng Grid) -->
       <div class="about-details">
+        <!-- Box 1: Thông tin bản thân -->
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-heart" style="font-size: 0.9rem;"></i></span>
             <h3>Một Chút Về Mình</h3>
           </div>
-          <!-- Thông tin cá nhân gạch đầu dòng -->
           <ul class="bullet-list">
-            <li><strong>Họ và tên:</strong> Đỗ Phương Thảo (Sinh ngày 13/08/2005) - Quê quán: Hải Phòng.</li>
-            <li><strong>Học tập:</strong> Hiện đang là Sinh viên lớp Anh 03 - CLCQT - K62, Trường Đại học Ngoại thương.</li>
-            <li><strong>Phương châm sống:</strong> Luôn hướng về phía mặt trời để bóng tối ngả sau lưng! ☀️</li>
+            <li><strong>Họ tên:</strong> Đỗ Phương Thảo (13/08/2005) - Hải Phòng.</li>
+            <li><strong>Học tập:</strong> Lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
+            <li><strong>Phương châm:</strong> Luôn hướng về mặt trời! ☀️</li>
           </ul>
         </div>
 
+        <!-- Box 2: Hộp Kỹ năng -->
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.9rem;"></i></span>
-            <h3>Hộp Dụng Cụ Kỹ Năng</h3>
+            <h3>Kỹ Năng Của Thảo</h3>
           </div>
-          <!-- Kỹ năng gạch đầu dòng -->
-          <ul class="bullet-list" style="margin-bottom: 24px;">
-            <li><strong>Chứng chỉ:</strong> Đạt chứng chỉ IELTS 7.5 danh giá.</li>
-            <li><strong>Phân tích dữ liệu:</strong> Sử dụng thành thạo Power BI để vẽ biểu đồ và phân tích số liệu.</li>
-            <li><strong>Tin học:</strong> Sử dụng tốt các công cụ Tin học văn phòng (Word, Excel, PowerPoint).</li>
-            <li><strong>Hợp tác & Lãnh đạo:</strong> Có khả năng Tổ chức sự kiện chuyên nghiệp, Lãnh đạo đội nhóm hiệu quả, Thuyết trình tự tin trước đám đông.</li>
+          <ul class="bullet-list" style="margin-bottom: 15px;">
+            <li><strong>Chứng chỉ:</strong> IELTS 7.5 tự tin giao tiếp.</li>
+            <li><strong>Dữ liệu & Văn phòng:</strong> Power BI, Tin học văn phòng.</li>
+            <li><strong>Đội nhóm:</strong> Tổ chức sự kiện, Lãnh đạo đội nhóm, Thuyết trình.</li>
           </ul>
-          
-          <!-- Tags Kỹ năng trực quan -->
           <div class="skills-grid">
             <div class="skill-tag">IELTS 7.5</div>
             <div class="skill-tag">Power BI</div>
             <div class="skill-tag">Office IT</div>
-            <div class="skill-tag">Event Planning</div>
-            <div class="skill-tag">Leadership</div>
-            <div class="skill-tag">Public Speaking</div>
+            <div class="skill-tag">Events</div>
+          </div>
+        </div>
+
+        <!-- Box 3: Kinh nghiệm nghề nghiệp (MỚI) -->
+        <div class="content-box">
+          <div class="content-box-title">
+            <span style="background-color: var(--color-lemon); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-briefcase" style="font-size: 0.9rem;"></i></span>
+            <h3>Kinh Nghiệm Làm Việc</h3>
+          </div>
+          <ul class="bullet-list" style="margin-bottom: 0;">
+            <li><strong>Gia sư tiếng Anh:</strong> Chuyên hướng dẫn ngữ pháp, luyện phát âm và kỹ năng giao tiếp tiếng Anh cơ bản & nâng cao cho học sinh phổ thông.</li>
+            <li><strong>Truyền cảm hứng:</strong> Áp dụng các phương pháp giảng dạy tương tác, giúp học sinh thêm hứng thú và yêu thích môn học.</li>
+          </ul>
+        </div>
+
+        <!-- Box 4: Sở thích cá nhân (MỚI) -->
+        <div class="content-box">
+          <div class="content-box-title">
+            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-circle-nodes" style="font-size: 0.9rem;"></i></span>
+            <h3>Sở Thích Cá Nhân</h3>
+          </div>
+          <ul class="bullet-list" style="margin-bottom: 15px;">
+            <li><strong>Cầu lông:</strong> Môn thể thao yêu thích giúp rèn luyện thể lực và phản xạ nhanh nhẹn.</li>
+            <li><strong>Nấu ăn:</strong> Trổ tài làm bánh và sáng tạo các món ngon gắn kết gia đình.</li>
+            <li><strong>Du lịch:</strong> Khám phá danh lam thắng cảnh để mở rộng tầm mắt và nạp năng lượng.</li>
+          </ul>
+          <div class="hobby-tag-container">
+            <span class="hobby-tag">🏸 Cầu lông</span>
+            <span class="hobby-tag">🍳 Nấu ăn</span>
+            <span class="hobby-tag">✈️ Du lịch</span>
           </div>
         </div>
       </div>
@@ -170,6 +201,46 @@
               <i class="fa-solid fa-camera"></i>
               <span>Behind the scenes</span>
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Kỷ Niệm Cá Nhân - Photo Stack (MỚI) -->
+  <section id="memories" class="memories-section">
+    <div class="container">
+      <h2 class="section-title" style="margin-bottom: 20px;">📸 Góc Kỷ Niệm Vui Vẻ</h2>
+      <div class="photo-stack-container">
+        <div class="photo-stack-instructions">
+          <i class="fa-solid fa-hand-pointer" style="animation: bounceSlow 1.5s infinite alternate;"></i> 
+          Bấm vào tấm ảnh trên cùng để trượt xem ảnh tiếp theo nhé!
+        </div>
+        
+        <!-- Chồng ảnh tương tác 3D -->
+        <div class="photo-stack" id="photo-stack">
+          <!-- Ảnh kỷ niệm 1: Du lịch -->
+          <div class="stack-card" data-index="0">
+            <div class="stack-card-img-wrapper">
+              <img src="assets/memory-1.jpg" alt="Du lịch trải nghiệm" class="stack-card-img" id="mem-img-1">
+            </div>
+            <div class="stack-card-caption">Rực rỡ những chuyến đi khám phá ✈️🌅</div>
+          </div>
+          
+          <!-- Ảnh kỷ niệm 2: Nấu ăn -->
+          <div class="stack-card" data-index="1">
+            <div class="stack-card-img-wrapper">
+              <img src="assets/memory-2.jpg" alt="Nấu ăn làm bánh" class="stack-card-img" id="mem-img-2">
+            </div>
+            <div class="stack-card-caption">Trổ tài làm bánh ngọt cực đỉnh 🍳🧁</div>
+          </div>
+          
+          <!-- Ảnh kỷ niệm 3: Cầu lông -->
+          <div class="stack-card" data-index="2">
+            <div class="stack-card-img-wrapper">
+              <img src="assets/memory-3.jpg" alt="Chơi cầu lông" class="stack-card-img" id="mem-img-3">
+            </div>
+            <div class="stack-card-caption">Những trận cầu lông kịch tính 🏸🔥</div>
           </div>
         </div>
       </div>
@@ -249,6 +320,23 @@
   <!-- JavaScript Logic -->
   <script>
     // ----------------------------------------------------
+    // CƠ CHẾ SỬA LỖI TỰ ĐỘNG CHO AVATAR (LỖI ĐUÔI KÉP .jpg.jpg)
+    // ----------------------------------------------------
+    const avatarImg = document.getElementById('avatar-img');
+    if (avatarImg) {
+      avatarImg.addEventListener('error', function handleAvatarError() {
+        const currentSrc = this.src;
+        if (currentSrc.endsWith('avatar.jpg') && !currentSrc.endsWith('avatar.jpg.jpg')) {
+          this.src = 'assets/avatar.jpg.jpg';
+        } else if (currentSrc.endsWith('avatar.jpg.jpg')) {
+          this.src = 'assets/avatar.png';
+        } else {
+          this.src = 'https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao';
+        }
+      });
+    }
+
+    // ----------------------------------------------------
     // YÊU CẦU 1: NHẬN NĂNG LƯỢNG & CONFETTI PHÁO HOA TUNG TÓE
     // ----------------------------------------------------
     const energyQuotes = [
@@ -264,18 +352,19 @@
     const confettiContainer = document.getElementById('confetti-container');
 
     // Hàm tạo Confetti pháo hoa nổ 360 độ từ vị trí click
-    function createConfetti(event) {
+    function createConfetti(event, targetElement) {
       const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61', '#4D96FF', '#FF6B6B'];
       const shapes = ['square', 'circle', 'triangle'];
+      const particleCount = 65;
       
-      // Số lượng hạt bắn ra để tạo hiệu ứng bùng nổ hoành tráng
-      const particleCount = 70;
-      
-      // Lấy vị trí tâm của nút bấm hoặc vị trí click chuột
       let startX, startY;
-      if (event) {
+      if (event && event.clientX) {
         startX = event.clientX + window.scrollX;
         startY = event.clientY + window.scrollY;
+      } else if (targetElement) {
+        const rect = targetElement.getBoundingClientRect();
+        startX = rect.left + (rect.width / 2) + window.scrollX;
+        startY = rect.top + (rect.height / 2) + window.scrollY;
       } else {
         const btnRect = btnCharge.getBoundingClientRect();
         startX = btnRect.left + (btnRect.width / 2) + window.scrollX;
@@ -290,7 +379,6 @@
         confetti.style.top = startY + 'px';
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         
-        // Tạo hình dáng ngẫu nhiên
         const shape = shapes[Math.floor(Math.random() * shapes.length)];
         if (shape === 'circle') {
           confetti.style.borderRadius = '50%';
@@ -310,28 +398,23 @@
           confetti.style.height = size + 'px';
         }
         
-        // Tính toán hướng bay nổ 360 độ (dạng tròn)
-        const angle = Math.random() * Math.PI * 2; // Góc ngẫu nhiên từ 0 đến 2pi
-        const velocity = Math.random() * 320 + 120; // Vận tốc bay xa
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = Math.random() * 300 + 100;
         
-        // Tọa độ đích (trục X bay ngang, trục Y bay lên rồi kéo xuống như trọng lực)
         const destX = Math.cos(angle) * velocity;
-        const destY = Math.sin(angle) * velocity + (Math.random() * 120 - 60); 
+        const destY = Math.sin(angle) * velocity + (Math.random() * 100 - 50); 
         
         const rotation = (Math.random() * 720 - 360) + 'deg';
         
-        // Gán biến CSS để animation thực thi
         confetti.style.setProperty('--dest-x', destX + 'px');
         confetti.style.setProperty('--dest-y', destY + 'px');
         confetti.style.setProperty('--rotation', rotation);
         
-        // Thời gian bay và rơi tự do ngẫu nhiên
         confetti.style.animationDuration = (Math.random() * 0.8 + 1.2) + 's';
-        confetti.style.animationDelay = (Math.random() * 0.05) + 's';
+        confetti.style.animationDelay = (Math.random() * 0.03) + 's';
         
         confettiContainer.appendChild(confetti);
 
-        // Xóa hạt pháo hoa sau khi hoàn tất hiệu ứng
         confetti.addEventListener('animationend', () => {
           confetti.remove();
         });
@@ -339,26 +422,20 @@
     }
 
     btnCharge.addEventListener('click', (e) => {
-      // Chọn lời chúc ngẫu nhiên
       const randomIndex = Math.floor(Math.random() * energyQuotes.length);
       energyMessage.textContent = energyQuotes[randomIndex];
-      
-      // Hiển thị khung lời chúc
       energyMessage.style.display = 'block';
-      
-      // Tạo pháo hoa từ vị trí nút bấm
       createConfetti(e);
     });
 
     // ----------------------------------------------------
-    // YÊU CẦU 2: BEHIND THE SCENES MODAL VUI NHỘN
+    // YÊU CẦU 2: BEHIND THE SCENES MODAL & FALLBACK SỬA LỖI TÊN FILE
     // ----------------------------------------------------
     const btsModal = document.getElementById('bts-modal');
     const closeModal = document.getElementById('close-modal');
     const polaroidWrapper = document.getElementById('polaroid-wrapper');
     const polaroidCaption = document.getElementById('polaroid-caption');
 
-    // Cấu hình dữ liệu ảnh và nội dung câu chuyện deadline vui nhộn
     const projectImages = {
       debate: {
         src: 'assets/deadline-debate.jpg',
@@ -372,7 +449,36 @@
       }
     };
 
-    // Hàm mở modal và hiển thị ảnh
+    function loadProjectImageWithFallback(imgElement, initialSrc, altText) {
+      imgElement.src = initialSrc;
+      imgElement.alt = altText;
+      imgElement.className = 'polaroid-img';
+      
+      imgElement.onerror = function() {
+        const currentSrc = this.src;
+        if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
+          const doubleExtSrc = initialSrc + '.jpg';
+          this.src = doubleExtSrc;
+        } 
+        else if (currentSrc.endsWith('.jpg.jpg')) {
+          const pngSrc = initialSrc.replace('.jpg', '.png');
+          this.src = pngSrc;
+        }
+        else {
+          polaroidWrapper.innerHTML = `
+            <div class="img-placeholder-text">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              Chưa tìm thấy ảnh <strong>${initialSrc}</strong> trong thư mục <code>assets/</code>.<br>
+              <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Lưu ý đặt tên đúng file ảnh là <code>${initialSrc.split('/')[1]}</code>.</span>
+            </div>
+          `;
+        }
+      };
+      
+      polaroidWrapper.innerHTML = '';
+      polaroidWrapper.appendChild(imgElement);
+    }
+
     document.querySelectorAll('.btn-bts').forEach(button => {
       button.addEventListener('click', (e) => {
         const projectId = button.getAttribute('data-project');
@@ -380,58 +486,124 @@
         
         if (projectData) {
           polaroidCaption.innerHTML = projectData.caption;
-          
-          // Tạo thẻ ảnh
           const img = document.createElement('img');
-          img.src = projectData.src;
-          img.alt = projectData.alt;
-          img.className = 'polaroid-img';
+          loadProjectImageWithFallback(img, projectData.src, projectData.alt);
           
-          // Xử lý khi không tìm thấy ảnh (người dùng chưa up ảnh thật lên assets/)
-          img.onerror = function() {
-            polaroidWrapper.innerHTML = `
-              <div class="img-placeholder-text">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                Chưa tìm thấy ảnh <strong>${projectData.src}</strong>.<br>
-                <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Bạn vui lòng copy ảnh thật của bạn vào thư mục <code>assets/</code> và đặt tên đúng là <code>${projectData.src.split('/')[1]}</code> nhé!</span>
-              </div>
-            `;
-          };
-          
-          polaroidWrapper.innerHTML = '';
-          polaroidWrapper.appendChild(img);
-          
-          // Hiện modal
           btsModal.style.display = 'flex';
-          document.body.style.overflow = 'hidden'; // Ngăn cuộn trang phía sau
-          
-          // Bắn nhẹ confetti chúc mừng
+          document.body.style.overflow = 'hidden'; 
           createConfetti(e);
         }
       });
     });
 
-    // Hàm đóng modal
     function closeBtsModal() {
       btsModal.style.display = 'none';
-      document.body.style.overflow = ''; // Cho phép cuộn trang lại
+      document.body.style.overflow = '';
     }
 
     closeModal.addEventListener('click', closeBtsModal);
-    
-    // Đóng khi click ngoài vùng modal-content
     btsModal.addEventListener('click', (e) => {
-      if (e.target === btsModal) {
-        closeBtsModal();
+      if (e.target === btsModal) closeBtsModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btsModal.style.display === 'flex') closeBtsModal();
+    });
+
+
+    // ----------------------------------------------------
+    // TÍNH NĂNG MỚI: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
+    // ----------------------------------------------------
+    const photoStack = document.getElementById('photo-stack');
+    const cards = Array.from(photoStack.getElementsByClassName('stack-card'));
+    
+    // Lưu thứ tự hiển thị z-index và góc quay mặc định
+    let cardZIndexes = [30, 20, 10];
+    let cardRotations = [-1, 4, -3];
+    let isSwiping = false;
+    let swipeDirectionLeft = true; // Luân phiên hướng bay
+
+    // Xử lý cơ chế sửa lỗi tải ảnh tự động cho các ảnh kỷ niệm trong Stack
+    const memoryImages = [
+      { id: 'mem-img-1', defaultUrl: 'assets/memory-1.jpg', fallbackTag: 'nature' },
+      { id: 'mem-img-2', defaultUrl: 'assets/memory-2.jpg', fallbackTag: 'food' },
+      { id: 'mem-img-3', defaultUrl: 'assets/memory-3.jpg', fallbackTag: 'sports' }
+    ];
+
+    memoryImages.forEach(imgData => {
+      const imgEl = document.getElementById(imgData.id);
+      if (imgEl) {
+        imgEl.addEventListener('error', function handleMemoryError() {
+          const currentSrc = this.src;
+          // Thử tải đuôi .jpg.jpg
+          if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
+            this.src = imgData.defaultUrl + '.jpg';
+          } 
+          // Thử tải đuôi .png
+          else if (currentSrc.endsWith('.jpg.jpg')) {
+            this.src = imgData.defaultUrl.replace('.jpg', '.png');
+          }
+          // Nếu không tìm thấy, sử dụng ảnh stock đẹp mắt từ Unsplash theo tag chủ đề tương ứng để trang luôn đẹp
+          else {
+            console.log(`Không có ảnh ${imgData.defaultUrl}, tải ảnh minh họa tuyệt đẹp từ Unsplash về ${imgData.fallbackTag}...`);
+            this.src = `https://images.unsplash.com/photo-${
+              imgData.fallbackTag === 'nature' ? '1507525428034-b723cf961d3e' : 
+              imgData.fallbackTag === 'food' ? '1555507036-ab1f4038808a' : 
+              '1517649763962-0c623066013b'
+            }?w=400&auto=format&fit=crop&q=80`;
+          }
+        });
       }
     });
 
-    // Đóng modal khi bấm phím ESC
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && btsModal.style.display === 'flex') {
-        closeBtsModal();
-      }
+    // Thêm sự kiện click vuốt ảnh
+    cards.forEach((card, index) => {
+      card.addEventListener('click', (e) => {
+        // Chỉ cho phép vuốt khi tấm ảnh đang nằm trên cùng (z-index cao nhất = 30)
+        const currentZ = parseInt(window.getComputedStyle(card).zIndex);
+        if (currentZ < 30 || isSwiping) return;
+
+        isSwiping = true;
+
+        // Bắn confetti chúc mừng từ vị trí tấm ảnh
+        createConfetti(e, card);
+
+        // Thêm class hoạt ảnh trượt bay ra ngoài (luân phiên trái/phải)
+        const swipeClass = swipeDirectionLeft ? 'swipe-left' : 'swipe-right';
+        card.classList.add(swipeClass);
+        swipeDirectionLeft = !swipeDirectionLeft; // Đổi chiều cho ảnh sau
+
+        // Sau khi trượt bay đi nửa chặng đường (z-index đổi) và quay lại đáy stack
+        setTimeout(() => {
+          // Xoay vòng thứ tự z-index: ảnh trên cùng xuống đáy, các ảnh khác tiến lên
+          cardZIndexes.unshift(cardZIndexes.pop());
+          cardRotations.unshift(cardRotations.pop());
+
+          // Cập nhật lại z-index và vị trí cho toàn bộ card
+          cards.forEach((c, i) => {
+            const newIndex = cards.indexOf(c);
+            const zIndexVal = cardZIndexes[newIndex];
+            const rotVal = cardRotations[newIndex];
+            
+            c.style.zIndex = zIndexVal;
+            
+            // Nếu không phải card vừa vuốt, áp dụng góc xoay nghiêng nhẹ mặc định
+            if (c !== card) {
+              c.style.transform = `rotate(${rotVal}deg) translate(${rotVal * 1.5}px, ${Math.abs(rotVal) * 1.5}px)`;
+            }
+          });
+        }, 300); // 300ms là thời điểm ảnh bay xa nhất ngoài Stack
+
+        // Kết thúc hoạt ảnh trượt vuốt, đặt card nằm hẳn dưới đáy
+        setTimeout(() => {
+          card.classList.remove('swipe-left', 'swipe-right');
+          // Áp dụng góc xoay ngẫu nhiên mới khi nằm dưới đáy stack
+          const finalRot = cardRotations[cards.indexOf(card)];
+          card.style.transform = `rotate(${finalRot}deg) translate(${finalRot * 1.5}px, ${Math.abs(finalRot) * 1.5}px)`;
+          isSwiping = false;
+        }, 600); // Khớp thời gian animation 0.6s
+      });
     });
+
 
     // ----------------------------------------------------
     // YÊU CẦU 3: BẢNG GHIM KỶ NIỆM & SUBMIT REVIEW FORM
@@ -439,7 +611,6 @@
     const reviewForm = document.getElementById('review-form');
     const notesContainer = document.getElementById('notes-container');
 
-    // Hàm sinh note mới và thêm vào bảng ghim
     function addStickyNoteToWall(author, message) {
       const colors = ['note-lemon', 'note-peach', 'note-mint'];
       const rotations = ['note-rot-l', 'note-rot-r', 'note-rot-s'];
@@ -460,7 +631,6 @@
       
       notesContainer.appendChild(note);
       
-      // Kích hoạt hoạt ảnh xuất hiện mượt mà sau khi DOM update
       setTimeout(() => {
         note.style.opacity = '1';
         let rotationAngle = -2.5;
@@ -469,7 +639,6 @@
         note.style.transform = `scale(1) translateY(0) rotate(${rotationAngle}deg)`;
       }, 50);
       
-      // Tự động cuộn mượt mà đến note mới
       note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
@@ -481,22 +650,12 @@
       const message = textInput.value.trim();
       
       if (author && message) {
-        // Thêm note mới vào giao diện ngay lập tức
         addStickyNoteToWall(author, message);
         
-        // Tạo confetti từ tâm nút gửi review để ăn mừng
         const submitBtn = reviewForm.querySelector('.btn-submit');
-        const btnRect = submitBtn.getBoundingClientRect();
-        const fakeEvent = {
-          clientX: btnRect.left + btnRect.width / 2,
-          clientY: btnRect.top + btnRect.height / 2
-        };
-        createConfetti(fakeEvent);
+        createConfetti(null, submitBtn);
         
-        // Reset form nhập liệu
         reviewForm.reset();
-        
-        // Gửi ngầm qua Netlify Form
         e.preventDefault();
         
         const formData = new FormData(reviewForm);

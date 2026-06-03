@@ -1,10 +1,7 @@
 /* ==========================================
    TRẠM SẠC NĂNG LƯỢNG TÍCH CỰC - STYLE SYSTEM
-   Designed for Đỗ Phương Thảo Portfolio (Enhanced UI)
+   Designed for Đỗ Phương Thảo Portfolio (Full Enhanced)
    ========================================== */
-
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Quicksand:wght@500;700&display=swap');
 
 /* CSS Variables */
 :root {
@@ -16,15 +13,14 @@
   --color-white: #FFFFFF;
   --color-gray-light: #F6F4F0;
   
-  --font-title: 'Outfit', sans-serif;
-  --font-body: 'Quicksand', sans-serif;
+  --font-title: 'Lexend', sans-serif;
+  --font-body: 'Nunito', sans-serif;
   
   --border-main: 3px solid var(--color-charcoal);
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 12px;
   
-  /* Cải tiến bóng đổ mềm mại, 3D hơn */
   --shadow-main: 0 10px 0px var(--color-charcoal);
   --shadow-hover: 0 4px 0px var(--color-charcoal);
   --shadow-soft: 0 12px 32px rgba(43, 45, 66, 0.08), 0 4px 12px rgba(43, 45, 66, 0.04);
@@ -273,7 +269,7 @@ nav ul li a:hover {
   margin-bottom: 40px;
 }
 
-/* Playful CTA Button - Cải tiến hiệu ứng chuyển đổi mượt mà & phóng to nhẹ */
+/* Playful CTA Button */
 .btn-charge {
   display: inline-flex;
   align-items: center;
@@ -296,9 +292,9 @@ nav ul li a:hover {
 }
 
 .btn-charge:hover {
-  transform: scale(1.06) translateY(-4px); /* Phóng to nhẹ và nhấc lên */
-  box-shadow: 0 14px 0 var(--color-charcoal); /* Bóng đổ dày hơn */
-  background-color: #ffb59c; /* Đổi màu mượt mà */
+  transform: scale(1.06) translateY(-4px);
+  box-shadow: 0 14px 0 var(--color-charcoal);
+  background-color: #ffb59c;
 }
 
 .btn-charge:active {
@@ -328,7 +324,7 @@ nav ul li a:hover {
   animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* Profile Section */
+/* Profile Section Layout */
 .profile-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -336,7 +332,7 @@ nav ul li a:hover {
   margin-top: 20px;
 }
 
-@media(min-width: 768px) {
+@media(min-width: 992px) {
   .profile-grid {
     grid-template-columns: 360px 1fr;
     align-items: start;
@@ -355,8 +351,8 @@ nav ul li a:hover {
 }
 
 .profile-card:hover {
-  transform: translateY(-8px) rotate(1deg); /* Nhảy lên và xoay nhẹ */
-  box-shadow: var(--shadow-soft-hover); /* Bóng đổ mềm mại lan tỏa rộng */
+  transform: translateY(-8px) rotate(1deg);
+  box-shadow: var(--shadow-soft-hover);
 }
 
 .avatar-wrapper {
@@ -426,20 +422,28 @@ nav ul li a:hover {
   color: var(--color-charcoal);
 }
 
-/* Skills Content Box */
+/* About details Grid - Cấu trúc 2 cột trên PC để chứa 4 content-box */
 .about-details {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 30px;
+}
+
+@media(min-width: 768px) {
+  .about-details {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .content-box {
   background-color: var(--color-white);
   border: var(--border-main);
   border-radius: var(--radius-lg);
-  padding: 35px;
+  padding: 30px;
   box-shadow: var(--shadow-soft);
   transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
 }
 
 .content-box:hover {
@@ -451,37 +455,59 @@ nav ul li a:hover {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 1.6rem;
-  margin-bottom: 24px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
   padding-bottom: 12px;
   border-bottom: 2px dashed var(--color-charcoal);
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: auto;
 }
 
 .skill-tag {
   background-color: var(--color-lemon);
   border: 2px solid var(--color-charcoal);
   border-radius: var(--radius-sm);
-  padding: 12px;
+  padding: 8px;
   text-align: center;
   font-weight: 700;
-  font-size: 0.95rem;
-  box-shadow: 4px 4px 0 var(--color-charcoal);
+  font-size: 0.85rem;
+  box-shadow: 3px 3px 0 var(--color-charcoal);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 .skill-tag:hover {
-  transform: scale(1.05) translateY(-3px);
-  box-shadow: 6px 6px 0 var(--color-charcoal);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 5px 5px 0 var(--color-charcoal);
   background-color: var(--color-mint);
 }
 
-/* Projects Section - Thẻ bo góc với hiệu ứng bounce & rotate nhẹ */
+/* Hobby icons style */
+.hobby-tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.hobby-tag {
+  background-color: var(--color-mint);
+  border: 2px solid var(--color-charcoal);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 2px 2px 0 var(--color-charcoal);
+}
+
+/* Projects Section */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -510,13 +536,11 @@ nav ul li a:hover {
               box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Hiệu ứng nhảy lên nhẹ (bounce), đổ bóng mềm mại và xoay nhẹ góc (rotate) khi hover */
 .project-card:hover {
-  transform: translateY(-10px) rotate(-1.5deg) scale(1.02); /* Bounce + Rotate nhẹ */
-  box-shadow: var(--shadow-soft-hover); /* Bóng đổ mềm mại */
+  transform: translateY(-10px) rotate(-1.5deg) scale(1.02);
+  box-shadow: var(--shadow-soft-hover);
 }
 
-/* Thẻ chẵn xoay chiều ngược lại để trông tự nhiên */
 .project-card:nth-child(even):hover {
   transform: translateY(-10px) rotate(1.5deg) scale(1.02);
 }
@@ -564,7 +588,6 @@ nav ul li a:hover {
   margin-top: auto;
 }
 
-/* Nút nhỏ Behind-the-scenes với hiệu ứng đổi màu mượt mà và phóng to nhẹ */
 .btn-bts {
   background-color: var(--color-lemon);
   border: 2px solid var(--color-charcoal);
@@ -584,9 +607,9 @@ nav ul li a:hover {
 }
 
 .btn-bts:hover {
-  transform: scale(1.08) translateY(-2px); /* Phóng to nhẹ và nhấc lên */
+  transform: scale(1.08) translateY(-2px);
   box-shadow: 5px 5px 0 var(--color-charcoal);
-  background-color: var(--color-peach); /* Đổi màu mượt mà */
+  background-color: var(--color-peach);
 }
 
 .btn-bts:active {
@@ -594,9 +617,160 @@ nav ul li a:hover {
   box-shadow: 2px 2px 0 var(--color-charcoal);
 }
 
+/* ==========================================
+   TÍNH NĂNG MỚI: CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
+   ========================================== */
+.memories-section {
+  background-color: var(--color-lemon);
+  border-top: var(--border-main);
+  border-bottom: var(--border-main);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.photo-stack-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 30px;
+}
+
+.photo-stack-instructions {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: var(--color-white);
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 2px solid var(--color-charcoal);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0 var(--color-charcoal);
+  animation: wobble 4s ease-in-out infinite;
+}
+
+.photo-stack {
+  position: relative;
+  width: 320px;
+  height: 390px;
+  margin: 0 auto 40px auto;
+  perspective: 1000px;
+}
+
+/* Các tấm ảnh Polaroid trong chồng ảnh */
+.stack-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: 12px;
+  padding: 14px 14px 35px 14px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12), 0 5px 15px rgba(0,0,0,0.06);
+  cursor: pointer;
+  user-select: none;
+  transform-origin: center bottom;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              z-index 0.5s step-end,
+              box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stack-card:hover {
+  transform: scale(1.03) translateY(-10px) !important;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.18);
+  z-index: 50 !important;
+}
+
+.stack-card-img-wrapper {
+  width: 100%;
+  height: 270px;
+  background-color: var(--color-gray-light);
+  border: 2px solid var(--color-charcoal);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stack-card:hover .stack-card-img {
+  transform: scale(1.08);
+}
+
+.stack-card-caption {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  text-align: center;
+}
+
+/* Các trạng thái xoay mặc định khi xếp chồng */
+.stack-card:nth-child(3) { transform: rotate(-3deg) translate(-5px, -5px); z-index: 10; }
+.stack-card:nth-child(2) { transform: rotate(4deg) translate(5px, 2px); z-index: 20; }
+.stack-card:nth-child(1) { transform: rotate(-1deg) translate(0px, 8px); z-index: 30; }
+
+/* Hoạt ảnh Vuốt trượt bay ra ngoài (Swipe Animation) */
+.stack-card.swipe-left {
+  animation: swipeLeft 0.6s ease forwards;
+}
+
+.stack-card.swipe-right {
+  animation: swipeRight 0.6s ease forwards;
+}
+
+@keyframes swipeLeft {
+  0% {
+    transform: translate(0, 0) rotate(-1deg);
+    z-index: 40;
+  }
+  50% {
+    transform: translate(-380px, -30px) rotate(-25deg);
+    z-index: 40;
+  }
+  51% {
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(5deg);
+    z-index: 1;
+  }
+}
+
+@keyframes swipeRight {
+  0% {
+    transform: translate(0, 0) rotate(-1deg);
+    z-index: 40;
+  }
+  50% {
+    transform: translate(380px, -30px) rotate(25deg);
+    z-index: 40;
+  }
+  51% {
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(-5deg);
+    z-index: 1;
+  }
+}
+
 /* Sticky Notes Wall of Smiles */
 .wall-of-smiles {
-  background-color: #ffe6db; /* Màu nền bảng gỗ ấm áp */
+  background-color: #ffe6db;
   border: var(--border-main);
   border-radius: var(--radius-lg);
   padding: 50px 30px;
@@ -611,14 +785,13 @@ nav ul li a:hover {
   margin-bottom: 60px;
 }
 
-/* Sticky Notes bo góc nhẹ, xoay lệch tự nhiên */
 .sticky-note {
   position: relative;
   padding: 30px 25px;
   min-height: 220px;
   border: var(--border-main);
   border-radius: 6px;
-  box-shadow: 0 10px 20px rgba(43, 45, 66, 0.08); /* Bóng đổ giấy */
+  box-shadow: 0 10px 20px rgba(43, 45, 66, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -626,14 +799,12 @@ nav ul li a:hover {
               box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Hiệu ứng nhảy lên nhẹ (bounce), đổ bóng mềm mại và xoay nhẹ góc khi di chuột */
 .sticky-note:hover {
-  transform: translateY(-12px) rotate(4deg) scale(1.05) !important; /* Nhảy lên, phóng to, xoay nhẹ */
-  box-shadow: 0 20px 30px rgba(43, 45, 66, 0.15); /* Bóng đổ mềm mại */
+  transform: translateY(-12px) rotate(4deg) scale(1.05) !important;
+  box-shadow: 0 20px 30px rgba(43, 45, 66, 0.15);
   z-index: 10;
 }
 
-/* Pin Graphic ghim giấy */
 .sticky-note::before {
   content: '📌';
   position: absolute;
@@ -644,27 +815,13 @@ nav ul li a:hover {
   filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.1));
 }
 
-/* Các màu sắc giấy */
-.note-lemon {
-  background-color: #FFF9A6;
-}
-.note-peach {
-  background-color: #FFC4B0;
-}
-.note-mint {
-  background-color: #C1F3EC;
-}
+.note-lemon { background-color: #FFF9A6; }
+.note-peach { background-color: #FFC4B0; }
+.note-mint { background-color: #C1F3EC; }
 
-/* Độ nghiêng ban đầu */
-.note-rot-l {
-  transform: rotate(-2.5deg);
-}
-.note-rot-r {
-  transform: rotate(3.5deg);
-}
-.note-rot-s {
-  transform: rotate(1deg);
-}
+.note-rot-l { transform: rotate(-2.5deg); }
+.note-rot-r { transform: rotate(3.5deg); }
+.note-rot-s { transform: rotate(1deg); }
 
 .note-message {
   font-size: 1rem;
@@ -747,7 +904,6 @@ textarea.form-control {
   min-height: 110px;
 }
 
-/* Nút Submit đổi màu mượt mà, phóng to nhẹ */
 .btn-submit {
   width: 100%;
   background-color: var(--color-mint);
@@ -766,9 +922,9 @@ textarea.form-control {
 }
 
 .btn-submit:hover {
-  transform: scale(1.03) translateY(-3px); /* Phóng to nhẹ và nhấc lên */
+  transform: scale(1.03) translateY(-3px);
   box-shadow: 0 12px 0 var(--color-charcoal);
-  background-color: #8ce1d3; /* Đổi màu mượt mà */
+  background-color: #8ce1d3;
 }
 
 .btn-submit:active {
@@ -776,7 +932,7 @@ textarea.form-control {
   box-shadow: 0 2px 0 var(--color-charcoal);
 }
 
-/* CẢI TIẾN: Các hạt pháo hoa (Confetti) bắn tỏa bay khắp màn hình */
+/* Hạt pháo hoa (Confetti) */
 #confetti-container {
   position: fixed;
   top: 0;
@@ -793,7 +949,6 @@ textarea.form-control {
   height: 12px;
   opacity: 0.9;
   border-radius: 4px;
-  /* Kích hoạt animation bay xiên tỏa ra và rơi tự do theo trọng lực */
   animation: confettiExplode 2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }
 
@@ -889,7 +1044,6 @@ textarea.form-control {
   line-height: 1.4;
 }
 
-/* Custom Alert trong BTS */
 .bts-story-badge {
   background-color: #FFF275;
   border: 2px solid var(--color-charcoal);
@@ -982,7 +1136,6 @@ footer {
   }
 }
 
-/* Hoạt ảnh pháo hoa giấy tung tóe khắp màn hình */
 @keyframes confettiExplode {
   0% {
     transform: translate(0, 0) scale(1) rotate(0deg);
@@ -992,7 +1145,6 @@ footer {
     opacity: 0.9;
   }
   100% {
-    /* Sử dụng các thuộc tính động được JS truyền vào */
     transform: translate(var(--dest-x), var(--dest-y)) scale(0.4) rotate(var(--rotation));
     opacity: 0;
   }
@@ -1025,5 +1177,14 @@ footer {
   
   .polaroid-img-wrapper {
     height: 260px;
+  }
+  
+  .photo-stack {
+    width: 280px;
+    height: 350px;
+  }
+  
+  .stack-card-img-wrapper {
+    height: 230px;
   }
 }

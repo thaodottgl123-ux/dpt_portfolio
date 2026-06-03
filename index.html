@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Positive Energy Hub | Đỗ Phương Thảo Portfolio</title>
+  
+  <!-- Favicon (Emoji vui vẻ) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Confetti Container cho hiệu ứng khi bấm nút -->
+  <div id="confetti-container"></div>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo" id="logo-link">
+        <span class="logo-icon">⚡</span>
+        <span>Positive Hub</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about"><i class="fa-solid fa-user"></i> Về Thảo</a></li>
+          <li><a href="#projects"><i class="fa-solid fa-bolt"></i> Dự án</a></li>
+          <li><a href="#wall"><i class="fa-solid fa-face-smile"></i> Bảng ghim</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Trạm sạc năng lượng) -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+    
+    <div class="container hero-content">
+      <div class="hero-badge">🔋 Đang sạc 100% tích cực</div>
+      <h1>Chào mừng bạn đến với<br><span style="color: var(--color-charcoal); background: var(--color-lemon); padding: 2px 10px; border: 3px solid var(--color-charcoal); border-radius: var(--radius-sm); display: inline-block; margin-top: 10px; transform: rotate(1deg);">Trạm Sạc Năng Lượng Tích Cực</span></h1>
+      <p class="hero-desc">Hãy nhấn nút bên dưới để nạp đầy vitamin vui vẻ cho ngày hôm nay của bạn nhé! ✨</p>
+      
+      <!-- Tính năng tương tác 1: Bấm để nhận năng lượng ngày mới -->
+      <button class="btn-charge" id="btn-charge">
+        <i class="fa-solid fa-circle-bolt" style="font-size: 1.5rem; color: var(--color-lemon);"></i>
+        <span>Bấm để nhận năng lượng ngày mới</span>
+      </button>
+
+      <div class="energy-display-container">
+        <div class="energy-message" id="energy-message"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Về Bản Thân (About Me) -->
+  <section id="about" class="container">
+    <h2 class="section-title">⚡ Trạm Trưởng Là Ai?</h2>
+    
+    <div class="profile-grid">
+      <!-- Profile Card trái -->
+      <div class="profile-card">
+        <div class="avatar-wrapper">
+          <div class="avatar-border"></div>
+          <!-- Ảnh đại diện cá nhân -->
+          <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao'; console.log('Sử dụng avatar tạm thời của DiceBear. Hãy copy avatar.jpg vào thư mục assets.');">
+        </div>
+        <h3>Đỗ Phương Thảo</h3>
+        <p class="subtitle"><i class="fa-solid fa-cake-candles"></i> 13/08/2005 • Hải Phòng</p>
+        
+        <div class="profile-info">
+          <p><strong><i class="fa-solid fa-graduation-cap"></i> Sinh viên:</strong> Lớp Anh 03 - CLCQT - K62</p>
+          <p><strong><i class="fa-solid fa-university"></i> Trường:</strong> ĐH Ngoại thương (FTU)</p>
+          <p><strong><i class="fa-solid fa-envelope"></i> Email:</strong> <a href="mailto:k62.2312250112@ftu.edu.vn" style="color: var(--color-charcoal); font-weight: 700;">k62.2312250112@ftu.edu.vn</a></p>
+        </div>
+      </div>
+
+      <!-- Kỹ năng & Giới thiệu chi tiết phải -->
+      <div class="about-details">
+        <div class="content-box" style="border-color: var(--color-charcoal);">
+          <div class="content-box-title">
+            <span style="background-color: var(--color-peach); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-heart" style="font-size: 0.8rem;"></i></span>
+            <h3>Một Chút Về Mình</h3>
+          </div>
+          <!-- Thông tin cá nhân gạch đầu dòng -->
+          <ul class="bullet-list">
+            <li><strong>Họ và tên:</strong> Đỗ Phương Thảo (Sinh ngày 13/08/2005) - Quê quán: Hải Phòng.</li>
+            <li><strong>Học tập:</strong> Hiện đang là Sinh viên lớp Anh 03 - CLCQT - K62, Trường Đại học Ngoại thương.</li>
+            <li><strong>Phương châm sống:</strong> Luôn hướng về phía mặt trời để bóng tối ngả sau lưng! ☀️</li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <div class="content-box-title">
+            <span style="background-color: var(--color-mint); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.8rem;"></i></span>
+            <h3>Hộp Dụng Cụ Kỹ Năng</h3>
+          </div>
+          <!-- Kỹ năng gạch đầu dòng -->
+          <ul class="bullet-list" style="margin-bottom: 20px;">
+            <li><strong>Chứng chỉ:</strong> Đạt chứng chỉ IELTS 7.5 danh giá.</li>
+            <li><strong>Phân tích dữ liệu:</strong> Sử dụng thành thạo Power BI để vẽ biểu đồ và phân tích số liệu.</li>
+            <li><strong>Tin học:</strong> Sử dụng tốt các công cụ Tin học văn phòng (Word, Excel, PowerPoint).</li>
+            <li><strong>Hợp tác & Lãnh đạo:</strong> Có khả năng Tổ chức sự kiện chuyên nghiệp, Lãnh đạo đội nhóm hiệu quả, Thuyết trình tự tin trước đám đông.</li>
+          </ul>
+          
+          <!-- Tags Kỹ năng trực quan -->
+          <div class="skills-grid">
+            <div class="skill-tag">IELTS 7.5</div>
+            <div class="skill-tag">Power BI</div>
+            <div class="skill-tag">Office IT</div>
+            <div class="skill-tag">Event Planning</div>
+            <div class="skill-tag">Leadership</div>
+            <div class="skill-tag">Public Speaking</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Dự án (Projects) -->
+  <section id="projects" style="background-color: var(--color-white); border-top: var(--border-main); border-bottom: var(--border-main);">
+    <div class="container">
+      <h2 class="section-title">🎬 Dự Án Thực Tế</h2>
+      
+      <div class="projects-grid">
+        <!-- Dự án 1 -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-tag" style="background-color: var(--color-peach);">Differo 2022</span>
+            <h3>Debate Differo Expansion</h3>
+          </div>
+          <div class="project-card-body">
+            <ul class="bullet-list">
+              <li><strong>Vai trò:</strong> Thành viên Ban Tổ chức chủ chốt.</li>
+              <li><strong>Nhiệm vụ chính:</strong> Trực tiếp lập kế hoạch hoạt động chi tiết cho giải đấu.</li>
+              <li><strong>Vận hành:</strong> Quản lý hậu cần chặt chẽ, tối ưu hóa toàn bộ quy trình vận hành giải đấu Debate mở rộng CLB Differo (2022).</li>
+            </ul>
+          </div>
+          <div class="project-card-footer">
+            <button class="btn-bts" data-project="debate">
+              <i class="fa-solid fa-camera"></i>
+              <span>Behind the scenes</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dự án 2 -->
+        <div class="project-card">
+          <div class="project-card-header">
+            <span class="project-card-tag" style="background-color: var(--color-mint);">FTU Events 23-24</span>
+            <h3>Sự Kiện Đoàn Thanh Niên FTU</h3>
+          </div>
+          <div class="project-card-body">
+            <ul class="bullet-list">
+              <li><strong>Vai trò:</strong> Thành viên Ban Tổ chức năng nổ.</li>
+              <li><strong>Nhiệm vụ chính:</strong> Lên ý tưởng sáng tạo cho chuỗi sự kiện Đoàn.</li>
+              <li><strong>Điều phối:</strong> Quản lý nhân sự các phân ban, điều phối quy trình vận hành sự kiện trực tiếp tại FTU giai đoạn 2023 - 2024.</li>
+            </ul>
+          </div>
+          <div class="project-card-footer">
+            <button class="btn-bts" data-project="ftu">
+              <i class="fa-solid fa-camera"></i>
+              <span>Behind the scenes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Bảng ghim kỷ niệm (The Wall of Smiles) -->
+  <section id="wall" class="container">
+    <h2 class="section-title">🥰 Bảng Ghim Kỷ Niệm (Wall of Smiles)</h2>
+    
+    <div class="wall-of-smiles">
+      <!-- Notes Container -->
+      <div class="notes-container" id="notes-container">
+        <!-- Note 1 -->
+        <div class="sticky-note note-lemon note-rot-l">
+          <p class="note-message">"Thảo siêu đáng yêu và làm việc cực kỳ trách nhiệm luôn! Cảm ơn cậu đã luôn mang năng lượng tích cực cho cả đội nhé! ❤️"</p>
+          <p class="note-author">— Khánh Linh (Differo Team)</p>
+        </div>
+        <!-- Note 2 -->
+        <div class="sticky-note note-peach note-rot-r">
+          <p class="note-message">"Một trưởng ban hậu cần siêu đẳng, giải quyết sự cố trong vòng 1 nốt nhạc! Đúng chuẩn FTU-er đa tài."</p>
+          <p class="note-author">— Hoàng Minh (FTU 2023)</p>
+        </div>
+        <!-- Note 3 -->
+        <div class="sticky-note note-mint note-rot-s">
+          <p class="note-message">"Học giỏi, thuyết trình hay lại còn hát siêu hay nữa chứ. Sạc đầy năng lượng mỗi khi nói chuyện cùng Thảo!"</p>
+          <p class="note-author">— Mai Anh (Lớp Anh 03)</p>
+        </div>
+      </div>
+
+      <!-- Form gửi review -->
+      <div class="review-form-container">
+        <h3><i class="fa-solid fa-pen-fancy" style="color: var(--color-peach);"></i> Gửi Lời Yêu Thương Cho Thảo</h3>
+        
+        <!-- Netlify Form -->
+        <form name="thao-portfolio-reviews" method="POST" data-netlify="true" id="review-form">
+          <div class="form-group">
+            <label for="review-name">Tên của bạn là gì? 😊</label>
+            <input type="text" id="review-name" name="name" class="form-control" placeholder="Nhập họ tên của bạn..." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="review-text">Cảm nghĩ của bạn về mình? ✨</label>
+            <textarea id="review-text" name="message" class="form-control" placeholder="Viết vài dòng ngọt ngào gửi tới Thảo nhé..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-paper-plane"></i> Gửi review
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Made with 💛 and ⚡ by Đỗ Phương Thảo © 2026</p>
+    </div>
+  </footer>
+
+  <!-- Modal Behind the Scenes -->
+  <div class="modal" id="bts-modal">
+    <div class="modal-content">
+      <span class="close-modal" id="close-modal">&times;</span>
+      
+      <div class="polaroid-frame">
+        <div class="polaroid-img-wrapper" id="polaroid-wrapper">
+          <!-- Ảnh sẽ được load bằng JS -->
+        </div>
+        <div class="polaroid-caption" id="polaroid-caption">Kỷ niệm chạy deadline đáng nhớ!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    // ----------------------------------------------------
+    // YÊU CẦU 1: NHẬN NĂNG LƯỢNG NGẪU NHIÊN
+    // ----------------------------------------------------
+    const energyQuotes = [
+      "Cậu đang làm rất tốt rồi, hôm nay hãy cười thật nhiều nhé! ✨",
+      "Một ngày mới tràn đầy cơ hội đang chờ cậu. Sạc đầy 100% năng lượng nào! ⚡",
+      "Đừng quên uống nước và dành cho bản thân một cái ôm thật ấm áp nhé! 🥤",
+      "Mọi nỗ lực của cậu đều đang gặt hái kết quả. Hãy tin vào chính mình! 🌟",
+      "Hôm nay là một ngày tuyệt vời để bắt đầu một điều tuyệt vời! 🚀"
+    ];
+
+    const btnCharge = document.getElementById('btn-charge');
+    const energyMessage = document.getElementById('energy-message');
+    const confettiContainer = document.getElementById('confetti-container');
+
+    // Hàm tạo Confetti hạt giấy bay
+    function createConfetti() {
+      const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61'];
+      for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        
+        // Vị trí xuất hiện ngẫu nhiên gần khu vực nút
+        const btnRect = btnCharge.getBoundingClientRect();
+        const startX = btnRect.left + (btnRect.width / 2) + (Math.random() - 0.5) * 150;
+        const startY = btnRect.top + window.scrollY;
+        
+        confetti.style.left = startX + 'px';
+        confetti.style.top = startY + 'px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Kích thước ngẫu nhiên
+        const size = Math.random() * 8 + 6;
+        confetti.style.width = size + 'px';
+        confetti.style.height = size + 'px';
+        
+        // Quỹ đạo rơi ngang ngẫu nhiên
+        const moveX = (Math.random() - 0.5) * 300;
+        confetti.style.setProperty('--move-x', moveX + 'px');
+        
+        // Tốc độ và độ trễ ngẫu nhiên
+        confetti.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+        confetti.style.animationDelay = (Math.random() * 0.2) + 's';
+        
+        // Góc xoay ngẫu nhiên
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+        confettiContainer.appendChild(confetti);
+
+        // Xóa confetti sau khi chạy xong hoạt ảnh
+        confetti.addEventListener('animationend', () => {
+          confetti.remove();
+        });
+      }
+    }
+
+    btnCharge.addEventListener('click', () => {
+      // Chọn lời chúc ngẫu nhiên
+      const randomIndex = Math.floor(Math.random() * energyQuotes.length);
+      energyMessage.textContent = energyQuotes[randomIndex];
+      
+      // Hiển thị khung lời chúc
+      energyMessage.style.display = 'block';
+      
+      // Tạo hiệu ứng confetti
+      createConfetti();
+    });
+
+    // ----------------------------------------------------
+    // YÊU CẦU 2: BEHIND THE SCENES MODAL
+    // ----------------------------------------------------
+    const btsModal = document.getElementById('bts-modal');
+    const closeModal = document.getElementById('close-modal');
+    const polaroidWrapper = document.getElementById('polaroid-wrapper');
+    const polaroidCaption = document.getElementById('polaroid-caption');
+
+    // Cấu hình dữ liệu ảnh và caption
+    const projectImages = {
+      debate: {
+        src: 'assets/deadline-debate.jpg',
+        caption: 'Hậu trường chạy deadline setup giải Debate Differo 2022! 🍕💻',
+        alt: 'Chạy deadline Debate Differo'
+      },
+      ftu: {
+        src: 'assets/deadline-ftu.jpg',
+        caption: 'Một tối chạy sự kiện trực tiếp tại FTU, mệt nhưng siêu vui! 🚩🎪',
+        alt: 'Chuẩn bị sự kiện Đoàn FTU'
+      }
+    };
+
+    // Hàm mở modal và hiển thị ảnh
+    document.querySelectorAll('.btn-bts').forEach(button => {
+      button.addEventListener('click', () => {
+        const projectId = button.getAttribute('data-project');
+        const projectData = projectImages[projectId];
+        
+        if (projectData) {
+          polaroidCaption.textContent = projectData.caption;
+          
+          // Tạo thẻ ảnh
+          const img = document.createElement('img');
+          img.src = projectData.src;
+          img.alt = projectData.alt;
+          img.className = 'polaroid-img';
+          
+          // Xử lý khi không tìm thấy ảnh (người dùng chưa up ảnh thật lên assets/)
+          img.onerror = function() {
+            polaroidWrapper.innerHTML = `
+              <div class="img-placeholder-text">
+                <i class="fa-solid fa-image"></i>
+                Chưa tìm thấy ảnh <strong>${projectData.src}</strong>.<br>
+                <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal;">Bạn vui lòng copy ảnh thật của bạn vào thư mục <code>assets/</code> và đổi tên đúng thành <code>${projectData.src.split('/')[1]}</code> nhé!</span>
+              </div>
+            `;
+          };
+          
+          polaroidWrapper.innerHTML = '';
+          polaroidWrapper.appendChild(img);
+          
+          // Hiện modal
+          btsModal.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // Ngăn cuộn trang phía sau
+        }
+      });
+    });
+
+    // Hàm đóng modal
+    function closeBtsModal() {
+      btsModal.style.display = 'none';
+      document.body.style.overflow = ''; // Cho phép cuộn trang lại
+    }
+
+    closeModal.addEventListener('click', closeBtsModal);
+    
+    // Đóng khi click ngoài vùng modal-content
+    btsModal.addEventListener('click', (e) => {
+      if (e.target === btsModal) {
+        closeBtsModal();
+      }
+    });
+
+    // Đóng modal khi bấm phím ESC
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btsModal.style.display === 'flex') {
+        closeBtsModal();
+      }
+    });
+
+    // ----------------------------------------------------
+    // YÊU CẦU 3: BẢNG GHIM KỶ NIỆM & SUBMIT REVIEW FORM
+    // ----------------------------------------------------
+    const reviewForm = document.getElementById('review-form');
+    const notesContainer = document.getElementById('notes-container');
+
+    // Hàm sinh note mới và thêm vào bảng ghim
+    function addStickyNoteToWall(author, message) {
+      const colors = ['note-lemon', 'note-peach', 'note-mint'];
+      const rotations = ['note-rot-l', 'note-rot-r', 'note-rot-s'];
+      
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
+      
+      const note = document.createElement('div');
+      note.className = `sticky-note ${randomColor} ${randomRotation}`;
+      note.style.opacity = '0';
+      note.style.transform = 'scale(0.5)';
+      note.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      
+      note.innerHTML = `
+        <p class="note-message">"${message}"</p>
+        <p class="note-author">— ${author}</p>
+      `;
+      
+      notesContainer.appendChild(note);
+      
+      // Kích hoạt hoạt ảnh xuất hiện mượt mà sau khi DOM update
+      setTimeout(() => {
+        note.style.opacity = '1';
+        // Giữ nguyên độ nghiêng xoay ngẫu nhiên
+        let rotationAngle = -2;
+        if (randomRotation === 'note-rot-r') rotationAngle = 3;
+        if (randomRotation === 'note-rot-s') rotationAngle = 1.5;
+        note.style.transform = `scale(1) rotate(${rotationAngle}deg)`;
+      }, 50);
+      
+      // Tự động cuộn mượt mà đến note mới
+      note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    reviewForm.addEventListener('submit', (e) => {
+      // Lấy thông tin từ form
+      const nameInput = document.getElementById('review-name');
+      const textInput = document.getElementById('review-text');
+      
+      const author = nameInput.value.trim();
+      const message = textInput.value.trim();
+      
+      if (author && message) {
+        // Thêm note mới vào giao diện ngay lập tức
+        addStickyNoteToWall(author, message);
+        
+        // Kích hoạt confetti ăn mừng
+        createConfetti();
+        
+        // Reset form nhập liệu
+        reviewForm.reset();
+        
+        // ĐỂ FORM TỰ GỬI LÊN NETLIFY (Nếu không sử dụng AJAX):
+        // Nếu muốn Netlify thu thập form bình thường, chúng ta không dùng e.preventDefault() để trang tải lại
+        // Tuy nhiên, để tạo trải nghiệm "Single Page App" mượt mà không bị chuyển trang và lưu dữ liệu nền,
+        // chúng ta sẽ gửi bằng fetch AJAX đến Netlify, sau đó ngăn hành vi submit mặc định.
+        e.preventDefault();
+        
+        // Gửi AJAX lên Netlify
+        const formData = new FormData(reviewForm);
+        // Vì preventDefault() đã ngăn hành động gửi của form, ta phải tự append dữ liệu form-name
+        formData.append('form-name', 'thao-portfolio-reviews');
+        
+        fetch('/', {
+          method: 'POST',
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString()
+        })
+        .then(() => console.log('Đã gửi review lên Netlify thành công!'))
+        .catch((error) => console.error('Lỗi khi gửi lên Netlify:', error));
+      } else {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>

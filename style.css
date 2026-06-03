@@ -1,0 +1,1029 @@
+/* ==========================================
+   TRẠM SẠC NĂNG LƯỢNG TÍCH CỰC - STYLE SYSTEM
+   Designed for Đỗ Phương Thảo Portfolio (Enhanced UI)
+   ========================================== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Quicksand:wght@500;700&display=swap');
+
+/* CSS Variables */
+:root {
+  --color-lemon: #FFF275;
+  --color-peach: #FF9E7D;
+  --color-mint: #A6ECE0;
+  --color-cream: #FDFBF7;
+  --color-charcoal: #2B2D42;
+  --color-white: #FFFFFF;
+  --color-gray-light: #F6F4F0;
+  
+  --font-title: 'Outfit', sans-serif;
+  --font-body: 'Quicksand', sans-serif;
+  
+  --border-main: 3px solid var(--color-charcoal);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  
+  /* Cải tiến bóng đổ mềm mại, 3D hơn */
+  --shadow-main: 0 10px 0px var(--color-charcoal);
+  --shadow-hover: 0 4px 0px var(--color-charcoal);
+  --shadow-soft: 0 12px 32px rgba(43, 45, 66, 0.08), 0 4px 12px rgba(43, 45, 66, 0.04);
+  --shadow-soft-hover: 0 20px 40px rgba(43, 45, 66, 0.15), 0 8px 20px rgba(43, 45, 66, 0.08);
+  
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Reset Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-bottom: 80px;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Sections Common Styles */
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: 14px;
+  background-color: var(--color-lemon);
+  z-index: -1;
+  border-radius: 6px;
+  transform: skewX(-12deg);
+}
+
+/* Headings & Texts */
+h1, h2, h3, h4 {
+  font-family: var(--font-title);
+  font-weight: 800;
+}
+
+/* Custom Bullet Points */
+ul.bullet-list {
+  list-style: none;
+}
+
+ul.bullet-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+ul.bullet-list li::before {
+  content: "⚡";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 1.2rem;
+  animation: pulseEnergy 2s infinite alternate;
+}
+
+/* Header & Navigation */
+header {
+  background-color: var(--color-white);
+  border-bottom: var(--border-main);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 18px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  background-color: var(--color-lemon);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-main);
+  font-size: 1.3rem;
+  transform: rotate(-10deg);
+  animation: wobble 3s ease-in-out infinite;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--color-charcoal);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  transition: var(--transition-smooth);
+}
+
+nav ul li a:hover {
+  background-color: var(--color-mint);
+  border-color: var(--color-charcoal);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-color: var(--color-mint);
+  border-bottom: var(--border-main);
+  padding: 100px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  border: var(--border-main);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.shape-1 {
+  width: 90px;
+  height: 90px;
+  background-color: var(--color-lemon);
+  top: 15%;
+  left: 8%;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 130px;
+  height: 130px;
+  background-color: var(--color-peach);
+  bottom: 10%;
+  right: 6%;
+  border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.shape-3 {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-white);
+  top: 60%;
+  left: 85%;
+  border-radius: 50%;
+  animation: float 5s ease-in-out infinite 1s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--color-lemon);
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: var(--border-main);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  box-shadow: 4px 4px 0 var(--color-charcoal);
+  transform: rotate(-2deg);
+  animation: bounceSlow 3s ease-in-out infinite alternate;
+}
+
+.hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.25;
+  margin-bottom: 24px;
+  text-shadow: 2px 2px 0 var(--color-white);
+}
+
+.hero-desc {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Playful CTA Button - Cải tiến hiệu ứng chuyển đổi mượt mà & phóng to nhẹ */
+.btn-charge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-peach);
+  color: var(--color-charcoal);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.3rem;
+  padding: 18px 36px;
+  border: var(--border-main);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-main);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), 
+              background-color 0.3s ease, 
+              box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-charge:hover {
+  transform: scale(1.06) translateY(-4px); /* Phóng to nhẹ và nhấc lên */
+  box-shadow: 0 14px 0 var(--color-charcoal); /* Bóng đổ dày hơn */
+  background-color: #ffb59c; /* Đổi màu mượt mà */
+}
+
+.btn-charge:active {
+  transform: scale(0.98) translateY(4px);
+  box-shadow: 0 2px 0 var(--color-charcoal);
+}
+
+/* Energy Message Box */
+.energy-display-container {
+  min-height: 90px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.energy-message {
+  display: none;
+  background-color: var(--color-white);
+  border: var(--border-main);
+  padding: 20px 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  font-size: 1.2rem;
+  font-weight: 700;
+  max-width: 600px;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Profile Section */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+@media(min-width: 768px) {
+  .profile-grid {
+    grid-template-columns: 360px 1fr;
+    align-items: start;
+  }
+}
+
+.profile-card {
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  text-align: center;
+  padding: 40px 25px;
+  transition: var(--transition-bounce);
+}
+
+.profile-card:hover {
+  transform: translateY(-8px) rotate(1deg); /* Nhảy lên và xoay nhẹ */
+  box-shadow: var(--shadow-soft-hover); /* Bóng đổ mềm mại lan tỏa rộng */
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 24px auto;
+}
+
+.avatar-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px dashed var(--color-charcoal);
+  border-radius: 50%;
+  animation: rotateBorder 25s linear infinite;
+}
+
+.avatar-img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: var(--border-main);
+  background-color: var(--color-lemon);
+}
+
+.profile-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.profile-card .subtitle {
+  font-weight: 700;
+  color: #7a7d90;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.profile-info {
+  background-color: var(--color-gray-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: left;
+  border: 2px solid var(--color-charcoal);
+}
+
+.profile-info p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-info p:last-child {
+  margin-bottom: 0;
+}
+
+.profile-info strong {
+  color: var(--color-charcoal);
+}
+
+/* Skills Content Box */
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content-box {
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-bounce);
+}
+
+.content-box:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.content-box-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--color-charcoal);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.skill-tag {
+  background-color: var(--color-lemon);
+  border: 2px solid var(--color-charcoal);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 4px 4px 0 var(--color-charcoal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.skill-tag:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 6px 6px 0 var(--color-charcoal);
+  background-color: var(--color-mint);
+}
+
+/* Projects Section - Thẻ bo góc với hiệu ứng bounce & rotate nhẹ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 35px;
+  margin-top: 20px;
+}
+
+@media(min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.project-card {
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hiệu ứng nhảy lên nhẹ (bounce), đổ bóng mềm mại và xoay nhẹ góc (rotate) khi hover */
+.project-card:hover {
+  transform: translateY(-10px) rotate(-1.5deg) scale(1.02); /* Bounce + Rotate nhẹ */
+  box-shadow: var(--shadow-soft-hover); /* Bóng đổ mềm mại */
+}
+
+/* Thẻ chẵn xoay chiều ngược lại để trông tự nhiên */
+.project-card:nth-child(even):hover {
+  transform: translateY(-10px) rotate(1.5deg) scale(1.02);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--color-peach);
+}
+
+.project-card:nth-child(even)::before {
+  background-color: var(--color-mint);
+}
+
+.project-card-header {
+  margin-bottom: 20px;
+}
+
+.project-card-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: var(--color-gray-light);
+  border: 2px solid var(--color-charcoal);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  line-height: 1.35;
+}
+
+.project-card-body {
+  margin-bottom: 30px;
+}
+
+.project-card-footer {
+  margin-top: auto;
+}
+
+/* Nút nhỏ Behind-the-scenes với hiệu ứng đổi màu mượt mà và phóng to nhẹ */
+.btn-bts {
+  background-color: var(--color-lemon);
+  border: 2px solid var(--color-charcoal);
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 4px 4px 0 var(--color-charcoal);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), 
+              background-color 0.3s ease, 
+              box-shadow 0.2s ease;
+}
+
+.btn-bts:hover {
+  transform: scale(1.08) translateY(-2px); /* Phóng to nhẹ và nhấc lên */
+  box-shadow: 5px 5px 0 var(--color-charcoal);
+  background-color: var(--color-peach); /* Đổi màu mượt mà */
+}
+
+.btn-bts:active {
+  transform: scale(0.96) translateY(2px);
+  box-shadow: 2px 2px 0 var(--color-charcoal);
+}
+
+/* Sticky Notes Wall of Smiles */
+.wall-of-smiles {
+  background-color: #ffe6db; /* Màu nền bảng gỗ ấm áp */
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 50px 30px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+/* Sticky Notes bo góc nhẹ, xoay lệch tự nhiên */
+.sticky-note {
+  position: relative;
+  padding: 30px 25px;
+  min-height: 220px;
+  border: var(--border-main);
+  border-radius: 6px;
+  box-shadow: 0 10px 20px rgba(43, 45, 66, 0.08); /* Bóng đổ giấy */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hiệu ứng nhảy lên nhẹ (bounce), đổ bóng mềm mại và xoay nhẹ góc khi di chuột */
+.sticky-note:hover {
+  transform: translateY(-12px) rotate(4deg) scale(1.05) !important; /* Nhảy lên, phóng to, xoay nhẹ */
+  box-shadow: 0 20px 30px rgba(43, 45, 66, 0.15); /* Bóng đổ mềm mại */
+  z-index: 10;
+}
+
+/* Pin Graphic ghim giấy */
+.sticky-note::before {
+  content: '📌';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.1));
+}
+
+/* Các màu sắc giấy */
+.note-lemon {
+  background-color: #FFF9A6;
+}
+.note-peach {
+  background-color: #FFC4B0;
+}
+.note-mint {
+  background-color: #C1F3EC;
+}
+
+/* Độ nghiêng ban đầu */
+.note-rot-l {
+  transform: rotate(-2.5deg);
+}
+.note-rot-r {
+  transform: rotate(3.5deg);
+}
+.note-rot-s {
+  transform: rotate(1deg);
+}
+
+.note-message {
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 24px;
+  color: var(--color-charcoal);
+  white-space: pre-line;
+}
+
+.note-author {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: right;
+  border-top: 1px dashed rgba(43, 45, 66, 0.2);
+  padding-top: 12px;
+}
+
+/* Wall Form Review */
+.review-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-bounce);
+}
+
+.review-form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft-hover);
+}
+
+.review-form-container h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  border: var(--border-main);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.form-control:focus {
+  background-color: var(--color-white);
+  border-color: var(--color-peach);
+  box-shadow: 0 0 0 4px rgba(255, 158, 125, 0.25);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 110px;
+}
+
+/* Nút Submit đổi màu mượt mà, phóng to nhẹ */
+.btn-submit {
+  width: 100%;
+  background-color: var(--color-mint);
+  color: var(--color-charcoal);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.2rem;
+  padding: 14px;
+  border: var(--border-main);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-main);
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), 
+              background-color 0.3s ease, 
+              box-shadow 0.2s ease;
+}
+
+.btn-submit:hover {
+  transform: scale(1.03) translateY(-3px); /* Phóng to nhẹ và nhấc lên */
+  box-shadow: 0 12px 0 var(--color-charcoal);
+  background-color: #8ce1d3; /* Đổi màu mượt mà */
+}
+
+.btn-submit:active {
+  transform: scale(0.98) translateY(3px);
+  box-shadow: 0 2px 0 var(--color-charcoal);
+}
+
+/* CẢI TIẾN: Các hạt pháo hoa (Confetti) bắn tỏa bay khắp màn hình */
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.confetti {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0.9;
+  border-radius: 4px;
+  /* Kích hoạt animation bay xiên tỏa ra và rơi tự do theo trọng lực */
+  animation: confettiExplode 2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* Modal Behind the Scenes */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(43, 45, 66, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.35s ease forwards;
+}
+
+.modal-content {
+  background-color: var(--color-white);
+  border: var(--border-main);
+  border-radius: var(--radius-lg);
+  max-width: 580px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 20px 0 var(--color-charcoal);
+  position: relative;
+  animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.close-modal {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: var(--color-peach);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: var(--border-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--color-charcoal);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.4), background-color 0.2s;
+  z-index: 1010;
+}
+
+.close-modal:hover {
+  transform: scale(1.1) rotate(90deg);
+  background-color: var(--color-lemon);
+}
+
+.polaroid-frame {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  padding: 15px 15px 35px 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  height: 340px;
+  background-color: var(--color-gray-light);
+  border: 2px solid var(--color-charcoal);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+  color: var(--color-charcoal);
+  line-height: 1.4;
+}
+
+/* Custom Alert trong BTS */
+.bts-story-badge {
+  background-color: #FFF275;
+  border: 2px solid var(--color-charcoal);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 10px;
+  transform: rotate(-1deg);
+}
+
+/* Placeholder for missing image */
+.img-placeholder-text {
+  text-align: center;
+  padding: 25px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.img-placeholder-text i {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 15px;
+  color: var(--color-peach);
+  animation: shake 1.5s ease-in-out infinite;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 35px 0;
+  border-top: var(--border-main);
+  background-color: var(--color-lemon);
+}
+
+/* Animations Keyframes */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(6deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes bounceSlow {
+  from { transform: translateY(0) rotate(-2deg); }
+  to { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes rotateBorder {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseEnergy {
+  from { transform: scale(1); filter: drop-shadow(0 0 2px rgba(255,242,117,0.5)); }
+  to { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(255,242,117,0.9)); }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.6) translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Hoạt ảnh pháo hoa giấy tung tóe khắp màn hình */
+@keyframes confettiExplode {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  100% {
+    /* Sử dụng các thuộc tính động được JS truyền vào */
+    transform: translate(var(--dest-x), var(--dest-y)) scale(0.4) rotate(var(--rotation));
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .btn-charge {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+  }
+  
+  .review-form-container {
+    padding: 25px 20px;
+  }
+  
+  .polaroid-img-wrapper {
+    height: 260px;
+  }
+}

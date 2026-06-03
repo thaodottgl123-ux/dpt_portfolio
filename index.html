@@ -41,16 +41,17 @@
     <div class="hero-bg-shapes">
       <div class="shape shape-1"></div>
       <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
     </div>
     
     <div class="container hero-content">
       <div class="hero-badge">🔋 Đang sạc 100% tích cực</div>
-      <h1>Chào mừng bạn đến với<br><span style="color: var(--color-charcoal); background: var(--color-lemon); padding: 2px 10px; border: 3px solid var(--color-charcoal); border-radius: var(--radius-sm); display: inline-block; margin-top: 10px; transform: rotate(1deg);">Trạm Sạc Năng Lượng Tích Cực</span></h1>
+      <h1>Chào mừng bạn đến với<br><span style="color: var(--color-charcoal); background: var(--color-lemon); padding: 4px 12px; border: var(--border-main); border-radius: var(--radius-sm); display: inline-block; margin-top: 10px; transform: rotate(1deg);">Trạm Sạc Năng Lượng Tích Cực</span></h1>
       <p class="hero-desc">Hãy nhấn nút bên dưới để nạp đầy vitamin vui vẻ cho ngày hôm nay của bạn nhé! ✨</p>
       
       <!-- Tính năng tương tác 1: Bấm để nhận năng lượng ngày mới -->
       <button class="btn-charge" id="btn-charge">
-        <i class="fa-solid fa-circle-bolt" style="font-size: 1.5rem; color: var(--color-lemon);"></i>
+        <i class="fa-solid fa-bolt" style="font-size: 1.6rem; color: var(--color-lemon); filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));"></i>
         <span>Bấm để nhận năng lượng ngày mới</span>
       </button>
 
@@ -70,7 +71,7 @@
         <div class="avatar-wrapper">
           <div class="avatar-border"></div>
           <!-- Ảnh đại diện cá nhân -->
-          <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao'; console.log('Sử dụng avatar tạm thời của DiceBear. Hãy copy avatar.jpg vào thư mục assets.');">
+          <img src="assets/avatar.jpg" alt="Đỗ Phương Thảo" class="avatar-img" onerror="this.src='https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao'; console.log('Đang dùng avatar tạm thời từ DiceBear. Vui lòng thêm avatar.jpg vào thư mục assets.');">
         </div>
         <h3>Đỗ Phương Thảo</h3>
         <p class="subtitle"><i class="fa-solid fa-cake-candles"></i> 13/08/2005 • Hải Phòng</p>
@@ -84,9 +85,9 @@
 
       <!-- Kỹ năng & Giới thiệu chi tiết phải -->
       <div class="about-details">
-        <div class="content-box" style="border-color: var(--color-charcoal);">
+        <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-peach); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-heart" style="font-size: 0.8rem;"></i></span>
+            <span style="background-color: var(--color-peach); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-heart" style="font-size: 0.9rem;"></i></span>
             <h3>Một Chút Về Mình</h3>
           </div>
           <!-- Thông tin cá nhân gạch đầu dòng -->
@@ -99,11 +100,11 @@
 
         <div class="content-box">
           <div class="content-box-title">
-            <span style="background-color: var(--color-mint); width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.8rem;"></i></span>
+            <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.9rem;"></i></span>
             <h3>Hộp Dụng Cụ Kỹ Năng</h3>
           </div>
           <!-- Kỹ năng gạch đầu dòng -->
-          <ul class="bullet-list" style="margin-bottom: 20px;">
+          <ul class="bullet-list" style="margin-bottom: 24px;">
             <li><strong>Chứng chỉ:</strong> Đạt chứng chỉ IELTS 7.5 danh giá.</li>
             <li><strong>Phân tích dữ liệu:</strong> Sử dụng thành thạo Power BI để vẽ biểu đồ và phân tích số liệu.</li>
             <li><strong>Tin học:</strong> Sử dụng tốt các công cụ Tin học văn phòng (Word, Excel, PowerPoint).</li>
@@ -235,6 +236,7 @@
     <div class="modal-content">
       <span class="close-modal" id="close-modal">&times;</span>
       
+      <div class="bts-story-badge">🎬 Hậu trường deadline</div>
       <div class="polaroid-frame">
         <div class="polaroid-img-wrapper" id="polaroid-wrapper">
           <!-- Ảnh sẽ được load bằng JS -->
@@ -247,7 +249,7 @@
   <!-- JavaScript Logic -->
   <script>
     // ----------------------------------------------------
-    // YÊU CẦU 1: NHẬN NĂNG LƯỢNG NGẪU NHIÊN
+    // YÊU CẦU 1: NHẬN NĂNG LƯỢNG & CONFETTI PHÁO HOA TUNG TÓE
     // ----------------------------------------------------
     const energyQuotes = [
       "Cậu đang làm rất tốt rồi, hôm nay hãy cười thật nhiều nhé! ✨",
@@ -261,48 +263,82 @@
     const energyMessage = document.getElementById('energy-message');
     const confettiContainer = document.getElementById('confetti-container');
 
-    // Hàm tạo Confetti hạt giấy bay
-    function createConfetti() {
-      const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61'];
-      for (let i = 0; i < 40; i++) {
+    // Hàm tạo Confetti pháo hoa nổ 360 độ từ vị trí click
+    function createConfetti(event) {
+      const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61', '#4D96FF', '#FF6B6B'];
+      const shapes = ['square', 'circle', 'triangle'];
+      
+      // Số lượng hạt bắn ra để tạo hiệu ứng bùng nổ hoành tráng
+      const particleCount = 70;
+      
+      // Lấy vị trí tâm của nút bấm hoặc vị trí click chuột
+      let startX, startY;
+      if (event) {
+        startX = event.clientX + window.scrollX;
+        startY = event.clientY + window.scrollY;
+      } else {
+        const btnRect = btnCharge.getBoundingClientRect();
+        startX = btnRect.left + (btnRect.width / 2) + window.scrollX;
+        startY = btnRect.top + (btnRect.height / 2) + window.scrollY;
+      }
+      
+      for (let i = 0; i < particleCount; i++) {
         const confetti = document.createElement('div');
         confetti.classList.add('confetti');
-        
-        // Vị trí xuất hiện ngẫu nhiên gần khu vực nút
-        const btnRect = btnCharge.getBoundingClientRect();
-        const startX = btnRect.left + (btnRect.width / 2) + (Math.random() - 0.5) * 150;
-        const startY = btnRect.top + window.scrollY;
         
         confetti.style.left = startX + 'px';
         confetti.style.top = startY + 'px';
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
         
-        // Kích thước ngẫu nhiên
-        const size = Math.random() * 8 + 6;
-        confetti.style.width = size + 'px';
-        confetti.style.height = size + 'px';
+        // Tạo hình dáng ngẫu nhiên
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        if (shape === 'circle') {
+          confetti.style.borderRadius = '50%';
+        } else if (shape === 'triangle') {
+          confetti.style.width = '0';
+          confetti.style.height = '0';
+          confetti.style.backgroundColor = 'transparent';
+          const borderSize = Math.random() * 6 + 5;
+          confetti.style.borderLeft = `${borderSize}px solid transparent`;
+          confetti.style.borderRight = `${borderSize}px solid transparent`;
+          confetti.style.borderBottom = `${borderSize * 1.5}px solid ${colors[Math.floor(Math.random() * colors.length)]}`;
+        }
         
-        // Quỹ đạo rơi ngang ngẫu nhiên
-        const moveX = (Math.random() - 0.5) * 300;
-        confetti.style.setProperty('--move-x', moveX + 'px');
+        if (shape !== 'triangle') {
+          const size = Math.random() * 10 + 6;
+          confetti.style.width = size + 'px';
+          confetti.style.height = size + 'px';
+        }
         
-        // Tốc độ và độ trễ ngẫu nhiên
-        confetti.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
-        confetti.style.animationDelay = (Math.random() * 0.2) + 's';
+        // Tính toán hướng bay nổ 360 độ (dạng tròn)
+        const angle = Math.random() * Math.PI * 2; // Góc ngẫu nhiên từ 0 đến 2pi
+        const velocity = Math.random() * 320 + 120; // Vận tốc bay xa
         
-        // Góc xoay ngẫu nhiên
-        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
-
+        // Tọa độ đích (trục X bay ngang, trục Y bay lên rồi kéo xuống như trọng lực)
+        const destX = Math.cos(angle) * velocity;
+        const destY = Math.sin(angle) * velocity + (Math.random() * 120 - 60); 
+        
+        const rotation = (Math.random() * 720 - 360) + 'deg';
+        
+        // Gán biến CSS để animation thực thi
+        confetti.style.setProperty('--dest-x', destX + 'px');
+        confetti.style.setProperty('--dest-y', destY + 'px');
+        confetti.style.setProperty('--rotation', rotation);
+        
+        // Thời gian bay và rơi tự do ngẫu nhiên
+        confetti.style.animationDuration = (Math.random() * 0.8 + 1.2) + 's';
+        confetti.style.animationDelay = (Math.random() * 0.05) + 's';
+        
         confettiContainer.appendChild(confetti);
 
-        // Xóa confetti sau khi chạy xong hoạt ảnh
+        // Xóa hạt pháo hoa sau khi hoàn tất hiệu ứng
         confetti.addEventListener('animationend', () => {
           confetti.remove();
         });
       }
     }
 
-    btnCharge.addEventListener('click', () => {
+    btnCharge.addEventListener('click', (e) => {
       // Chọn lời chúc ngẫu nhiên
       const randomIndex = Math.floor(Math.random() * energyQuotes.length);
       energyMessage.textContent = energyQuotes[randomIndex];
@@ -310,40 +346,40 @@
       // Hiển thị khung lời chúc
       energyMessage.style.display = 'block';
       
-      // Tạo hiệu ứng confetti
-      createConfetti();
+      // Tạo pháo hoa từ vị trí nút bấm
+      createConfetti(e);
     });
 
     // ----------------------------------------------------
-    // YÊU CẦU 2: BEHIND THE SCENES MODAL
+    // YÊU CẦU 2: BEHIND THE SCENES MODAL VUI NHỘN
     // ----------------------------------------------------
     const btsModal = document.getElementById('bts-modal');
     const closeModal = document.getElementById('close-modal');
     const polaroidWrapper = document.getElementById('polaroid-wrapper');
     const polaroidCaption = document.getElementById('polaroid-caption');
 
-    // Cấu hình dữ liệu ảnh và caption
+    // Cấu hình dữ liệu ảnh và nội dung câu chuyện deadline vui nhộn
     const projectImages = {
       debate: {
         src: 'assets/deadline-debate.jpg',
-        caption: 'Hậu trường chạy deadline setup giải Debate Differo 2022! 🍕💻',
+        caption: 'Hậu trường setup giải Debate Differo 2022! 💻🍕<br><span style="font-weight: 500; font-size: 0.95rem; display: block; margin-top: 8px; color: #555;">Kỷ niệm đáng nhớ: Cả đội uống hết 15 cốc trà sữa, cãi nhau nảy lửa từ luật thi đấu đến màu background slide, và cuối cùng thức đến 3 giờ sáng để dán từng miếng sticker hậu cần!</span>',
         alt: 'Chạy deadline Debate Differo'
       },
       ftu: {
         src: 'assets/deadline-ftu.jpg',
-        caption: 'Một tối chạy sự kiện trực tiếp tại FTU, mệt nhưng siêu vui! 🚩🎪',
+        caption: 'Một tối chạy sự kiện trực tiếp tại FTU, mệt rã rời nhưng ngập tràn tiếng cười! 🚩🎪<br><span style="font-weight: 500; font-size: 0.95rem; display: block; margin-top: 8px; color: #555;">Sự tích chạy deadline: Đang dựng sân khấu thì trời mưa giông đột xuất, cả đám BTC hốt hoảng ôm phông bạt chạy đi trú ẩn, ướt như chuột lột nhưng vẫn tranh thủ selfie cười toe toét!</span>',
         alt: 'Chuẩn bị sự kiện Đoàn FTU'
       }
     };
 
     // Hàm mở modal và hiển thị ảnh
     document.querySelectorAll('.btn-bts').forEach(button => {
-      button.addEventListener('click', () => {
+      button.addEventListener('click', (e) => {
         const projectId = button.getAttribute('data-project');
         const projectData = projectImages[projectId];
         
         if (projectData) {
-          polaroidCaption.textContent = projectData.caption;
+          polaroidCaption.innerHTML = projectData.caption;
           
           // Tạo thẻ ảnh
           const img = document.createElement('img');
@@ -355,9 +391,9 @@
           img.onerror = function() {
             polaroidWrapper.innerHTML = `
               <div class="img-placeholder-text">
-                <i class="fa-solid fa-image"></i>
+                <i class="fa-solid fa-triangle-exclamation"></i>
                 Chưa tìm thấy ảnh <strong>${projectData.src}</strong>.<br>
-                <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal;">Bạn vui lòng copy ảnh thật của bạn vào thư mục <code>assets/</code> và đổi tên đúng thành <code>${projectData.src.split('/')[1]}</code> nhé!</span>
+                <span style="font-size: 0.85rem; color: #7a7d90; font-weight: normal; display: block; margin-top: 10px;">Bạn vui lòng copy ảnh thật của bạn vào thư mục <code>assets/</code> và đặt tên đúng là <code>${projectData.src.split('/')[1]}</code> nhé!</span>
               </div>
             `;
           };
@@ -368,6 +404,9 @@
           // Hiện modal
           btsModal.style.display = 'flex';
           document.body.style.overflow = 'hidden'; // Ngăn cuộn trang phía sau
+          
+          // Bắn nhẹ confetti chúc mừng
+          createConfetti(e);
         }
       });
     });
@@ -411,8 +450,8 @@
       const note = document.createElement('div');
       note.className = `sticky-note ${randomColor} ${randomRotation}`;
       note.style.opacity = '0';
-      note.style.transform = 'scale(0.5)';
-      note.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+      note.style.transform = 'scale(0.5) translateY(50px)';
+      note.style.transition = 'all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
       
       note.innerHTML = `
         <p class="note-message">"${message}"</p>
@@ -424,11 +463,10 @@
       // Kích hoạt hoạt ảnh xuất hiện mượt mà sau khi DOM update
       setTimeout(() => {
         note.style.opacity = '1';
-        // Giữ nguyên độ nghiêng xoay ngẫu nhiên
-        let rotationAngle = -2;
-        if (randomRotation === 'note-rot-r') rotationAngle = 3;
-        if (randomRotation === 'note-rot-s') rotationAngle = 1.5;
-        note.style.transform = `scale(1) rotate(${rotationAngle}deg)`;
+        let rotationAngle = -2.5;
+        if (randomRotation === 'note-rot-r') rotationAngle = 3.5;
+        if (randomRotation === 'note-rot-s') rotationAngle = 1;
+        note.style.transform = `scale(1) translateY(0) rotate(${rotationAngle}deg)`;
       }, 50);
       
       // Tự động cuộn mượt mà đến note mới
@@ -436,7 +474,6 @@
     }
 
     reviewForm.addEventListener('submit', (e) => {
-      // Lấy thông tin từ form
       const nameInput = document.getElementById('review-name');
       const textInput = document.getElementById('review-text');
       
@@ -447,21 +484,22 @@
         // Thêm note mới vào giao diện ngay lập tức
         addStickyNoteToWall(author, message);
         
-        // Kích hoạt confetti ăn mừng
-        createConfetti();
+        // Tạo confetti từ tâm nút gửi review để ăn mừng
+        const submitBtn = reviewForm.querySelector('.btn-submit');
+        const btnRect = submitBtn.getBoundingClientRect();
+        const fakeEvent = {
+          clientX: btnRect.left + btnRect.width / 2,
+          clientY: btnRect.top + btnRect.height / 2
+        };
+        createConfetti(fakeEvent);
         
         // Reset form nhập liệu
         reviewForm.reset();
         
-        // ĐỂ FORM TỰ GỬI LÊN NETLIFY (Nếu không sử dụng AJAX):
-        // Nếu muốn Netlify thu thập form bình thường, chúng ta không dùng e.preventDefault() để trang tải lại
-        // Tuy nhiên, để tạo trải nghiệm "Single Page App" mượt mà không bị chuyển trang và lưu dữ liệu nền,
-        // chúng ta sẽ gửi bằng fetch AJAX đến Netlify, sau đó ngăn hành vi submit mặc định.
+        // Gửi ngầm qua Netlify Form
         e.preventDefault();
         
-        // Gửi AJAX lên Netlify
         const formData = new FormData(reviewForm);
-        // Vì preventDefault() đã ngăn hành động gửi của form, ta phải tự append dữ liệu form-name
         formData.append('form-name', 'thao-portfolio-reviews');
         
         fetch('/', {

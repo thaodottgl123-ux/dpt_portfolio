@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Đỗ Phương Thảo | Creative & Professional Portfolio</title>
   
-  <!-- Favicon (Emoji vui vẻ) -->
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
   
-  <!-- Google Fonts - Khai báo Lexend (tiêu đề), Nunito (nội dung) và Caveat (chữ viết tay tự nhiên cho giấy note) -->
+  <!-- Google Fonts - Sử dụng Lexend (tiêu đề) và Nunito (nội dung) hỗ trợ Tiếng Việt hoàn hảo -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Lexend:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- LỒNG TOÀN BỘ CSS VÀO TRONG FILE THEO YÊU CẦU -->
   <style>
     /* ==========================================
        TRẠM SẠC NĂNG LƯỢNG TÍCH CỰC - STYLE SYSTEM
@@ -33,7 +32,6 @@
       
       --font-title: 'Lexend', sans-serif;
       --font-body: 'Nunito', sans-serif;
-      --font-handwrite: 'Caveat', cursive; /* Font viết tay tự nhiên */
       
       --border-main: 3px solid var(--color-charcoal);
       --radius-lg: 24px;
@@ -416,7 +414,6 @@
       background-color: var(--color-lemon);
     }
 
-    /* Nút tải ảnh đè lên UI */
     .upload-btn-overlay {
       position: absolute;
       bottom: 8px;
@@ -580,7 +577,7 @@
 
     @media(min-width: 768px) {
       .projects-grid {
-        grid-template-columns: repeat(3, 1fr); /* Chia 3 cột trên màn hình rộng */
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -647,7 +644,7 @@
       margin-bottom: 20px;
     }
 
-    /* ĐỘT PHÁ: Chèn khung ảnh Polaroid nhỏ trực tiếp dưới thông tin card */
+    /* Khung ảnh Polaroid nhỏ chèn trực tiếp dưới card dự án */
     .project-polaroid-frame {
       margin-top: 15px;
       border: 2px solid var(--color-charcoal);
@@ -833,7 +830,6 @@
       min-height: 220px;
       border: var(--border-main);
       border-radius: 4px;
-      /* Bóng đổ xéo và lệch tự nhiên hơn */
       box-shadow: 6px 12px 24px rgba(43, 45, 66, 0.07);
       display: flex;
       flex-direction: column;
@@ -843,13 +839,23 @@
     }
 
     .sticky-note:hover {
-      /* Khi hover, nhấc lên cao, xoay nhẹ chiều ngược lại để trông sống động */
       transform: translateY(-15px) rotate(3deg) scale(1.05) !important;
       box-shadow: 12px 24px 36px rgba(43, 45, 66, 0.12);
       z-index: 10;
     }
 
-    /* Ghim tròn đỏ tự nhiên ở đầu mỗi note */
+    /* Đổi font chữ trên bảng ghim về Nunito để hoàn toàn không bị lỗi Tiếng Việt */
+    .note-message {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      color: var(--color-charcoal);
+      white-space: pre-line;
+      font-style: italic; /* Chữ nghiêng tự nhiên thay thế cho font viết tay dễ lỗi */
+    }
+
     .sticky-note::before {
       content: '';
       position: absolute;
@@ -865,7 +871,6 @@
       z-index: 2;
     }
 
-    /* Thêm một miếng băng keo trong suốt nhỏ dán nghiêng ở góc note chẵn để tự nhiên */
     .sticky-note:nth-child(even)::after {
       content: '';
       position: absolute;
@@ -884,22 +889,9 @@
     .note-peach { background-color: #FFC4B0; }
     .note-mint { background-color: #C1F3EC; }
 
-    /* Độ nghiêng ban đầu đa dạng, tự nhiên hơn */
     .note-rot-l { transform: rotate(-3.5deg); }
     .note-rot-r { transform: rotate(4deg); }
     .note-rot-s { transform: rotate(-1.5deg); }
-
-    /* Sử dụng font viết tay Caveat tự nhiên và cảm xúc */
-    .note-message {
-      font-family: var(--font-handwrite);
-      font-size: 1.45rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 20px;
-      color: var(--color-charcoal);
-      white-space: pre-line;
-      letter-spacing: 0.3px;
-    }
 
     .note-author {
       font-family: var(--font-title);
@@ -1153,7 +1145,7 @@
       <p class="hero-desc">
         Sinh viên lớp Anh 03 - CLCQT - K62, Đại học Ngoại thương.<br>
         <span style="font-size: 1.15rem; font-weight: 500; display: block; margin-top: 15px; color: var(--color-charcoal); opacity: 0.85; max-width: 680px; margin-left: auto; margin-right: auto;">
-          Kiến tạo giá trị và tối ưu quy trình dự án với sự nhiệt huyết, kỹ năng chuyên nghiệp cùng năng lượng hành động tích cực.
+          Kiến tạo giá trị và tối ưu quy trình dự án với năng lượng hành động tích cực và tư duy giải quyết vấn đề.
         </span>
       </p>
       
@@ -1206,8 +1198,8 @@
           </div>
           <ul class="bullet-list">
             <li><strong>Họ tên:</strong> Đỗ Phương Thảo (13/08/2005) - Hải Phòng.</li>
-            <li><strong>Đại học:</strong> Lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
-            <li><strong>Mục tiêu:</strong> Luôn nỗ lực hết mình vì mục tiêu chung của đội nhóm!</li>
+            <li><strong>Học tập:</strong> Lớp Anh 03 - CLCQT - K62, ĐH Ngoại thương.</li>
+            <li><strong>Mục tiêu:</strong> Định hướng giải pháp và đóng góp hiệu quả vào mục tiêu chung của tập thể.</li>
           </ul>
         </div>
 
@@ -1215,12 +1207,12 @@
         <div class="content-box">
           <div class="content-box-title">
             <span style="background-color: var(--color-mint); width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--color-charcoal);"><i class="fa-solid fa-brain" style="font-size: 0.9rem;"></i></span>
-            <h3>Kỹ Năng Đột Phá</h3>
+            <h3>Kỹ Năng</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Chứng chỉ:</strong> IELTS 7.5 thành thạo giao tiếp.</li>
-            <li><strong>Chuyên môn:</strong> Tin học văn phòng xuất sắc.</li>
-            <li><strong>Đội nhóm:</strong> Tổ chức sự kiện, Thuyết trình, Làm việc nhóm.</li>
+            <li><strong>Ngoại ngữ:</strong> IELTS 7.5.</li>
+            <li><strong>Văn phòng:</strong> Tin học văn phòng.</li>
+            <li><strong>Dự án & Giao tiếp:</strong> Tổ chức sự kiện, Thuyết trình, Làm việc nhóm.</li>
           </ul>
           <div class="skills-grid">
             <div class="skill-tag">IELTS 7.5</div>
@@ -1237,7 +1229,7 @@
             <h3>Kinh Nghiệm Nghề Nghiệp</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 0;">
-            <li><strong>Gia sư tiếng Anh:</strong> Hỗ trợ củng cố ngữ pháp, chỉnh phát âm chuẩn và luyện phản xạ giao tiếp tự tin cho các em học sinh.</li>
+            <li><strong>Gia sư tiếng Anh:</strong> Hướng dẫn ngữ pháp, luyện phát âm và kỹ năng giao tiếp tiếng Anh cơ bản.</li>
           </ul>
         </div>
 
@@ -1248,7 +1240,7 @@
             <h3>Sở Thích Cá Nhân</h3>
           </div>
           <ul class="bullet-list" style="margin-bottom: 15px;">
-            <li><strong>Nghỉ ngơi & Năng lượng:</strong> Nấu ăn ngon, Chơi cầu lông năng động, Chụp ảnh film hoài cổ, Du lịch cá nhân tự do.</li>
+            <li><strong>Sở thích:</strong> Nấu ăn, Cầu lông, Chụp film, Du lịch cá nhân.</li>
           </ul>
           <div class="hobby-tag-container">
             <span class="hobby-tag">🍳 Nấu ăn</span>
@@ -1270,26 +1262,24 @@
         <!-- Dự án 1: SEA Games 31 -->
         <div class="project-card">
           <div class="project-card-header">
-            <span class="project-card-tag" style="background-color: var(--color-peach);">Đại hội Thể thao</span>
+            <span class="project-card-tag" style="background-color: var(--color-peach);">Tình nguyện viên</span>
             <h3>SEA Games 31</h3>
           </div>
           <div class="project-card-body">
             <ul class="bullet-list">
-              <li><strong>Vai trò:</strong> Tình nguyện viên.</li>
-              <li><strong>Nhiệm vụ:</strong> Phiên dịch, Hộ tống đoàn vận động viên quốc tế, Phục vụ nhiệt tình giải đấu.</li>
+              <li><strong>Hoạt động:</strong> Phiên dịch, Hộ tống đoàn vận động viên, Phục vụ giải đấu.</li>
             </ul>
             
-            <!-- ĐỘT PHÁ: Khung ảnh Polaroid nhỏ chèn trực tiếp dưới card dự án kèm upload ảnh -->
+            <!-- Khung ảnh Polaroid nhỏ chèn trực tiếp dưới card dự án kèm upload ảnh -->
             <div class="project-polaroid-frame">
               <div class="project-img-wrapper">
                 <img src="assets/project-1.jpg" alt="SEA Games 31" class="project-img" id="project-1-img">
-                <!-- Nút tải ảnh đè lên -->
                 <label class="upload-btn-overlay" title="Tải ảnh dự án 1 lên">
                   <i class="fa-solid fa-camera"></i>
                   <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_1', 'project-1-img')">
                 </label>
               </div>
-              <div class="project-polaroid-caption">Kỷ niệm SEA Games 31 🏆</div>
+              <div class="project-polaroid-caption">Kỷ niệm SEA Games 31</div>
             </div>
           </div>
         </div>
@@ -1298,25 +1288,23 @@
         <div class="project-card">
           <div class="project-card-header">
             <span class="project-card-tag" style="background-color: var(--color-mint);">DIF Debate Club</span>
-            <h3>Giải Debate Differo 2022</h3>
+            <h3>Giải Debate Differo (2022)</h3>
           </div>
           <div class="project-card-body">
             <ul class="bullet-list">
-              <li><strong>Vai trò:</strong> Ban Tổ chức.</li>
-              <li><strong>Nhiệm vụ:</strong> Tổ chức hậu cần chu đáo, sắp xếp lịch trình giải đấu logic, Giám khảo chuyên môn khách quan.</li>
+              <li><strong>Hoạt động:</strong> Lập kế hoạch, quản lý hậu cần, tối ưu quy trình vận hành giải đấu.</li>
             </ul>
             
             <!-- Khung ảnh Polaroid nhỏ chèn trực tiếp kèm upload ảnh -->
             <div class="project-polaroid-frame">
               <div class="project-img-wrapper">
                 <img src="assets/project-2.jpg" alt="Debate Differo" class="project-img" id="project-2-img">
-                <!-- Nút tải ảnh đè lên -->
                 <label class="upload-btn-overlay" title="Tải ảnh dự án 2 lên">
                   <i class="fa-solid fa-camera"></i>
                   <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_2', 'project-2-img')">
                 </label>
               </div>
-              <div class="project-polaroid-caption">Setup giải đấu Differo 💻🎤</div>
+              <div class="project-polaroid-caption">Vận hành giải đấu Differo</div>
             </div>
           </div>
         </div>
@@ -1329,21 +1317,19 @@
           </div>
           <div class="project-card-body">
             <ul class="bullet-list">
-              <li><strong>Vai trò:</strong> Ban Tư tưởng - Văn hóa.</li>
-              <li><strong>Nhiệm vụ:</strong> Hỗ trợ lên kế hoạch và tổ chức các sự kiện thuộc Đoàn Thanh niên ĐH Ngoại thương (2023-2024).</li>
+              <li><strong>Hoạt động:</strong> Hỗ trợ tổ chức các sự kiện thuộc Ban Tư tưởng - Văn hóa Đoàn Thanh niên ĐH Ngoại thương (2023-2024).</li>
             </ul>
             
             <!-- Khung ảnh Polaroid nhỏ chèn trực tiếp kèm upload ảnh -->
             <div class="project-polaroid-frame">
               <div class="project-img-wrapper">
                 <img src="assets/project-3.jpg" alt="Đoàn Thanh Niên" class="project-img" id="project-3-img">
-                <!-- Nút tải ảnh đè lên -->
                 <label class="upload-btn-overlay" title="Tải ảnh dự án 3 lên">
                   <i class="fa-solid fa-camera"></i>
                   <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_proj_3', 'project-3-img')">
                 </label>
               </div>
-              <div class="project-polaroid-caption">Sự kiện Đoàn FTU 🚩🎨</div>
+              <div class="project-polaroid-caption">Sự kiện Đoàn FTU</div>
             </div>
           </div>
         </div>
@@ -1351,7 +1337,7 @@
     </div>
   </section>
 
-  <!-- Section Kỷ Niệm Đáng Nhớ - Photo Stack -->
+  <!-- Section Kỷ Niệm Cá Nhân - Photo Stack -->
   <section id="memories" class="memories-section">
     <div class="container">
       <h2 class="section-title" style="margin-bottom: 20px;">📸 Kỷ Niệm Đáng Nhớ</h2>
@@ -1367,42 +1353,36 @@
           <div class="stack-card" data-index="0">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-1.jpg" alt="Du lịch cá nhân" class="stack-card-img" id="mem-img-1">
-              
-              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 1 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_1', 'mem-img-1')">
               </label>
             </div>
-            <div class="stack-card-caption">Du lịch cá nhân tự do ✈️🌴</div>
+            <div class="stack-card-caption">Du lịch cá nhân ✈️</div>
           </div>
           
           <!-- Ảnh kỷ niệm 2: Nấu ăn -->
           <div class="stack-card" data-index="1">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-2.jpg" alt="Nấu ăn làm bánh" class="stack-card-img" id="mem-img-2">
-              
-              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 2 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_2', 'mem-img-2')">
               </label>
             </div>
-            <div class="stack-card-caption">Khám phá công thức nấu ăn 🍳🍰</div>
+            <div class="stack-card-caption">Nấu ăn và trải nghiệm 🍳</div>
           </div>
           
           <!-- Ảnh kỷ niệm 3: Cầu lông -->
           <div class="stack-card" data-index="2">
             <div class="stack-card-img-wrapper">
               <img src="assets/memory-3.jpg" alt="Chơi cầu lông" class="stack-card-img" id="mem-img-3">
-              
-              <!-- Nút tải ảnh đè lên -->
               <label class="upload-btn-overlay" title="Tải ảnh kỷ niệm 3 lên">
                 <i class="fa-solid fa-pen"></i>
                 <input type="file" accept="image/*" style="display: none;" onchange="uploadImage(this, 'thao_portfolio_mem_3', 'mem-img-3')">
               </label>
             </div>
-            <div class="stack-card-caption">Rèn luyện phản xạ cầu lông 🏸🔥</div>
+            <div class="stack-card-caption">Rèn luyện thể thao cầu lông 🏸</div>
           </div>
         </div>
       </div>
@@ -1418,17 +1398,17 @@
       <div class="notes-container" id="notes-container">
         <!-- Note 1 -->
         <div class="sticky-note note-lemon note-rot-l">
-          <p class="note-message">Thảo siêu đáng yêu và làm việc cực kỳ trách nhiệm luôn! Cảm ơn cậu đã luôn mang năng lượng tích cực cho cả đội nhé! ❤️</p>
+          <p class="note-message">Thảo làm việc trách nhiệm và luôn hỗ trợ đồng đội hoàn thành công việc đúng tiến độ.</p>
           <p class="note-author">— Khánh Linh (Differo Team)</p>
         </div>
         <!-- Note 2 -->
         <div class="sticky-note note-peach note-rot-r">
-          <p class="note-message">Một tình nguyện viên SEA Games siêu năng nổ, dịch cabin và hướng dẫn đoàn chuẩn không cần chỉnh! Cảm ơn Thảo rất nhiều.</p>
+          <p class="note-message">Tình nguyện viên nhiệt tình, hỗ trợ phiên dịch và phối hợp điều phối đoàn vận động viên hiệu quả.</p>
           <p class="note-author">— Hoàng Minh (BTC SEA Games)</p>
         </div>
         <!-- Note 3 -->
         <div class="sticky-note note-mint note-rot-s">
-          <p class="note-message">Thành viên ban tư tưởng văn hóa năng nổ nhất, luôn khuấy động không khí sự kiện FTU siêu đỉnh!</p>
+          <p class="note-message">Hỗ trợ chuẩn bị hậu cần và tham gia tổ chức các hoạt động Đoàn Thanh niên chu đáo.</p>
           <p class="note-author">— Mai Anh (FYU Gen 19)</p>
         </div>
       </div>
@@ -1446,7 +1426,7 @@
           
           <div class="form-group">
             <label for="review-text">Lời chúc hoặc cảm nghĩ gửi tới Thảo? ✨</label>
-            <textarea id="review-text" name="message" class="form-control" placeholder="Viết vài dòng ngọt ngào gửi tới Thảo nhé..." required></textarea>
+            <textarea id="review-text" name="message" class="form-control" placeholder="Viết vài dòng gửi tới Thảo nhé..." required></textarea>
           </div>
           
           <button type="submit" class="btn-submit">
@@ -1467,14 +1447,14 @@
   <!-- JavaScript Logic -->
   <script>
     // ----------------------------------------------------
-    // ĐỘT PHÁ: TÍNH NĂNG UPLOAD VÀ LƯU ẢNH TRỰC TIẾP TRÊN GIAO DIỆN (LOCAL STORAGE)
+    // UPLOAD VÀ LƯU ẢNH TRỰC TIẾP TRÊN GIAO DIỆN (LOCAL STORAGE)
     // ----------------------------------------------------
     function uploadImage(input, storageKey, targetImgId) {
       if (input.files && input.files[0]) {
         const file = input.files[0];
         
         if (file.size > 2 * 1024 * 1024) {
-          alert('Ảnh của bạn lớn hơn 2MB! Vui lòng chọn file nhẹ hơn hoặc nén ảnh lại để lưu trữ cục bộ nhé.');
+          alert('Ảnh lớn hơn 2MB. Vui lòng chọn file dung lượng nhỏ hơn.');
           return;
         }
 
@@ -1483,26 +1463,23 @@
           const base64Data = e.target.result;
           
           try {
-            // Lưu vào LocalStorage
             localStorage.setItem(storageKey, base64Data);
             
-            // Cập nhật ảnh lên UI ngay lập tức
             const imgEl = document.getElementById(targetImgId);
             if (imgEl) {
               imgEl.src = base64Data;
             }
 
-            // Hiệu ứng pháo hoa giấy confetti chúc mừng tải ảnh thành công!
             createConfetti(null, input.parentElement);
           } catch (err) {
-            alert('Có lỗi xảy ra khi lưu ảnh. Bạn hãy kiểm tra lại dung lượng ảnh nhé.');
+            alert('Lỗi lưu trữ ảnh cục bộ.');
           }
         };
         reader.readAsDataURL(file);
       }
     }
 
-    // Tự động quét và nạp ảnh từ LocalStorage khi khởi tạo trang web
+    // Nạp ảnh từ LocalStorage
     document.addEventListener('DOMContentLoaded', () => {
       const storageMappings = {
         'thao_portfolio_avatar': 'avatar-img',
@@ -1524,7 +1501,7 @@
     });
 
     // ----------------------------------------------------
-    // CƠ CHẾ SỬA LỖI TỰ ĐỘNG KHI TẢI FILE TĨNH (FALLBACK KHÔNG BỊ LỖI GIAO DIỆN)
+    // CƠ CHẾ SỬA LỖI TỰ ĐỘNG KHI TẢI FILE TĨNH
     // ----------------------------------------------------
     const errorFallbacks = {
       'avatar-img': 'https://api.dicebear.com/7.x/fun-emoji/svg?seed=Thao',
@@ -1541,17 +1518,14 @@
       if (imgEl) {
         imgEl.addEventListener('error', function handleError() {
           const currentSrc = this.src;
-          // Tránh vòng lặp vô hạn nếu đã dùng Base64
           if (currentSrc.startsWith('data:image')) return;
 
-          // Hỗ trợ tự vá lỗi đặt trùng đuôi .jpg.jpg trên Windows
           if (currentSrc.endsWith('.jpg') && !currentSrc.endsWith('.jpg.jpg')) {
             this.src = currentSrc + '.jpg';
           } 
           else if (currentSrc.endsWith('.jpg.jpg')) {
             this.src = currentSrc.replace('.jpg.jpg', '.png');
           }
-          // Fallback về ảnh stock nếu hoàn toàn không tìm thấy ảnh trong assets
           else {
             this.src = errorFallbacks[imgId];
           }
@@ -1563,18 +1537,17 @@
     // YÊU CẦU 1: NHẬN NĂNG LƯỢNG NGẪU NHIÊN & CONFETTI PHÁO HOA TUNG TÓE
     // ----------------------------------------------------
     const energyQuotes = [
-      "Cậu đang làm rất tốt rồi, hôm nay hãy cười thật nhiều nhé! ✨",
-      "Một ngày mới tràn đầy cơ hội đang chờ cậu. Sạc đầy 100% năng lượng nào! ⚡",
-      "Đừng quên uống nước và dành cho bản thân một cái ôm thật ấm áp nhé! 🥤",
-      "Mọi nỗ lực của cậu đều đang gặt hái kết quả. Hãy tin vào chính mình! 🌟",
-      "Hôm nay là một ngày tuyệt vời để bắt đầu một điều tuyệt vời! 🚀"
+      "Chúc bạn một ngày học tập và làm việc hiệu quả! ✨",
+      "Hoàn thành tốt công việc hôm nay nhé! ⚡",
+      "Giữ vững tinh thần tập trung và năng suất làm việc! 🚀",
+      "Mọi nỗ lực sẽ mang lại kết quả xứng đáng! 🌟",
+      "Khởi đầu ngày mới với mục tiêu rõ ràng và năng lượng tích cực! 🔋"
     ];
 
     const btnCharge = document.getElementById('btn-charge');
     const energyMessage = document.getElementById('energy-message');
     const confettiContainer = document.getElementById('confetti-container');
 
-    // Hàm tạo Confetti pháo hoa nổ 360 độ từ vị trí click
     function createConfetti(event, targetElement) {
       const colors = ['#FFF275', '#FF9E7D', '#A6ECE0', '#FFFFFF', '#FF8C61', '#4D96FF', '#FF6B6B'];
       const shapes = ['square', 'circle', 'triangle'];
@@ -1651,7 +1624,6 @@
       createConfetti(e);
     });
 
-
     // ----------------------------------------------------
     // YÊU CẦU 4: TƯƠNG TÁC VUỐT TRƯỢT CHỒNG ẢNH KỶ NIỆM (PHOTO STACK)
     // ----------------------------------------------------
@@ -1701,7 +1673,6 @@
         }, 600);
       });
     });
-
 
     // ----------------------------------------------------
     // YÊU CẦU 3: BẢNG GHIM KỶ NIỆM & SUBMIT REVIEW FORM
